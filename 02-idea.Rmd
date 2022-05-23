@@ -1,0 +1,13 @@
+# Idea
+El proyecto de doctorado consiste en analizar el efecto que tiene el pH en el daño por radiación en cristales de proteína. Para ello se tiene que cristalizar algunas proteínas a diferente pH.
+
+> Todo lo demás tiene que ser idéntico: condición de cristalización (ambiente químico), grupo espacial (conformación espacial), parámetros de colecta de datos (dosis de radiación absorbida). 
+
+## Objetivos
+1. Obtener una lista de proteínas que cumplan los requisitos *adecuados* para llevar a cabo dicho proyecto. 
+2. Cristalizar las proteínas seleccionadas a diferentes niveles de pH.
+3. Difractar los cristales obtenidos.
+4. Realizar un análisis comparativo del daño por radiación a diferente pH.
+
+## PDB
+El PDB (<https://www.rcsb.org/>) es un repositorio de coordenadas de macromoléculas biológicas. La mayoría de las coordenadas se obtienen por difracción de rayos-X de cristales macromoleculares. En el cabezal de cada archivo de coordenadas, se tiene la información necesaria para reproducir el experimento de cristalización de la macromolécula de interés. En otras palabras, la información necesaria para el primer objetivo se encuentra en los cabezales de los archivos. 

@@ -1,0 +1,15355 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{book}
+\title{Proteínas capaces de cristalizar en un intervalo de pH amplio}
+\author{Francisco Murphy Pérez}
+\date{2022-05-23}
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Proteínas capaces de cristalizar en un intervalo de pH amplio},
+  pdfauthor={Francisco Murphy Pérez},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\usepackage{booktabs}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage[]{natbib}
+\bibliographystyle{plainnat}
+
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}{Lemma}[chapter]
+\newtheorem{corollary}{Corollary}[chapter]
+\newtheorem{proposition}{Proposition}[chapter]
+\newtheorem{conjecture}{Conjecture}[chapter]
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[chapter]
+\theoremstyle{definition}
+\newtheorem{example}{Example}[chapter]
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}[chapter]
+\theoremstyle{definition}
+\newtheorem{hypothesis}{Hypothesis}[chapter]
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{solution}{Solution}
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# knitr::opts\_chunk$set(eval = FALSE)}
+\CommentTok{\# switch global para evaluar funciones o no.}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{dependencias}{%
+\chapter{Dependencias}\label{dependencias}}
+
+La reproducción correcta de esta bitácora depende de varios programas instalados en un sistema operativo linux.
+
+\hypertarget{sistema-operativo}{%
+\section{Sistema operativo}\label{sistema-operativo}}
+
+El sistema operativo usado es Fedora 36 (\url{https://getfedora.org/}) en su versión \emph{workstation}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{uname} \AttributeTok{{-}r} \CommentTok{\# Imprime la versión del núcleo de linux.}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 5.17.8-300.fc36.x86_64
+\end{verbatim}
+
+\hypertarget{mineruxeda-de-datos}{%
+\section{Minería de datos}\label{mineruxeda-de-datos}}
+
+La extracción de datos se realiza con \texttt{gemmi} (\url{https://github.com/project-gemmi/gemmi}), que ya viene dentro de la colección de programas de \texttt{ccp4} (\url{https://www.ccp4.ac.uk/}).
+
+Para la limpieza y transformación de datos se usa:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{awk} (\url{https://www.gnu.org/software/gawk/})
+\item
+  \texttt{bash} (\url{https://www.gnu.org/software/bash/})
+\item
+  \texttt{grep} (\url{https://www.gnu.org/software/grep/})
+\item
+  \texttt{R} (\url{https://www.r-project.org/})
+\item
+  \texttt{sed} (\url{https://www.gnu.org/software/gawk/})
+\item
+  \texttt{tidyverse} (\url{https://www.tidyverse.org/})
+\end{itemize}
+
+La instalación de \texttt{R} conviene hacerla como la describo en el siguiente enlace \url{https://murpholinox.github.io/2021/05/01/installRsansTexLivedeps.html}. La instalación del \texttt{tidyverse} depende a su vez de la instalación de las siguientes librerías en el sistema operativo:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sudo}\NormalTok{ dnf install openssl{-}devel libcurl{-}devel}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+Advertencia: Si se tiene instalado chimerax-daily se tendrá un conflicto con \texttt{openssl-devel}. En ese caso se tiene que instalar \texttt{openssl1.1-devel} y tanto chimerax-daily como rstudio corren sin problemas.
+\end{quote}
+
+Los programas restantes (\texttt{awk}, \texttt{bash}, \texttt{grep} y \texttt{sed}) vienen instalados por defecto en el sistema operativo usado.
+
+\hypertarget{configuraciuxf3n}{%
+\section{Configuración}\label{configuraciuxf3n}}
+
+Además de la instalación correcta de los programas anteriores, se tienen que cargar las siguientes librerías de \texttt{R}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(dplyr)}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{library}\NormalTok{(readr)}
+\FunctionTok{library}\NormalTok{(knitr)}
+\FunctionTok{library}\NormalTok{(kableExtra)}
+\FunctionTok{library}\NormalTok{(stringdist)}
+\FunctionTok{library}\NormalTok{(svglite)}
+\FunctionTok{library}\NormalTok{(bookdown)}
+\FunctionTok{library}\NormalTok{(rmarkdown)}
+\FunctionTok{library}\NormalTok{(renv)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{manejo-de-dependencias}{%
+\subsection{Manejo de dependencias}\label{manejo-de-dependencias}}
+
+El manejo de dependencias, de manera interna, se da automáticamente gracias a \texttt{renv}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{renv}\SpecialCharTok{::}\FunctionTok{consent}\NormalTok{() }\CommentTok{\# Da permiso a renv.4}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## * Consent to use renv has already been provided -- nothing to do.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{renv}\SpecialCharTok{::}\FunctionTok{init}\NormalTok{() }\CommentTok{\# Inicia renv.}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Para ver las dependencias.}
+\FunctionTok{cat}\NormalTok{ renv.lock}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{sesiuxf3n}{%
+\section{Sesión}\label{sesiuxf3n}}
+
+Imprime información de la sesión activa de \texttt{R}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sessionInfo}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## R version 4.1.3 (2022-03-10)
+## Platform: x86_64-redhat-linux-gnu (64-bit)
+## Running under: Fedora Linux 36 (Workstation Edition)
+## 
+## Matrix products: default
+## BLAS/LAPACK: /usr/lib64/libflexiblas.so.3.1
+## 
+## locale:
+##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+##  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices datasets  utils     methods   base     
+## 
+## other attached packages:
+##  [1] renv_0.15.4      rmarkdown_2.14   bookdown_0.26    svglite_2.1.0   
+##  [5] stringdist_0.9.8 kableExtra_1.3.4 knitr_1.39       readr_2.1.2     
+##  [9] ggplot2_3.3.6    dplyr_1.0.9     
+## 
+## loaded via a namespace (and not attached):
+##  [1] pillar_1.7.0      compiler_4.1.3    tools_4.1.3       digest_0.6.29    
+##  [5] viridisLite_0.4.0 evaluate_0.15     lifecycle_1.0.1   tibble_3.1.7     
+##  [9] gtable_0.3.0      pkgconfig_2.0.3   rlang_1.0.2       cli_3.3.0        
+## [13] rstudioapi_0.13   parallel_4.1.3    yaml_2.3.5        xfun_0.30        
+## [17] fastmap_1.1.0     xml2_1.3.3        httr_1.4.3        withr_2.5.0      
+## [21] stringr_1.4.0     systemfonts_1.0.4 hms_1.1.1         generics_0.1.2   
+## [25] vctrs_0.4.1       webshot_0.5.3     grid_4.1.3        tidyselect_1.1.2 
+## [29] glue_1.6.2        R6_2.5.1          fansi_1.0.3       tzdb_0.3.0       
+## [33] purrr_0.3.4       magrittr_2.0.3    scales_1.2.0      ellipsis_0.3.2   
+## [37] htmltools_0.5.2   rvest_1.0.2       colorspace_2.0-3  utf8_1.2.2       
+## [41] stringi_1.7.6     munsell_0.5.0     crayon_1.5.1
+\end{verbatim}
+
+\hypertarget{contacto}{%
+\section{Contacto}\label{contacto}}
+
+Me puedes contactar por correo electrónico en \href{mailto:murpholinox@gmail.com}{gmail} o \href{mailto:francisco.murphy@ibt.unam.mx}{ibt}.
+
+\hypertarget{hello-bookdown}{%
+\chapter{Hello bookdown}\label{hello-bookdown}}
+
+All chapters start with a first-level heading followed by your chapter title, like the line above. There should be only one first-level heading (\texttt{\#}) per .Rmd file.
+
+\hypertarget{a-section}{%
+\section{A section}\label{a-section}}
+
+All chapter sections start with a second-level (\texttt{\#\#}) or higher heading followed by your section title, like the sections above and below here. You can have as many as you want within a chapter.
+
+\hypertarget{an-unnumbered-section}{%
+\subsection*{An unnumbered section}\label{an-unnumbered-section}}
+\addcontentsline{toc}{subsection}{An unnumbered section}
+
+Chapters and sections are numbered by default. To un-number a heading, add a \texttt{\{.unnumbered\}} or the shorter \texttt{\{-\}} at the end of the heading, like in this section.
+
+\hypertarget{intro}{%
+\chapter{Introducción}\label{intro}}
+
+El proyecto de doctorado consiste en analizar el efecto que tiene el pH en el daño por radiación en cristales de proteína. Para ello se tiene que cristalizar algunas proteínas a diferente pH.
+
+\begin{quote}
+Todo lo demás tiene que ser idéntico: condición de cristalización (ambiente químico), grupo espacial (conformación espacial), parámetros de colecta de datos (dosis de radiación absorbida).
+\end{quote}
+
+\hypertarget{objetivos}{%
+\section{Objetivos}\label{objetivos}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Obtener una lista de proteínas que cumplan los requisitos \emph{adecuados} para llevar a cabo dicho proyecto.
+\item
+  Cristalizar las proteínas seleccionadas a diferentes niveles de pH.
+\item
+  Difractar los cristales obtenidos.
+\item
+  Realizar un análisis comparativo del daño por radiación a diferente pH.
+\end{enumerate}
+
+\hypertarget{pdb}{%
+\section{PDB}\label{pdb}}
+
+El PDB (\url{https://www.rcsb.org/}) es un repositorio de coordenadas de macromoléculas biológicas. La mayoría de las coordenadas se obtienen por difracción de rayos-X de cristales macromoleculares. En el cabezal de cada archivo de coordenadas, se tiene la información necesaria para reproducir el experimento de cristalización de la macromolécula de interés. En otras palabras, la información necesaria para el primer objetivo se encuentra en los cabezales de los archivos.
+
+\hypertarget{extracciuxf3n-de-datos}{%
+\chapter{Extracción de datos}\label{extracciuxf3n-de-datos}}
+
+\hypertarget{formato}{%
+\section{Formato}\label{formato}}
+
+El PDB ofrece descargar sus archivos en tres formatos diferentes: \texttt{.xml}, \texttt{.pdb} y \texttt{.mmcif}. El segundo es el más fácil de leer y manipular; sin embargo, se decidió usar el tercer formato debido al siguiente párrafo:
+
+\begin{quote}
+Many of the errors have been fixed in the equivalent mmCIF files. Hence, if you are interested in the header information, it is a good idea to extract information from mmCIF files\ldots{}
+
+De \url{https://biopython.readthedocs.io/en/latest/chapter_pdb.html}.
+\end{quote}
+
+El formato \texttt{.mmcif} se detalla en \url{http://mmcif.wwpdb.org/}. Existe una correspondencia entre las etiquetas del \texttt{.pdb} con las etiquetas del \texttt{.mmcif}.
+
+\hypertarget{descarga}{%
+\section{Descarga}\label{descarga}}
+
+Para descargar todo las estructuras del PDB en formato \texttt{.mmcif}, se usa el siguiente comando:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{cd}\NormalTok{ /run/media/murphy/lolita/doctorado}
+\FunctionTok{rsync} \AttributeTok{{-}avPz} \AttributeTok{{-}{-}delete}\NormalTok{ data.pdbjbk1.pdbj.org::ftp\_data/structures/divided/mmCIF/ ./mmCIF}
+\CommentTok{\# Tarda entre 5 y 6 horas con una buena conexión de internet.}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+Instrucciones de \url{https://www.wwpdb.org/ftp/pdb-ftp-sites}.
+\end{quote}
+
+\hypertarget{organizaciuxf3n-de-archivos}{%
+\section{Organización de archivos}\label{organizaciuxf3n-de-archivos}}
+
+Los archivos están organizados en diferentes subdirectorios, cuyo nombre está formado por el segundo y el tercer carácter del nombre del mismo archivo. Por ejemplo \texttt{1abc.mmcif} estará en el subdirectorio \texttt{ab/}. Se realiza una copia de los archivos en un solo directorio en el disco duro con dos objetivos en mente: tener un respaldo y manipular de una manera más sencilla los archivos.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{cd}\NormalTok{ /run/media/murphy/lolita/doctorado}
+\FunctionTok{mkdir}\NormalTok{ mmCIF\_backup}
+\BuiltInTok{cd}\NormalTok{ mmCIF/}
+\BuiltInTok{time}\NormalTok{ find . }\AttributeTok{{-}name} \StringTok{\textquotesingle{}*.gz\textquotesingle{}} \AttributeTok{{-}exec}\NormalTok{ cp }\DataTypeTok{\textbackslash{}\{\textbackslash{}\}}\NormalTok{ /run/media/murphy/lolita/doctorado/mmCIF\_backup/ }\DataTypeTok{\textbackslash{};} 
+\CommentTok{\# Esto mucho no sé por qué! }
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{separa-entradas-por-muxe9todo-experimental}{%
+\subsection{Separa entradas por método experimental}\label{separa-entradas-por-muxe9todo-experimental}}
+
+De los archivos depositados en el PDB, obtenemos aquellas estructuras determinadas únicamente por difracción de rayos-X de cristales. Este se puede considerar como el primer filtro. Además ayuda a eliminar confusiones posteriores.
+
+\begin{quote}
+El problema es que \texttt{gemmi} extrae etiquetas de manera excelente, pero no conoce contextos. Esto puede resultar, dependiendo de las etiquetas, en datos incompletos.
+\end{quote}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{cd}\NormalTok{ /run/media/murphy/lolita/doctorado/}
+\FunctionTok{mkdir}\NormalTok{ xray}
+\BuiltInTok{time}\NormalTok{ gemmi grep \_exptl.method mmCIF\_backup/ }\OperatorTok{\textgreater{}}\NormalTok{ xray/method.list}
+\CommentTok{\# Esto tarda 155 minutos}
+\CommentTok{\# Se confirma con:}
+\CommentTok{\# wc {-}l method.dat}
+\CommentTok{\# 190846 }
+\CommentTok{\# La diferencia con el total de entradas en el PDB (190639), es por los pdbs obtenidos vía múltiples métodos.}
+\CommentTok{\# La siguiente línea nos da donde se da esta diferencia.}
+\CommentTok{\# awk {-}F ":" \textquotesingle{}\{print $1\}\textquotesingle{} method.dat | uniq {-}c | awk \textquotesingle{}\{ if ($1!="1") print $0\}\textquotesingle{} | wc {-}l}
+\CommentTok{\# 205}
+\CommentTok{\# Lo cual se confirma en la búsqueda avanzada del PDB escogiendo como método experimental "Múltiples métodos"}
+\BuiltInTok{cd}\NormalTok{ /run/media/murphy/lolita/doctorado/xray/}
+\FunctionTok{grep}\NormalTok{ X{-}RAY method.list }\KeywordTok{|} \FunctionTok{awk} \AttributeTok{{-}F}\NormalTok{ : }\StringTok{\textquotesingle{}\{print $1\}\textquotesingle{}} \KeywordTok{|} \FunctionTok{tr} \StringTok{\textquotesingle{}[:upper:]\textquotesingle{}} \StringTok{\textquotesingle{}[:lower:]\textquotesingle{}} \OperatorTok{\textgreater{}}\NormalTok{ pdbs\_by\_xray.list}
+\FunctionTok{sed} \StringTok{\textquotesingle{}s/$/.cif.gz/\textquotesingle{}}\NormalTok{g pdbs\_by\_xray.list }\OperatorTok{\textgreater{}}\NormalTok{ list\_pdbs\_by\_xray}
+\CommentTok{\# Es interesante comparar el total de entradas en el PDB con aquellas obtenidas por difracción de rayos X:}
+\CommentTok{\# wc {-}l pdbs\_by\_xray.dat}
+\CommentTok{\# 165662 }
+\FunctionTok{mkdir}\NormalTok{ entries}
+\BuiltInTok{time}\NormalTok{ cat list\_pdbs\_by\_xray }\KeywordTok{|} \ControlFlowTok{while} \BuiltInTok{read} \VariableTok{line}\KeywordTok{;}
+\ControlFlowTok{do} \FunctionTok{cp}\NormalTok{ /run/media/murphy/lolita/doctorado/mmCIF\_backup/}\VariableTok{$line}\NormalTok{ entries/}\KeywordTok{;} \ControlFlowTok{done} 
+\CommentTok{\# Esto tarda 145 minutos.}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{extracciuxf3n-de-datos-1}{%
+\section{Extracción de datos}\label{extracciuxf3n-de-datos-1}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Usar un delimitador que no aparece en los archivos.}
+\BuiltInTok{cd}\NormalTok{ /run/media/murphy/lolita/doctorado/xray/}
+\BuiltInTok{time}\NormalTok{ gemmi grep }\AttributeTok{{-}{-}delimiter}\OperatorTok{=}\StringTok{\textquotesingle{}¿\textquotesingle{}}\NormalTok{ \_entity\_poly.entity\_id }\AttributeTok{{-}a}\NormalTok{ \_entity\_poly.type }\AttributeTok{{-}a}\NormalTok{ \_struct\_ref.pdbx\_db\_accession }\AttributeTok{{-}a}\NormalTok{ \_entity.pdbx\_description }\AttributeTok{{-}a}\NormalTok{ \_exptl\_crystal\_grow.method }\AttributeTok{{-}a}\NormalTok{ \_exptl\_crystal\_grow.pH }\AttributeTok{{-}a}\NormalTok{ \_exptl\_crystal\_grow.pdbx\_details }\AttributeTok{{-}a}\NormalTok{ \_reflns.d\_resolution\_high }\AttributeTok{{-}a}\NormalTok{ \_reflns\_shell.d\_res\_high }\AttributeTok{{-}a}\NormalTok{ \_symmetry.space\_group\_name\_H{-}M }\AttributeTok{{-}a}\NormalTok{ \_citation.pdbx\_database\_id\_DOI entries/ }\OperatorTok{\textgreater{}}\NormalTok{ information\_from\_xrays}
+\CommentTok{\# Esto tarda 52 minutos.}
+\CommentTok{\# wc {-}l information\_from\_xrays}
+\CommentTok{\# 255251}
+\CommentTok{\# La diferencia con el total de entradas en el PDB, es porque varios archivos contienen más de una entidad }
+\CommentTok{\# Por ejemplo:}
+\CommentTok{\# 10MH¿1¿polydeoxyribonucleotide¿P05102¿DNA (5\textquotesingle{}{-}D(P*CP*CP*AP*TP*GP*(5CM)P*GP*CP*TP*GP*AP*C){-}3\textquotesingle{})¿¿6.5¿10\% (W/V) PEG 8000 50 MM CALCIUM ACETATE 50 MM SODIUM CACODYLATE PH 6.5¿2.5¿2.50¿H 3 2¿10.1006/jmbi.1998.2426}
+\CommentTok{\# 10MH¿2¿polydeoxyribonucleotide¿P05102¿DNA (5\textquotesingle{}{-}D(P*CP*CP*AP*TP*GP*(5CM)P*GP*CP*TP*GP*AP*C){-}3\textquotesingle{})¿¿6.5¿10\% (W/V) PEG 8000 50 MM CALCIUM ACETATE 50 MM SODIUM CACODYLATE PH 6.5¿2.5¿2.50¿H 3 2¿10.1006/jmbi.1998.2426}
+\CommentTok{\# 10MH¿3¿polypeptide(L)¿P05102¿DNA (5\textquotesingle{}{-}D(P*CP*CP*AP*TP*GP*(5CM)P*GP*CP*TP*GP*AP*C){-}3\textquotesingle{})¿¿6.5¿10\% (W/V) PEG 8000 50 MM CALCIUM ACETATE 50 MM SODIUM CACODYLATE PH 6.5¿2.5¿2.50¿H 3 2¿10.1006/jmbi.1998.2426}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{verifica-la-integridad-de-los-datos-y-obtiene-proteuxednas-muxe1s-representadas-en-el-pdb}{%
+\section{Verifica la integridad de los datos y obtiene proteínas más representadas en el PDB}\label{verifica-la-integridad-de-los-datos-y-obtiene-proteuxednas-muxe1s-representadas-en-el-pdb}}
+
+Importa los datos extraídos a \texttt{R} y realiza algunas gráficas interesantes.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(readr)}
+\NormalTok{da}\OtherTok{\textless{}{-}}\FunctionTok{read\_delim}\NormalTok{(}\StringTok{"/home/murphy/doctorado/info.txt"}\NormalTok{, }\AttributeTok{delim =} \StringTok{"¿"}\NormalTok{, }\AttributeTok{escape\_double =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{col\_names =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{trim\_ws =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Rows: 255251 Columns: 12
+## -- Column specification --------------------------------------------------------
+## Delimiter: "¿"
+## chr (8): X1, X3, X4, X5, X6, X8, X11, X12
+## dbl (4): X2, X7, X9, X10
+## 
+## i Use `spec()` to retrieve the full column specification for this data.
+## i Specify the column types or set `show_col_types = FALSE` to quiet this message.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df0 }\OtherTok{\textless{}{-}}\NormalTok{ da }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{rename}\NormalTok{(}
+    \AttributeTok{pdb =}\NormalTok{ X1,}
+    \AttributeTok{nde =}\NormalTok{ X2,}
+    \AttributeTok{tde =}\NormalTok{ X3,}
+    \AttributeTok{ide =}\NormalTok{ X4,}
+    \AttributeTok{nom =}\NormalTok{ X5,}
+    \AttributeTok{tec =}\NormalTok{ X6,}
+    \AttributeTok{peh =}\NormalTok{ X7,}
+    \AttributeTok{con =}\NormalTok{ X8,}
+    \AttributeTok{rs1 =}\NormalTok{ X9,}
+    \AttributeTok{rs2 =} \DecValTok{10}\NormalTok{,}
+    \AttributeTok{gpo =}\NormalTok{ X11,}
+    \AttributeTok{doi =}\NormalTok{ X12}
+\NormalTok{  )}
+\CommentTok{\# Cuenta número de entradas. Si hay más de una, significa que tenemos más de una entidad.}
+\NormalTok{df1}\OtherTok{\textless{}{-}}\NormalTok{df0 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_count}\NormalTok{(pdb, }\AttributeTok{name =} \StringTok{"cta\_pdb"}\NormalTok{)}
+\CommentTok{\# Filtro 1: número de entidades.}
+\NormalTok{df2}\OtherTok{\textless{}{-}}\NormalTok{df1 }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{filter}\NormalTok{(cta\_pdb}\SpecialCharTok{==}\DecValTok{1}\NormalTok{)}
+\CommentTok{\# Filtro 2: que exista una anotación de pH.}
+\NormalTok{df3}\OtherTok{\textless{}{-}}\NormalTok{df2 }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(peh))}
+\CommentTok{\# Filtro 3: que sea proteína.}
+\NormalTok{df4}\OtherTok{\textless{}{-}}\NormalTok{df3 }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{filter}\NormalTok{(tde}\SpecialCharTok{==}\StringTok{"polypeptide(L)"}\NormalTok{)}
+\CommentTok{\# Cuenta grupos espaciales.}
+\NormalTok{df5}\OtherTok{\textless{}{-}}\NormalTok{df4 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_count}\NormalTok{(gpo, }\AttributeTok{name =} \StringTok{"cta\_gpo"}\NormalTok{)}
+\CommentTok{\# Cuenta número de identificadores. }
+\NormalTok{df6}\OtherTok{\textless{}{-}}\NormalTok{df5 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{add\_count}\NormalTok{(ide, }\AttributeTok{name =} \StringTok{"cta\_ide"}\NormalTok{)}
+\CommentTok{\# Filtro 4: Si el identificador aparece solo una o dos veces, es inútil.}
+\NormalTok{df7}\OtherTok{\textless{}{-}}\NormalTok{df6 }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{filter}\NormalTok{(cta\_ide}\SpecialCharTok{\textgreater{}}\DecValTok{2}\NormalTok{)}
+\CommentTok{\# Datos para tablas.}
+\NormalTok{tab\_gpo}\OtherTok{\textless{}{-}}\NormalTok{df7 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{count}\NormalTok{(gpo, }\AttributeTok{name =} \StringTok{"cta\_gpo"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(cta\_gpo))}
+\NormalTok{tab\_ide}\OtherTok{\textless{}{-}}\NormalTok{df7 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{count}\NormalTok{(ide, }\AttributeTok{name =} \StringTok{"cta\_ide"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(cta\_ide))}
+\CommentTok{\# Genera tablas.}
+\FunctionTok{kable}\NormalTok{(tab\_gpo) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{kable\_styling}\NormalTok{(}\AttributeTok{bootstrap\_options =} \FunctionTok{c}\NormalTok{(}\StringTok{"striped"}\NormalTok{, }\StringTok{"hover"}\NormalTok{, }\StringTok{"condensed"}\NormalTok{, }\StringTok{"responsive"}\NormalTok{), }\AttributeTok{full\_width=}\NormalTok{F)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+\centering
+\begin{tabular}{l|r}
+\hline
+gpo & cta\_gpo\\
+\hline
+P 21 21 21 & 15584\\
+\hline
+P 1 21 1 & 11229\\
+\hline
+C 1 2 1 & 6318\\
+\hline
+C 2 2 21 & 3151\\
+\hline
+P 21 21 2 & 3064\\
+\hline
+P 43 21 2 & 2862\\
+\hline
+P 1 & 2369\\
+\hline
+P 31 2 1 & 1980\\
+\hline
+P 41 21 2 & 1923\\
+\hline
+P 32 2 1 & 1907\\
+\hline
+I 2 2 2 & 1604\\
+\hline
+P 61 2 2 & 1275\\
+\hline
+P 65 2 2 & 829\\
+\hline
+H 3 & 823\\
+\hline
+H 3 2 & 790\\
+\hline
+P 65 & 631\\
+\hline
+P 61 & 628\\
+\hline
+P 43 & 557\\
+\hline
+P 63 & 543\\
+\hline
+P 41 & 445\\
+\hline
+I 4 2 2 & 433\\
+\hline
+I 41 2 2 & 405\\
+\hline
+P 21 3 & 361\\
+\hline
+P 31 & 352\\
+\hline
+P 2 21 21 & 350\\
+\hline
+P 42 21 2 & 343\\
+\hline
+P 32 & 306\\
+\hline
+I 4 & 298\\
+\hline
+P 63 2 2 & 284\\
+\hline
+I 2 3 & 278\\
+\hline
+P 4 21 2 & 231\\
+\hline
+P 62 2 2 & 206\\
+\hline
+P 3 2 1 & 186\\
+\hline
+P 64 2 2 & 180\\
+\hline
+P 41 2 2 & 175\\
+\hline
+I 41 & 171\\
+\hline
+F 4 3 2 & 160\\
+\hline
+I 1 2 1 & 156\\
+\hline
+P 6 & 144\\
+\hline
+P 43 2 2 & 141\\
+\hline
+C 2 2 2 & 129\\
+\hline
+P 3 & 112\\
+\hline
+I 21 21 21 & 107\\
+\hline
+I 21 3 & 103\\
+\hline
+P 64 & 101\\
+\hline
+P 62 & 100\\
+\hline
+P 21 2 21 & 96\\
+\hline
+P 1 2 1 & 85\\
+\hline
+I 4 3 2 & 83\\
+\hline
+P 41 3 2 & 76\\
+\hline
+F 2 2 2 & 72\\
+\hline
+P 6 2 2 & 71\\
+\hline
+P 2 2 21 & 57\\
+\hline
+F 2 3 & 55\\
+\hline
+P 42 & 55\\
+\hline
+P 31 1 2 & 54\\
+\hline
+P 4 & 53\\
+\hline
+P 43 3 2 & 46\\
+\hline
+F 41 3 2 & 45\\
+\hline
+I 41 3 2 & 45\\
+\hline
+P 32 1 2 & 45\\
+\hline
+P 4 2 2 & 37\\
+\hline
+P 4 3 2 & 32\\
+\hline
+P 42 2 2 & 25\\
+\hline
+P 2 3 & 21\\
+\hline
+P 42 3 2 & 10\\
+\hline
+P 3 1 2 & 9\\
+\hline
+B 1 1 2 & 8\\
+\hline
+P 2 2 2 & 7\\
+\hline
+I 1 21 1 & 6\\
+\hline
+P -1 & 5\\
+\hline
+C 1 21 1 & 3\\
+\hline
+R 3 & 3\\
+\hline
+R 3 2 & 3\\
+\hline
+I 41/a & 2\\
+\hline
+P 1 1 21 & 2\\
+\hline
+P 1 21/c 1 & 2\\
+\hline
+I -4 c 2 & 1\\
+\hline
+P 2 21 2 & 1\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Tabla del conteo de identificadores después del tercer filtro.}
+\FunctionTok{kable}\NormalTok{(tab\_ide) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{kable\_styling}\NormalTok{(}\AttributeTok{bootstrap\_options =} \FunctionTok{c}\NormalTok{(}\StringTok{"striped"}\NormalTok{, }\StringTok{"hover"}\NormalTok{, }\StringTok{"condensed"}\NormalTok{, }\StringTok{"responsive"}\NormalTok{), }\AttributeTok{full\_width=}\NormalTok{F)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+\centering
+\begin{tabular}{l|r}
+\hline
+ide & cta\_ide\\
+\hline
+P00918 & 763\\
+\hline
+P0DTD1 & 747\\
+\hline
+P11838 & 705\\
+\hline
+P00698 & 613\\
+\hline
+P00760 & 344\\
+\hline
+Q6PJP8 & 309\\
+\hline
+O95696 & 304\\
+\hline
+P29476 & 289\\
+\hline
+P02766 & 285\\
+\hline
+Q6B0I6 & 278\\
+\hline
+P00720 & 275\\
+\hline
+P56817 & 265\\
+\hline
+P00644 & 258\\
+\hline
+P18031 & 257\\
+\hline
+Q9UIF8 & 257\\
+\hline
+P24941 & 248\\
+\hline
+P42212 & 247\\
+\hline
+O60885 & 220\\
+\hline
+P00489 & 208\\
+\hline
+P07900 & 194\\
+\hline
+P02185 & 188\\
+\hline
+Q16539 & 184\\
+\hline
+P61823 & 179\\
+\hline
+P22629 & 165\\
+\hline
+P19491 & 162\\
+\hline
+P28720 & 162\\
+\hline
+P61626 & 157\\
+\hline
+P68400 & 153\\
+\hline
+P00800 & 151\\
+\hline
+P00533 & 150\\
+\hline
+A0A073FPA6 & 149\\
+\hline
+P06873 & 144\\
+\hline
+P15121 & 143\\
+\hline
+P37231 & 137\\
+\hline
+P02945 & 125\\
+\hline
+P03367 & 125\\
+\hline
+P29473 & 124\\
+\hline
+O14757 & 122\\
+\hline
+P23497 & 118\\
+\hline
+P11309 & 116\\
+\hline
+O14965 & 113\\
+\hline
+P00431 & 106\\
+\hline
+P00811 & 106\\
+\hline
+Q8WWQ0 & 106\\
+\hline
+O26232 & 105\\
+\hline
+P02768 & 104\\
+\hline
+P00183 & 99\\
+\hline
+P02883 & 97\\
+\hline
+P0AEX9 & 97\\
+\hline
+P01112 & 94\\
+\hline
+P01116 & 93\\
+\hline
+P04058 & 93\\
+\hline
+Q92835 & 93\\
+\hline
+Q9H2K2 & 91\\
+\hline
+O60674 & 90\\
+\hline
+P00441 & 88\\
+\hline
+P00523 & 88\\
+\hline
+P0ABE7 & 86\\
+\hline
+P14174 & 86\\
+\hline
+P46881 & 86\\
+\hline
+Q06187 & 85\\
+\hline
+P48736 & 84\\
+\hline
+Q00511 & 84\\
+\hline
+O58456 & 82\\
+\hline
+P00282 & 82\\
+\hline
+P28482 & 81\\
+\hline
+Q76353 & 81\\
+\hline
+P14324 & 79\\
+\hline
+P14779 & 79\\
+\hline
+P26663 & 79\\
+\hline
+P47811 & 79\\
+\hline
+Q08499 & 78\\
+\hline
+Q9Y233 & 78\\
+\hline
+Q04609 & 77\\
+\hline
+P05230 & 76\\
+\hline
+P17931 & 76\\
+\hline
+P16113 & 73\\
+\hline
+P29475 & 73\\
+\hline
+P02754 & 72\\
+\hline
+P0DTC1 & 72\\
+\hline
+C7C422 & 71\\
+\hline
+P03951 & 71\\
+\hline
+P68082 & 70\\
+\hline
+P00327 & 69\\
+\hline
+P22734 & 69\\
+\hline
+P33981 & 69\\
+\hline
+Q7NDN8 & 68\\
+\hline
+P00374 & 67\\
+\hline
+P00772 & 67\\
+\hline
+P39900 & 67\\
+\hline
+Q6PL18 & 67\\
+\hline
+C3W5S0 & 66\\
+\hline
+Q04771 & 66\\
+\hline
+P21836 & 65\\
+\hline
+P25440 & 65\\
+\hline
+P62937 & 65\\
+\hline
+P24300 & 64\\
+\hline
+P24627 & 64\\
+\hline
+P36639 & 63\\
+\hline
+Q02127 & 62\\
+\hline
+P02213 & 61\\
+\hline
+P27487 & 61\\
+\hline
+Q6XEC0 & 61\\
+\hline
+O67854 & 60\\
+\hline
+P07445 & 59\\
+\hline
+P08581 & 59\\
+\hline
+P08684 & 59\\
+\hline
+P15056 & 59\\
+\hline
+Q00987 & 59\\
+\hline
+P25006 & 58\\
+\hline
+Q24451 & 58\\
+\hline
+Q8Y8D7 & 58\\
+\hline
+P09211 & 57\\
+\hline
+P25774 & 57\\
+\hline
+P51449 & 57\\
+\hline
+P02791 & 56\\
+\hline
+P16083 & 56\\
+\hline
+P43490 & 56\\
+\hline
+Q4D3W2 & 56\\
+\hline
+Q99497 & 56\\
+\hline
+P06276 & 55\\
+\hline
+P26281 & 55\\
+\hline
+P43405 & 55\\
+\hline
+P05326 & 54\\
+\hline
+P43235 & 54\\
+\hline
+Q13451 & 54\\
+\hline
+Q9UGL1 & 53\\
+\hline
+Q9Y2J2 & 53\\
+\hline
+O15530 & 52\\
+\hline
+P00509 & 52\\
+\hline
+P09874 & 52\\
+\hline
+Q13526 & 52\\
+\hline
+D9J2T9 & 51\\
+\hline
+O75164 & 51\\
+\hline
+P04191 & 51\\
+\hline
+P0ABQ4 & 51\\
+\hline
+P16442 & 51\\
+\hline
+P63086 & 51\\
+\hline
+P71447 & 51\\
+\hline
+P00636 & 50\\
+\hline
+P0A884 & 50\\
+\hline
+Q13627 & 50\\
+\hline
+Q8WS26 & 50\\
+\hline
+Q92793 & 50\\
+\hline
+P0A5R0 & 49\\
+\hline
+P21816 & 49\\
+\hline
+P22303 & 49\\
+\hline
+Q8WSF8 & 49\\
+\hline
+O34453 & 48\\
+\hline
+O92972 & 48\\
+\hline
+P00138 & 48\\
+\hline
+P12931 & 48\\
+\hline
+P15379 & 48\\
+\hline
+P52732 & 48\\
+\hline
+Q94734 & 48\\
+\hline
+Q9UM73 & 48\\
+\hline
+P29373 & 47\\
+\hline
+Q4Q5S8 & 47\\
+\hline
+P00722 & 46\\
+\hline
+P04818 & 46\\
+\hline
+P29317 & 46\\
+\hline
+P29477 & 46\\
+\hline
+P62593 & 46\\
+\hline
+Q9NAV7 & 46\\
+\hline
+O96935 & 45\\
+\hline
+P07379 & 45\\
+\hline
+P09960 & 45\\
+\hline
+P0C6U8 & 45\\
+\hline
+P30405 & 45\\
+\hline
+P34913 & 45\\
+\hline
+B3LRE1 & 44\\
+\hline
+O15178 & 44\\
+\hline
+P03372 & 44\\
+\hline
+P14902 & 44\\
+\hline
+P27707 & 44\\
+\hline
+P49841 & 44\\
+\hline
+P03366 & 43\\
+\hline
+P04746 & 43\\
+\hline
+P05089 & 43\\
+\hline
+P12497 & 43\\
+\hline
+P12821 & 43\\
+\hline
+P20906 & 43\\
+\hline
+P49773 & 43\\
+\hline
+Q03181 & 43\\
+\hline
+P21179 & 42\\
+\hline
+P00651 & 41\\
+\hline
+P03069 & 41\\
+\hline
+P03369 & 41\\
+\hline
+P11086 & 41\\
+\hline
+P80188 & 41\\
+\hline
+Q6P988 & 41\\
+\hline
+D9IEF7 & 40\\
+\hline
+O52792 & 40\\
+\hline
+P00797 & 40\\
+\hline
+P02866 & 40\\
+\hline
+P08799 & 40\\
+\hline
+P0A434 & 40\\
+\hline
+P11172 & 40\\
+\hline
+P11473 & 40\\
+\hline
+P38501 & 40\\
+\hline
+P61769 & 40\\
+\hline
+P98170 & 40\\
+\hline
+Q9BJF5 & 40\\
+\hline
+W8VZW3 & 40\\
+\hline
+P01857 & 39\\
+\hline
+P04825 & 39\\
+\hline
+P0AEY0 & 39\\
+\hline
+P28523 & 39\\
+\hline
+P36217 & 39\\
+\hline
+P43912 & 39\\
+\hline
+P80025 & 39\\
+\hline
+Q05769 & 39\\
+\hline
+Q9GK12 & 39\\
+\hline
+Q9PPB4 & 39\\
+\hline
+P04637 & 38\\
+\hline
+P0C024 & 38\\
+\hline
+P28907 & 38\\
+\hline
+P29597 & 38\\
+\hline
+P59641 & 38\\
+\hline
+P0A017 & 37\\
+\hline
+P0A5Y6 & 37\\
+\hline
+P59071 & 37\\
+\hline
+Q9Z2X8 & 37\\
+\hline
+P00469 & 36\\
+\hline
+P00634 & 36\\
+\hline
+P04190 & 36\\
+\hline
+P06239 & 36\\
+\hline
+P07798 & 36\\
+\hline
+P35968 & 36\\
+\hline
+P50120 & 36\\
+\hline
+P53779 & 36\\
+\hline
+Q54727 & 36\\
+\hline
+Q9ER97 & 36\\
+\hline
+O94925 & 35\\
+\hline
+P00338 & 35\\
+\hline
+P02787 & 35\\
+\hline
+P02829 & 35\\
+\hline
+P10275 & 35\\
+\hline
+P53582 & 35\\
+\hline
+Q2IU02 & 35\\
+\hline
+Q7LBC6 & 35\\
+\hline
+A8EVM5 & 34\\
+\hline
+I1VE66 & 34\\
+\hline
+O76074 & 34\\
+\hline
+P00491 & 34\\
+\hline
+P04789 & 34\\
+\hline
+P28845 & 34\\
+\hline
+P31153 & 34\\
+\hline
+P58154 & 34\\
+\hline
+Q02750 & 34\\
+\hline
+Q05603 & 34\\
+\hline
+Q7ZA32 & 34\\
+\hline
+Q9GZT9 & 34\\
+\hline
+Q9NAV8 & 34\\
+\hline
+P00805 & 33\\
+\hline
+P01584 & 33\\
+\hline
+P02879 & 33\\
+\hline
+P14618 & 33\\
+\hline
+P22756 & 33\\
+\hline
+P25321 & 33\\
+\hline
+P29474 & 33\\
+\hline
+P41148 & 33\\
+\hline
+Q45135 & 33\\
+\hline
+Q8IU60 & 33\\
+\hline
+Q9RZA4 & 33\\
+\hline
+P11362 & 32\\
+\hline
+Q07343 & 32\\
+\hline
+Q460N5 & 32\\
+\hline
+P03472 & 31\\
+\hline
+P14925 & 31\\
+\hline
+P71278 & 31\\
+\hline
+Q06124 & 31\\
+\hline
+Q08881 & 31\\
+\hline
+Q4K977 & 31\\
+\hline
+Q5KW80 & 31\\
+\hline
+Q9BRQ3 & 31\\
+\hline
+Q9BY41 & 31\\
+\hline
+O38732 & 30\\
+\hline
+O68601 & 30\\
+\hline
+O75874 & 30\\
+\hline
+P00915 & 30\\
+\hline
+P04179 & 30\\
+\hline
+P07751 & 30\\
+\hline
+P07824 & 30\\
+\hline
+P09955 & 30\\
+\hline
+P22102 & 30\\
+\hline
+P50579 & 30\\
+\hline
+P68135 & 30\\
+\hline
+Q59560 & 30\\
+\hline
+Q5TLG6 & 30\\
+\hline
+Q86C09 & 30\\
+\hline
+Q9HY79 & 30\\
+\hline
+Q9WYT0 & 30\\
+\hline
+D0C9L6 & 29\\
+\hline
+P00519 & 29\\
+\hline
+P03950 & 29\\
+\hline
+P06762 & 29\\
+\hline
+P25779 & 29\\
+\hline
+P45452 & 29\\
+\hline
+P49759 & 29\\
+\hline
+P61964 & 29\\
+\hline
+Q07412 & 29\\
+\hline
+Q07820 & 29\\
+\hline
+Q12866 & 29\\
+\hline
+Q40577 & 29\\
+\hline
+Q57834 & 29\\
+\hline
+Q5RZ08 & 29\\
+\hline
+Q72HW2 & 29\\
+\hline
+Q7SIB6 & 29\\
+\hline
+Q8RVT0 & 29\\
+\hline
+Q9AYY6 & 29\\
+\hline
+Q9NWZ3 & 29\\
+\hline
+Q9WVG6 & 29\\
+\hline
+Q9Y3Z3 & 29\\
+\hline
+A0L5S6 & 28\\
+\hline
+O27564 & 28\\
+\hline
+P00883 & 28\\
+\hline
+P03300 & 28\\
+\hline
+P04587 & 28\\
+\hline
+P04629 & 28\\
+\hline
+P07097 & 28\\
+\hline
+P08254 & 28\\
+\hline
+P0A5U4 & 28\\
+\hline
+P14769 & 28\\
+\hline
+P23458 & 28\\
+\hline
+P29274 & 28\\
+\hline
+P33590 & 28\\
+\hline
+P35557 & 28\\
+\hline
+P42330 & 28\\
+\hline
+Q8PWY1 & 28\\
+\hline
+Q9NWT6 & 28\\
+\hline
+Q9UIF9 & 28\\
+\hline
+O00408 & 27\\
+\hline
+O15382 & 27\\
+\hline
+P00433 & 27\\
+\hline
+P02928 & 27\\
+\hline
+P05091 & 27\\
+\hline
+P08263 & 27\\
+\hline
+P0AE67 & 27\\
+\hline
+P23295 & 27\\
+\hline
+P36897 & 27\\
+\hline
+Q00955 & 27\\
+\hline
+Q13093 & 27\\
+\hline
+Q9L5C8 & 27\\
+\hline
+A8DG50 & 26\\
+\hline
+O59952 & 26\\
+\hline
+O95271 & 26\\
+\hline
+P02794 & 26\\
+\hline
+P03176 & 26\\
+\hline
+P03354 & 26\\
+\hline
+P0A4Z6 & 26\\
+\hline
+P0AE18 & 26\\
+\hline
+P15090 & 26\\
+\hline
+P19614 & 26\\
+\hline
+P21802 & 26\\
+\hline
+P22557 & 26\\
+\hline
+P27708 & 26\\
+\hline
+P35247 & 26\\
+\hline
+P37268 & 26\\
+\hline
+P47205 & 26\\
+\hline
+P53355 & 26\\
+\hline
+P9WK17 & 26\\
+\hline
+Q16769 & 26\\
+\hline
+Q5UQL3 & 26\\
+\hline
+Q7SIG4 & 26\\
+\hline
+Q86WV6 & 26\\
+\hline
+A0A0U3AGT1 & 25\\
+\hline
+A6ZSR0 & 25\\
+\hline
+D6D1V7 & 25\\
+\hline
+O00255 & 25\\
+\hline
+O43570 & 25\\
+\hline
+O66496 & 25\\
+\hline
+O74036 & 25\\
+\hline
+O76290 & 25\\
+\hline
+P04585 & 25\\
+\hline
+P09601 & 25\\
+\hline
+P21890 & 25\\
+\hline
+P27338 & 25\\
+\hline
+P52333 & 25\\
+\hline
+P60472 & 25\\
+\hline
+P9WMC0 & 25\\
+\hline
+Q05397 & 25\\
+\hline
+Q6NAM1 & 25\\
+\hline
+A0A0B4WYC6 & 24\\
+\hline
+A9JQL9 & 24\\
+\hline
+O57883 & 24\\
+\hline
+P00593 & 24\\
+\hline
+P04062 & 24\\
+\hline
+P05067 & 24\\
+\hline
+P0ACT4 & 24\\
+\hline
+P0C5C1 & 24\\
+\hline
+P23360 & 24\\
+\hline
+P33038 & 24\\
+\hline
+P41182 & 24\\
+\hline
+P62623 & 24\\
+\hline
+Q07817 & 24\\
+\hline
+Q08210 & 24\\
+\hline
+Q12051 & 24\\
+\hline
+Q15119 & 24\\
+\hline
+Q3JNW6 & 24\\
+\hline
+Q86U86 & 24\\
+\hline
+Q8GSD2 & 24\\
+\hline
+Q8WQX9 & 24\\
+\hline
+Q9H7Z6 & 24\\
+\hline
+Q9H8M2 & 24\\
+\hline
+Q9NUW8 & 24\\
+\hline
+A0A0K8P6T7 & 23\\
+\hline
+P00974 & 23\\
+\hline
+P0A514 & 23\\
+\hline
+P14489 & 23\\
+\hline
+P16184 & 23\\
+\hline
+P23687 & 23\\
+\hline
+P69924 & 23\\
+\hline
+P78356 & 23\\
+\hline
+Q02899 & 23\\
+\hline
+Q2TU34 & 23\\
+\hline
+Q45040 & 23\\
+\hline
+Q4W1X2 & 23\\
+\hline
+Q53WB3 & 23\\
+\hline
+Q72498 & 23\\
+\hline
+Q81HW2 & 23\\
+\hline
+Q9HYN5 & 23\\
+\hline
+Q9K2N0 & 23\\
+\hline
+O75469 & 22\\
+\hline
+P00749 & 22\\
+\hline
+P02638 & 22\\
+\hline
+P02701 & 22\\
+\hline
+P03368 & 22\\
+\hline
+P06241 & 22\\
+\hline
+P07711 & 22\\
+\hline
+P29166 & 22\\
+\hline
+P62942 & 22\\
+\hline
+P96222 & 22\\
+\hline
+Q12306 & 22\\
+\hline
+Q13153 & 22\\
+\hline
+Q13464 & 22\\
+\hline
+Q25252 & 22\\
+\hline
+Q5F4T5 & 22\\
+\hline
+Q7A6D8 & 22\\
+\hline
+Q7SI98 & 22\\
+\hline
+Q980A5 & 22\\
+\hline
+Q9NZD2 & 22\\
+\hline
+A5K1A2 & 21\\
+\hline
+G3XD46 & 21\\
+\hline
+O43318 & 21\\
+\hline
+P00388 & 21\\
+\hline
+P00558 & 21\\
+\hline
+P0A4Z2 & 21\\
+\hline
+P0ACJ8 & 21\\
+\hline
+P19999 & 21\\
+\hline
+P30291 & 21\\
+\hline
+P36649 & 21\\
+\hline
+P62694 & 21\\
+\hline
+P62988 & 21\\
+\hline
+P63810 & 21\\
+\hline
+Q16790 & 21\\
+\hline
+Q1LCS4 & 21\\
+\hline
+Q5ZUA2 & 21\\
+\hline
+Q84HF5 & 21\\
+\hline
+Q8N884 & 21\\
+\hline
+Q8YUQ7 & 21\\
+\hline
+Q9HV14 & 21\\
+\hline
+Q9WMX2 & 21\\
+\hline
+A0A059PIQ0 & 20\\
+\hline
+B2ZB02 & 20\\
+\hline
+G3XD33 & 20\\
+\hline
+O60218 & 20\\
+\hline
+O60760 & 20\\
+\hline
+P00178 & 20\\
+\hline
+P00268 & 20\\
+\hline
+P00323 & 20\\
+\hline
+P00592 & 20\\
+\hline
+P00947 & 20\\
+\hline
+P01375 & 20\\
+\hline
+P02689 & 20\\
+\hline
+P07788 & 20\\
+\hline
+P09391 & 20\\
+\hline
+P13513 & 20\\
+\hline
+P15494 & 20\\
+\hline
+P20701 & 20\\
+\hline
+P21589 & 20\\
+\hline
+P22364 & 20\\
+\hline
+P22830 & 20\\
+\hline
+P27694 & 20\\
+\hline
+P49137 & 20\\
+\hline
+P55201 & 20\\
+\hline
+P63073 & 20\\
+\hline
+P78536 & 20\\
+\hline
+P9WGR1 & 20\\
+\hline
+Q05127 & 20\\
+\hline
+Q09472 & 20\\
+\hline
+Q2PS28 & 20\\
+\hline
+Q75WH8 & 20\\
+\hline
+Q9AMP1 & 20\\
+\hline
+Q9NPB1 & 20\\
+\hline
+Q9U9J6 & 20\\
+\hline
+Q9UJ71 & 20\\
+\hline
+Q9Y6E0 & 20\\
+\hline
+A0A0M3KL26 & 19\\
+\hline
+A1YIY3 & 19\\
+\hline
+B2RID1 & 19\\
+\hline
+O53223 & 19\\
+\hline
+O96013 & 19\\
+\hline
+P00044 & 19\\
+\hline
+P08170 & 19\\
+\hline
+P08515 & 19\\
+\hline
+P0AEG4 & 19\\
+\hline
+P12676 & 19\\
+\hline
+P13569 & 19\\
+\hline
+P14780 & 19\\
+\hline
+P15917 & 19\\
+\hline
+P17846 & 19\\
+\hline
+P19492 & 19\\
+\hline
+P23222 & 19\\
+\hline
+P31224 & 19\\
+\hline
+P31749 & 19\\
+\hline
+P40859 & 19\\
+\hline
+P49902 & 19\\
+\hline
+P54760 & 19\\
+\hline
+P93025 & 19\\
+\hline
+Q05097 & 19\\
+\hline
+Q5SLD7 & 19\\
+\hline
+Q6P4R6 & 19\\
+\hline
+Q86W56 & 19\\
+\hline
+Q8PGN7 & 19\\
+\hline
+Q90092 & 19\\
+\hline
+Q93009 & 19\\
+\hline
+Q96PN6 & 19\\
+\hline
+Q9JZ55 & 19\\
+\hline
+Q9K169 & 19\\
+\hline
+Q9NLB2 & 19\\
+\hline
+Q9UJM8 & 19\\
+\hline
+Q9ZB17 & 19\\
+\hline
+A0A0S4TLR1 & 18\\
+\hline
+A0QUZ2 & 18\\
+\hline
+F6BL85 & 18\\
+\hline
+O67648 & 18\\
+\hline
+P00520 & 18\\
+\hline
+P00669 & 18\\
+\hline
+P02872 & 18\\
+\hline
+P04035 & 18\\
+\hline
+P04958 & 18\\
+\hline
+P05979 & 18\\
+\hline
+P06396 & 18\\
+\hline
+P07061 & 18\\
+\hline
+P0A0K8 & 18\\
+\hline
+P0A6L4 & 18\\
+\hline
+P0A881 & 18\\
+\hline
+P10845 & 18\\
+\hline
+P11021 & 18\\
+\hline
+P14061 & 18\\
+\hline
+P15034 & 18\\
+\hline
+P31947 & 18\\
+\hline
+P35747 & 18\\
+\hline
+P42260 & 18\\
+\hline
+P52704 & 18\\
+\hline
+P54512 & 18\\
+\hline
+P55212 & 18\\
+\hline
+P69681 & 18\\
+\hline
+P97612 & 18\\
+\hline
+Q01693 & 18\\
+\hline
+Q0I9X8 & 18\\
+\hline
+Q10714 & 18\\
+\hline
+Q2KDX6 & 18\\
+\hline
+Q46822 & 18\\
+\hline
+Q55891 & 18\\
+\hline
+Q5F2I3 & 18\\
+\hline
+Q5KZU5 & 18\\
+\hline
+Q5SLB4 & 18\\
+\hline
+Q8PDX2 & 18\\
+\hline
+Q8TEK3 & 18\\
+\hline
+Q99683 & 18\\
+\hline
+Q9BPX1 & 18\\
+\hline
+Q9HU22 & 18\\
+\hline
+Q9UHD2 & 18\\
+\hline
+Q9Y2J8 & 18\\
+\hline
+NA & 18\\
+\hline
+A0A063X4U8 & 17\\
+\hline
+A4IL26 & 17\\
+\hline
+O00214 & 17\\
+\hline
+O06961 & 17\\
+\hline
+O32164 & 17\\
+\hline
+O35904 & 17\\
+\hline
+O43175 & 17\\
+\hline
+P00214 & 17\\
+\hline
+P00439 & 17\\
+\hline
+P01009 & 17\\
+\hline
+P02640 & 17\\
+\hline
+P02931 & 17\\
+\hline
+P05798 & 17\\
+\hline
+P08235 & 17\\
+\hline
+P08631 & 17\\
+\hline
+P0A0C1 & 17\\
+\hline
+P0A1C1 & 17\\
+\hline
+P0A6D3 & 17\\
+\hline
+P0A6K3 & 17\\
+\hline
+P0A6L2 & 17\\
+\hline
+P0A7D4 & 17\\
+\hline
+P10721 & 17\\
+\hline
+P10844 & 17\\
+\hline
+P11716 & 17\\
+\hline
+P14668 & 17\\
+\hline
+P15559 & 17\\
+\hline
+P19567 & 17\\
+\hline
+P19784 & 17\\
+\hline
+P21524 & 17\\
+\hline
+P23470 & 17\\
+\hline
+P45148 & 17\\
+\hline
+P48730 & 17\\
+\hline
+P59665 & 17\\
+\hline
+P81180 & 17\\
+\hline
+Q39054 & 17\\
+\hline
+Q54276 & 17\\
+\hline
+Q56952 & 17\\
+\hline
+Q5S6Z9 & 17\\
+\hline
+Q6DRA1 & 17\\
+\hline
+Q6NZB1 & 17\\
+\hline
+Q81R22 & 17\\
+\hline
+Q8N6T7 & 17\\
+\hline
+Q93LD7 & 17\\
+\hline
+Q9K4U1 & 17\\
+\hline
+Q9UZ14 & 17\\
+\hline
+Q9ZAG3 & 17\\
+\hline
+A0A023UGN9 & 16\\
+\hline
+A0R2B1 & 16\\
+\hline
+A3F9D6 & 16\\
+\hline
+A9XG43 & 16\\
+\hline
+O00299 & 16\\
+\hline
+O54438 & 16\\
+\hline
+O57728 & 16\\
+\hline
+O57978 & 16\\
+\hline
+O60701 & 16\\
+\hline
+O75531 & 16\\
+\hline
+O76242 & 16\\
+\hline
+O95989 & 16\\
+\hline
+P02699 & 16\\
+\hline
+P04156 & 16\\
+\hline
+P06734 & 16\\
+\hline
+P06737 & 16\\
+\hline
+P07333 & 16\\
+\hline
+P07617 & 16\\
+\hline
+P07741 & 16\\
+\hline
+P08191 & 16\\
+\hline
+P08659 & 16\\
+\hline
+P09382 & 16\\
+\hline
+P0A6F5 & 16\\
+\hline
+P0A988 & 16\\
+\hline
+P0ABD3 & 16\\
+\hline
+P0DMV8 & 16\\
+\hline
+P0DTC9 & 16\\
+\hline
+P12528 & 16\\
+\hline
+P14900 & 16\\
+\hline
+P15273 & 16\\
+\hline
+P15291 & 16\\
+\hline
+P16330 & 16\\
+\hline
+P22188 & 16\\
+\hline
+P22455 & 16\\
+\hline
+P29241 & 16\\
+\hline
+P29736 & 16\\
+\hline
+P30074 & 16\\
+\hline
+P32021 & 16\\
+\hline
+P32396 & 16\\
+\hline
+P43379 & 16\\
+\hline
+P47929 & 16\\
+\hline
+P50264 & 16\\
+\hline
+P56216 & 16\\
+\hline
+P66992 & 16\\
+\hline
+P77072 & 16\\
+\hline
+P9WFQ9 & 16\\
+\hline
+Q13126 & 16\\
+\hline
+Q14145 & 16\\
+\hline
+Q14397 & 16\\
+\hline
+Q16658 & 16\\
+\hline
+Q3UDT3 & 16\\
+\hline
+Q460N3 & 16\\
+\hline
+Q51504 & 16\\
+\hline
+Q5H3Z2 & 16\\
+\hline
+Q6WY08 & 16\\
+\hline
+Q75I93 & 16\\
+\hline
+Q7WUJ1 & 16\\
+\hline
+Q818Z9 & 16\\
+\hline
+Q83883 & 16\\
+\hline
+Q86X55 & 16\\
+\hline
+Q8RBX6 & 16\\
+\hline
+Q8RLA6 & 16\\
+\hline
+Q8TLY9 & 16\\
+\hline
+Q94M05 & 16\\
+\hline
+Q99986 & 16\\
+\hline
+Q9L1K2 & 16\\
+\hline
+Q9NR97 & 16\\
+\hline
+Q9UKK9 & 16\\
+\hline
+Q9XZT6 & 16\\
+\hline
+Q9Y3R4 & 16\\
+\hline
+A0A059WLS9 & 15\\
+\hline
+A0A0M3KKW9 & 15\\
+\hline
+B0Y813 & 15\\
+\hline
+B7JBP8 & 15\\
+\hline
+E0SJQ4 & 15\\
+\hline
+N0DKS8 & 15\\
+\hline
+O14733 & 15\\
+\hline
+O32323 & 15\\
+\hline
+O68183 & 15\\
+\hline
+O95819 & 15\\
+\hline
+P00390 & 15\\
+\hline
+P00492 & 15\\
+\hline
+P00817 & 15\\
+\hline
+P07148 & 15\\
+\hline
+P07700 & 15\\
+\hline
+P08168 & 15\\
+\hline
+P08427 & 15\\
+\hline
+P0A5J2 & 15\\
+\hline
+P0ABN1 & 15\\
+\hline
+P10824 & 15\\
+\hline
+P12758 & 15\\
+\hline
+P13280 & 15\\
+\hline
+P16304 & 15\\
+\hline
+P18548 & 15\\
+\hline
+P19909 & 15\\
+\hline
+P22736 & 15\\
+\hline
+P22887 & 15\\
+\hline
+P23141 & 15\\
+\hline
+P26276 & 15\\
+\hline
+P27695 & 15\\
+\hline
+P30419 & 15\\
+\hline
+P31013 & 15\\
+\hline
+P32169 & 15\\
+\hline
+P33120 & 15\\
+\hline
+P42264 & 15\\
+\hline
+P44542 & 15\\
+\hline
+P53041 & 15\\
+\hline
+P53350 & 15\\
+\hline
+P56658 & 15\\
+\hline
+P62508 & 15\\
+\hline
+P62617 & 15\\
+\hline
+P62993 & 15\\
+\hline
+P72056 & 15\\
+\hline
+P83194 & 15\\
+\hline
+P97438 & 15\\
+\hline
+P9WQ01 & 15\\
+\hline
+Q00972 & 15\\
+\hline
+Q08751 & 15\\
+\hline
+Q13490 & 15\\
+\hline
+Q16716 & 15\\
+\hline
+Q1EMV2 & 15\\
+\hline
+Q27743 & 15\\
+\hline
+Q45697 & 15\\
+\hline
+Q54873 & 15\\
+\hline
+Q59643 & 15\\
+\hline
+Q5G940 & 15\\
+\hline
+Q5SHZ3 & 15\\
+\hline
+Q5SIY4 & 15\\
+\hline
+Q6DLV0 & 15\\
+\hline
+Q70GK9 & 15\\
+\hline
+Q76KB0 & 15\\
+\hline
+Q8IXJ6 & 15\\
+\hline
+Q8N1Q1 & 15\\
+\hline
+Q8TF76 & 15\\
+\hline
+Q8WVM7 & 15\\
+\hline
+Q90K99 & 15\\
+\hline
+Q9L9D7 & 15\\
+\hline
+Q9X1M1 & 15\\
+\hline
+Q9Y468 & 15\\
+\hline
+Q9Y6F1 & 15\\
+\hline
+X5E0F1 & 15\\
+\hline
+A0A0M4FJ81 & 14\\
+\hline
+A0A0S4TER9 & 14\\
+\hline
+A0A140NCK4 & 14\\
+\hline
+A0A1G4H5I1 & 14\\
+\hline
+B1WPM8 & 14\\
+\hline
+B7QK46 & 14\\
+\hline
+B8HNS6 & 14\\
+\hline
+E9AE57 & 14\\
+\hline
+I6Y9J2 & 14\\
+\hline
+O13833 & 14\\
+\hline
+O14936 & 14\\
+\hline
+O15164 & 14\\
+\hline
+O34925 & 14\\
+\hline
+O43314 & 14\\
+\hline
+O43353 & 14\\
+\hline
+O50580 & 14\\
+\hline
+O59010 & 14\\
+\hline
+O60341 & 14\\
+\hline
+O66490 & 14\\
+\hline
+O73948 & 14\\
+\hline
+O85465 & 14\\
+\hline
+P00459 & 14\\
+\hline
+P00648 & 14\\
+\hline
+P00734 & 14\\
+\hline
+P00761 & 14\\
+\hline
+P00782 & 14\\
+\hline
+P00953 & 14\\
+\hline
+P00959 & 14\\
+\hline
+P02911 & 14\\
+\hline
+P04181 & 14\\
+\hline
+P05020 & 14\\
+\hline
+P05121 & 14\\
+\hline
+P05413 & 14\\
+\hline
+P06132 & 14\\
+\hline
+P06280 & 14\\
+\hline
+P06401 & 14\\
+\hline
+P06608 & 14\\
+\hline
+P07896 & 14\\
+\hline
+P08149 & 14\\
+\hline
+P09104 & 14\\
+\hline
+P09455 & 14\\
+\hline
+P0A7Y4 & 14\\
+\hline
+P0AA25 & 14\\
+\hline
+P0AD64 & 14\\
+\hline
+P0AEE3 & 14\\
+\hline
+P0CG48 & 14\\
+\hline
+P0CL66 & 14\\
+\hline
+P10384 & 14\\
+\hline
+P10415 & 14\\
+\hline
+P10822 & 14\\
+\hline
+P10828 & 14\\
+\hline
+P11073 & 14\\
+\hline
+P11509 & 14\\
+\hline
+P12281 & 14\\
+\hline
+P13423 & 14\\
+\hline
+P16088 & 14\\
+\hline
+P22894 & 14\\
+\hline
+P24666 & 14\\
+\hline
+P24670 & 14\\
+\hline
+P30305 & 14\\
+\hline
+P30967 & 14\\
+\hline
+P31133 & 14\\
+\hline
+P38489 & 14\\
+\hline
+P39304 & 14\\
+\hline
+P41222 & 14\\
+\hline
+P45568 & 14\\
+\hline
+P46976 & 14\\
+\hline
+P51857 & 14\\
+\hline
+P52700 & 14\\
+\hline
+P56109 & 14\\
+\hline
+P58687 & 14\\
+\hline
+P60174 & 14\\
+\hline
+P60568 & 14\\
+\hline
+Q00944 & 14\\
+\hline
+Q02P97 & 14\\
+\hline
+Q04416 & 14\\
+\hline
+Q06121 & 14\\
+\hline
+Q26241 & 14\\
+\hline
+Q27686 & 14\\
+\hline
+Q27709 & 14\\
+\hline
+Q41736 & 14\\
+\hline
+Q47066 & 14\\
+\hline
+Q5SI02 & 14\\
+\hline
+Q6GIL8 & 14\\
+\hline
+Q7CRA4 & 14\\
+\hline
+Q7JYX0 & 14\\
+\hline
+Q7L266 & 14\\
+\hline
+Q81VW8 & 14\\
+\hline
+Q8N371 & 14\\
+\hline
+Q8U093 & 14\\
+\hline
+Q92876 & 14\\
+\hline
+Q93YN9 & 14\\
+\hline
+Q96RR4 & 14\\
+\hline
+Q97VT7 & 14\\
+\hline
+Q99AU2 & 14\\
+\hline
+Q9H9B1 & 14\\
+\hline
+Q9T0N8 & 14\\
+\hline
+Q9UBN7 & 14\\
+\hline
+Q9UM07 & 14\\
+\hline
+Q9YFY3 & 14\\
+\hline
+W6EQP0 & 14\\
+\hline
+W8QF82 & 14\\
+\hline
+A0A010 & 13\\
+\hline
+A0A5K1KQ39 & 13\\
+\hline
+A2IC68 & 13\\
+\hline
+G3XD89 & 13\\
+\hline
+L8ICE9 & 13\\
+\hline
+O00757 & 13\\
+\hline
+O24313 & 13\\
+\hline
+O30298 & 13\\
+\hline
+O43613 & 13\\
+\hline
+O60568 & 13\\
+\hline
+O92810 & 13\\
+\hline
+P00442 & 13\\
+\hline
+P00448 & 13\\
+\hline
+P00778 & 13\\
+\hline
+P00808 & 13\\
+\hline
+P01556 & 13\\
+\hline
+P03051 & 13\\
+\hline
+P04278 & 13\\
+\hline
+P04642 & 13\\
+\hline
+P05093 & 13\\
+\hline
+P07602 & 13\\
+\hline
+P08200 & 13\\
+\hline
+P08661 & 13\\
+\hline
+P09850 & 13\\
+\hline
+P0A0N3 & 13\\
+\hline
+P0A0N4 & 13\\
+\hline
+P0A3G2 & 13\\
+\hline
+P0A552 & 13\\
+\hline
+P10599 & 13\\
+\hline
+P12493 & 13\\
+\hline
+P14210 & 13\\
+\hline
+P17802 & 13\\
+\hline
+P19120 & 13\\
+\hline
+P20813 & 13\\
+\hline
+P22223 & 13\\
+\hline
+P22985 & 13\\
+\hline
+P28313 & 13\\
+\hline
+P35790 & 13\\
+\hline
+P41365 & 13\\
+\hline
+P45723 & 13\\
+\hline
+P49761 & 13\\
+\hline
+P50053 & 13\\
+\hline
+P51541 & 13\\
+\hline
+P52699 & 13\\
+\hline
+P55859 & 13\\
+\hline
+P77444 & 13\\
+\hline
+P84801 & 13\\
+\hline
+P96382 & 13\\
+\hline
+Q02469 & 13\\
+\hline
+Q0GMU2 & 13\\
+\hline
+Q10QA5 & 13\\
+\hline
+Q13546 & 13\\
+\hline
+Q25704 & 13\\
+\hline
+Q28175 & 13\\
+\hline
+Q2YY41 & 13\\
+\hline
+Q56185 & 13\\
+\hline
+Q5EK40 & 13\\
+\hline
+Q6P2Q9 & 13\\
+\hline
+Q81W29 & 13\\
+\hline
+Q8A5V9 & 13\\
+\hline
+Q8P8J2 & 13\\
+\hline
+Q8T0W7 & 13\\
+\hline
+Q94BU8 & 13\\
+\hline
+Q96DC9 & 13\\
+\hline
+Q988D3 & 13\\
+\hline
+Q99321 & 13\\
+\hline
+Q9C0B1 & 13\\
+\hline
+Q9L5C7 & 13\\
+\hline
+Q9NP87 & 13\\
+\hline
+Q9NRG4 & 13\\
+\hline
+Q9RA63 & 13\\
+\hline
+Q9RVU2 & 13\\
+\hline
+Q9WYA3 & 13\\
+\hline
+Q9WYE2 & 13\\
+\hline
+Q9Y9L0 & 13\\
+\hline
+Q9YBQ2 & 13\\
+\hline
+V7IJE3 & 13\\
+\hline
+W9BQ28 & 13\\
+\hline
+A0A0H2WY27 & 12\\
+\hline
+A0A0S2GKZ1 & 12\\
+\hline
+A0A1L2E0X0 & 12\\
+\hline
+A0QXB7 & 12\\
+\hline
+A5MTN0 & 12\\
+\hline
+A5ZY13 & 12\\
+\hline
+A9CQL4 & 12\\
+\hline
+B1UXN2 & 12\\
+\hline
+B9W4V6 & 12\\
+\hline
+C7BLE4 & 12\\
+\hline
+D9N170 & 12\\
+\hline
+E7FJB9 & 12\\
+\hline
+E9G5J5 & 12\\
+\hline
+F7X6I3 & 12\\
+\hline
+G0SB58 & 12\\
+\hline
+H6A2X0 & 12\\
+\hline
+I0AIT9 & 12\\
+\hline
+I0B503 & 12\\
+\hline
+O43451 & 12\\
+\hline
+O43809 & 12\\
+\hline
+O54288 & 12\\
+\hline
+O75936 & 12\\
+\hline
+O94753 & 12\\
+\hline
+P02788 & 12\\
+\hline
+P02882 & 12\\
+\hline
+P04117 & 12\\
+\hline
+P04275 & 12\\
+\hline
+P04547 & 12\\
+\hline
+P04745 & 12\\
+\hline
+P05373 & 12\\
+\hline
+P06745 & 12\\
+\hline
+P07949 & 12\\
+\hline
+P08069 & 12\\
+\hline
+P09147 & 12\\
+\hline
+P09622 & 12\\
+\hline
+P0A251 & 12\\
+\hline
+P0A574 & 12\\
+\hline
+P0ABP8 & 12\\
+\hline
+P0AES6 & 12\\
+\hline
+P0C6X7 & 12\\
+\hline
+P11797 & 12\\
+\hline
+P12807 & 12\\
+\hline
+P13848 & 12\\
+\hline
+P14735 & 12\\
+\hline
+P14920 & 12\\
+\hline
+P15555 & 12\\
+\hline
+P16932 & 12\\
+\hline
+P22498 & 12\\
+\hline
+P23368 & 12\\
+\hline
+P25081 & 12\\
+\hline
+P31016 & 12\\
+\hline
+P35755 & 12\\
+\hline
+P36924 & 12\\
+\hline
+P37957 & 12\\
+\hline
+P43889 & 12\\
+\hline
+P44741 & 12\\
+\hline
+P44801 & 12\\
+\hline
+P52895 & 12\\
+\hline
+P56470 & 12\\
+\hline
+P56740 & 12\\
+\hline
+P68440 & 12\\
+\hline
+P74334 & 12\\
+\hline
+P95468 & 12\\
+\hline
+P96084 & 12\\
+\hline
+P9WPP6 & 12\\
+\hline
+Q03111 & 12\\
+\hline
+Q07157 & 12\\
+\hline
+Q07599 & 12\\
+\hline
+Q07889 & 12\\
+\hline
+Q13976 & 12\\
+\hline
+Q14289 & 12\\
+\hline
+Q16836 & 12\\
+\hline
+Q16875 & 12\\
+\hline
+Q389T8 & 12\\
+\hline
+Q43758 & 12\\
+\hline
+Q46604 & 12\\
+\hline
+Q4QEW7 & 12\\
+\hline
+Q4WMJ8 & 12\\
+\hline
+Q5M586 & 12\\
+\hline
+Q6FPH0 & 12\\
+\hline
+Q6NE57 & 12\\
+\hline
+Q6VT83 & 12\\
+\hline
+Q8A3I4 & 12\\
+\hline
+Q8E9N3 & 12\\
+\hline
+Q8N8S7 & 12\\
+\hline
+Q8ULI9 & 12\\
+\hline
+Q8WZ42 & 12\\
+\hline
+Q93NH4 & 12\\
+\hline
+Q99PF4 & 12\\
+\hline
+Q9H999 & 12\\
+\hline
+Q9HPW4 & 12\\
+\hline
+Q9K499 & 12\\
+\hline
+Q9RME2 & 12\\
+\hline
+Q9XEI3 & 12\\
+\hline
+Q9Y5P4 & 12\\
+\hline
+Q9ZIV5 & 12\\
+\hline
+Q9ZMY2 & 12\\
+\hline
+W8RJF9 & 12\\
+\hline
+A0A024R884 & 11\\
+\hline
+A0A0D6G5A8 & 11\\
+\hline
+A0A5R9HKL3 & 11\\
+\hline
+A5K4U6 & 11\\
+\hline
+A7BT71 & 11\\
+\hline
+A7UD81 & 11\\
+\hline
+B3EY95 & 11\\
+\hline
+B3Y002 & 11\\
+\hline
+C8B467 & 11\\
+\hline
+J7HDY4 & 11\\
+\hline
+M5AAG8 & 11\\
+\hline
+O00182 & 11\\
+\hline
+O00625 & 11\\
+\hline
+O14786 & 11\\
+\hline
+O22476 & 11\\
+\hline
+O34714 & 11\\
+\hline
+O58925 & 11\\
+\hline
+O67099 & 11\\
+\hline
+O76083 & 11\\
+\hline
+O80992 & 11\\
+\hline
+O88703 & 11\\
+\hline
+P00171 & 11\\
+\hline
+P00432 & 11\\
+\hline
+P00730 & 11\\
+\hline
+P00746 & 11\\
+\hline
+P00763 & 11\\
+\hline
+P00780 & 11\\
+\hline
+P00784 & 11\\
+\hline
+P00921 & 11\\
+\hline
+P01542 & 11\\
+\hline
+P02511 & 11\\
+\hline
+P02743 & 11\\
+\hline
+P03420 & 11\\
+\hline
+P04377 & 11\\
+\hline
+P05618 & 11\\
+\hline
+P06143 & 11\\
+\hline
+P06612 & 11\\
+\hline
+P06766 & 11\\
+\hline
+P07738 & 11\\
+\hline
+P07814 & 11\\
+\hline
+P08670 & 11\\
+\hline
+P08692 & 11\\
+\hline
+P09546 & 11\\
+\hline
+P09803 & 11\\
+\hline
+P0A1F6 & 11\\
+\hline
+P0A546 & 11\\
+\hline
+P0A6H1 & 11\\
+\hline
+P0A870 & 11\\
+\hline
+P0A8M3 & 11\\
+\hline
+P0A953 & 11\\
+\hline
+P0AC14 & 11\\
+\hline
+P0C6F2 & 11\\
+\hline
+P11456 & 11\\
+\hline
+P11511 & 11\\
+\hline
+P11717 & 11\\
+\hline
+P12995 & 11\\
+\hline
+P13255 & 11\\
+\hline
+P13501 & 11\\
+\hline
+P16466 & 11\\
+\hline
+P16753 & 11\\
+\hline
+P17109 & 11\\
+\hline
+P17169 & 11\\
+\hline
+P18429 & 11\\
+\hline
+P22906 & 11\\
+\hline
+P23443 & 11\\
+\hline
+P23919 & 11\\
+\hline
+P23946 & 11\\
+\hline
+P24182 & 11\\
+\hline
+P24474 & 11\\
+\hline
+P24991 & 11\\
+\hline
+P25524 & 11\\
+\hline
+P26514 & 11\\
+\hline
+P26918 & 11\\
+\hline
+P27915 & 11\\
+\hline
+P28327 & 11\\
+\hline
+P32449 & 11\\
+\hline
+P32890 & 11\\
+\hline
+P33173 & 11\\
+\hline
+P39086 & 11\\
+\hline
+P39116 & 11\\
+\hline
+P40881 & 11\\
+\hline
+P42262 & 11\\
+\hline
+P42527 & 11\\
+\hline
+P45697 & 11\\
+\hline
+P46883 & 11\\
+\hline
+P47229 & 11\\
+\hline
+P48499 & 11\\
+\hline
+P49419 & 11\\
+\hline
+P50225 & 11\\
+\hline
+P50440 & 11\\
+\hline
+P51584 & 11\\
+\hline
+P54818 & 11\\
+\hline
+P55210 & 11\\
+\hline
+P60022 & 11\\
+\hline
+P60891 & 11\\
+\hline
+P61615 & 11\\
+\hline
+P78417 & 11\\
+\hline
+P82610 & 11\\
+\hline
+P83772 & 11\\
+\hline
+Q16873 & 11\\
+\hline
+Q1QT89 & 11\\
+\hline
+Q2K340 & 11\\
+\hline
+Q2QJL3 & 11\\
+\hline
+Q32ZE1 & 11\\
+\hline
+Q44244 & 11\\
+\hline
+Q46509 & 11\\
+\hline
+Q46E80 & 11\\
+\hline
+Q47PU3 & 11\\
+\hline
+Q5T0W9 & 11\\
+\hline
+Q63T71 & 11\\
+\hline
+Q6L732 & 11\\
+\hline
+Q6WVP7 & 11\\
+\hline
+Q70V26 & 11\\
+\hline
+Q7SSI0 & 11\\
+\hline
+Q7YS85 & 11\\
+\hline
+Q83V25 & 11\\
+\hline
+Q8GGK7 & 11\\
+\hline
+Q8NEB9 & 11\\
+\hline
+Q8ZNT7 & 11\\
+\hline
+Q95WL3 & 11\\
+\hline
+Q96T88 & 11\\
+\hline
+Q9F8A8 & 11\\
+\hline
+Q9FD73 & 11\\
+\hline
+Q9H7B4 & 11\\
+\hline
+Q9HUM0 & 11\\
+\hline
+Q9NZJ5 & 11\\
+\hline
+Q9X1X7 & 11\\
+\hline
+Q9ZEU2 & 11\\
+\hline
+A0A045H8W3 & 10\\
+\hline
+A0A0F8JXW8 & 10\\
+\hline
+A0A0H2YN38 & 10\\
+\hline
+A0A0W8ATM9 & 10\\
+\hline
+A0A161XU12 & 10\\
+\hline
+A0A1S9DK56 & 10\\
+\hline
+A0PQG8 & 10\\
+\hline
+A1E280 & 10\\
+\hline
+A3DJ38 & 10\\
+\hline
+A5K8L9 & 10\\
+\hline
+A7A026 & 10\\
+\hline
+B1PWB9 & 10\\
+\hline
+B1ZMF4 & 10\\
+\hline
+B5L6K6 & 10\\
+\hline
+B8YK79 & 10\\
+\hline
+C9K1X5 & 10\\
+\hline
+D0CFC3 & 10\\
+\hline
+E8MGH8 & 10\\
+\hline
+F1RQI7 & 10\\
+\hline
+G3XCK4 & 10\\
+\hline
+G9MBV2 & 10\\
+\hline
+K7NTP5 & 10\\
+\hline
+O05891 & 10\\
+\hline
+O15151 & 10\\
+\hline
+O32080 & 10\\
+\hline
+O33839 & 10\\
+\hline
+O53512 & 10\\
+\hline
+O53623 & 10\\
+\hline
+O64527 & 10\\
+\hline
+O75530 & 10\\
+\hline
+O95831 & 10\\
+\hline
+P00004 & 10\\
+\hline
+P00383 & 10\\
+\hline
+P00514 & 10\\
+\hline
+P00695 & 10\\
+\hline
+P00924 & 10\\
+\hline
+P00940 & 10\\
+\hline
+P01034 & 10\\
+\hline
+P03314 & 10\\
+\hline
+P03433 & 10\\
+\hline
+P05042 & 10\\
+\hline
+P05132 & 10\\
+\hline
+P06213 & 10\\
+\hline
+P06886 & 10\\
+\hline
+P07342 & 10\\
+\hline
+P07547 & 10\\
+\hline
+P08107 & 10\\
+\hline
+P08397 & 10\\
+\hline
+P0A114 & 10\\
+\hline
+P0A3G3 & 10\\
+\hline
+P0A715 & 10\\
+\hline
+P0AB71 & 10\\
+\hline
+P0CG47 & 10\\
+\hline
+P10724 & 10\\
+\hline
+P11589 & 10\\
+\hline
+P12955 & 10\\
+\hline
+P13702 & 10\\
+\hline
+P14555 & 10\\
+\hline
+P15145 & 10\\
+\hline
+P16404 & 10\\
+\hline
+P16544 & 10\\
+\hline
+P19367 & 10\\
+\hline
+P19793 & 10\\
+\hline
+P20339 & 10\\
+\hline
+P20586 & 10\\
+\hline
+P21549 & 10\\
+\hline
+P22069 & 10\\
+\hline
+P22748 & 10\\
+\hline
+P23381 & 10\\
+\hline
+P29132 & 10\\
+\hline
+P29160 & 10\\
+\hline
+P29401 & 10\\
+\hline
+P29715 & 10\\
+\hline
+P30043 & 10\\
+\hline
+P30986 & 10\\
+\hline
+P35160 & 10\\
+\hline
+P35439 & 10\\
+\hline
+P35475 & 10\\
+\hline
+P35844 & 10\\
+\hline
+P36871 & 10\\
+\hline
+P36969 & 10\\
+\hline
+P37344 & 10\\
+\hline
+P39594 & 10\\
+\hline
+P43133 & 10\\
+\hline
+P46531 & 10\\
+\hline
+P46925 & 10\\
+\hline
+P49327 & 10\\
+\hline
+P55072 & 10\\
+\hline
+P55915 & 10\\
+\hline
+P56273 & 10\\
+\hline
+P56463 & 10\\
+\hline
+P58502 & 10\\
+\hline
+P61586 & 10\\
+\hline
+P63316 & 10\\
+\hline
+P66881 & 10\\
+\hline
+P78352 & 10\\
+\hline
+P80176 & 10\\
+\hline
+P80457 & 10\\
+\hline
+P94368 & 10\\
+\hline
+P94692 & 10\\
+\hline
+P95607 & 10\\
+\hline
+P96965 & 10\\
+\hline
+P9WQ81 & 10\\
+\hline
+Q000H7 & 10\\
+\hline
+Q01468 & 10\\
+\hline
+Q01523 & 10\\
+\hline
+Q02763 & 10\\
+\hline
+Q03555 & 10\\
+\hline
+Q07422 & 10\\
+\hline
+Q08345 & 10\\
+\hline
+Q0ABW0 & 10\\
+\hline
+Q12830 & 10\\
+\hline
+Q13162 & 10\\
+\hline
+Q13231 & 10\\
+\hline
+Q15047 & 10\\
+\hline
+Q16595 & 10\\
+\hline
+Q16611 & 10\\
+\hline
+Q16878 & 10\\
+\hline
+Q1XA76 & 10\\
+\hline
+Q2G506 & 10\\
+\hline
+Q2M889 & 10\\
+\hline
+Q3ITX1 & 10\\
+\hline
+Q4W8A1 & 10\\
+\hline
+Q56310 & 10\\
+\hline
+Q58380 & 10\\
+\hline
+Q59263 & 10\\
+\hline
+Q5AR53 & 10\\
+\hline
+Q5HZB2 & 10\\
+\hline
+Q5U8X5 & 10\\
+\hline
+Q643C8 & 10\\
+\hline
+Q64823 & 10\\
+\hline
+Q67FT0 & 10\\
+\hline
+Q6T755 & 10\\
+\hline
+Q6WZB0 & 10\\
+\hline
+Q70I53 & 10\\
+\hline
+Q70IY1 & 10\\
+\hline
+Q81TB4 & 10\\
+\hline
+Q8E378 & 10\\
+\hline
+Q8I5R7 & 10\\
+\hline
+Q8II73 & 10\\
+\hline
+Q8NKB0 & 10\\
+\hline
+Q92731 & 10\\
+\hline
+Q939Q9 & 10\\
+\hline
+Q93TK0 & 10\\
+\hline
+Q95YI4 & 10\\
+\hline
+Q96KQ7 & 10\\
+\hline
+Q972W6 & 10\\
+\hline
+Q9F663 & 10\\
+\hline
+Q9GPQ4 & 10\\
+\hline
+Q9HBH9 & 10\\
+\hline
+Q9I834 & 10\\
+\hline
+Q9L4P2 & 10\\
+\hline
+Q9P8C9 & 10\\
+\hline
+Q9PTT3 & 10\\
+\hline
+Q9TVW2 & 10\\
+\hline
+Q9UKV8 & 10\\
+\hline
+Q9UR08 & 10\\
+\hline
+Q9UUB1 & 10\\
+\hline
+Q9WUL6 & 10\\
+\hline
+Q9X0Z6 & 10\\
+\hline
+A0A076MF68 & 9\\
+\hline
+A0A076NBW8 & 9\\
+\hline
+A0A0R6L508 & 9\\
+\hline
+A0A2D8IND4 & 9\\
+\hline
+A0QJI1 & 9\\
+\hline
+A0S0A6 & 9\\
+\hline
+A1E4A3 & 9\\
+\hline
+A1IIJ1 & 9\\
+\hline
+A2EGX9 & 9\\
+\hline
+B2FHL8 & 9\\
+\hline
+B2FTM1 & 9\\
+\hline
+B3U4H7 & 9\\
+\hline
+B9W5G6 & 9\\
+\hline
+C1JZ07 & 9\\
+\hline
+C6XF58 & 9\\
+\hline
+D0VX11 & 9\\
+\hline
+D3RVD4 & 9\\
+\hline
+E3VWI3 & 9\\
+\hline
+G2NFJ9 & 9\\
+\hline
+I6Y8T4 & 9\\
+\hline
+L0E155 & 9\\
+\hline
+O00244 & 9\\
+\hline
+O00764 & 9\\
+\hline
+O02372 & 9\\
+\hline
+O14745 & 9\\
+\hline
+O23346 & 9\\
+\hline
+O26253 & 9\\
+\hline
+O32553 & 9\\
+\hline
+O43924 & 9\\
+\hline
+O64411 & 9\\
+\hline
+O73944 & 9\\
+\hline
+O75460 & 9\\
+\hline
+O93874 & 9\\
+\hline
+O96017 & 9\\
+\hline
+P00132 & 9\\
+\hline
+P00362 & 9\\
+\hline
+P00371 & 9\\
+\hline
+P00438 & 9\\
+\hline
+P00446 & 9\\
+\hline
+P00490 & 9\\
+\hline
+P00693 & 9\\
+\hline
+P00747 & 9\\
+\hline
+P01008 & 9\\
+\hline
+P01625 & 9\\
+\hline
+P02545 & 9\\
+\hline
+P02792 & 9\\
+\hline
+P03070 & 9\\
+\hline
+P03089 & 9\\
+\hline
+P03322 & 9\\
+\hline
+P06654 & 9\\
+\hline
+P06968 & 9\\
+\hline
+P07024 & 9\\
+\hline
+P09186 & 9\\
+\hline
+P0A006 & 9\\
+\hline
+P0A4X6 & 9\\
+\hline
+P0A512 & 9\\
+\hline
+P0A6R0 & 9\\
+\hline
+P0A7A9 & 9\\
+\hline
+P0A8G6 & 9\\
+\hline
+P0A9B2 & 9\\
+\hline
+P0AAI5 & 9\\
+\hline
+P0ABP9 & 9\\
+\hline
+P0ABT2 & 9\\
+\hline
+P0AES0 & 9\\
+\hline
+P10340 & 9\\
+\hline
+P10538 & 9\\
+\hline
+P11766 & 9\\
+\hline
+P13491 & 9\\
+\hline
+P13551 & 9\\
+\hline
+P13688 & 9\\
+\hline
+P15659 & 9\\
+\hline
+P16094 & 9\\
+\hline
+P16333 & 9\\
+\hline
+P17297 & 9\\
+\hline
+P17597 & 9\\
+\hline
+P18654 & 9\\
+\hline
+P20051 & 9\\
+\hline
+P21447 & 9\\
+\hline
+P21457 & 9\\
+\hline
+P21616 & 9\\
+\hline
+P21964 & 9\\
+\hline
+P22259 & 9\\
+\hline
+P23467 & 9\\
+\hline
+P24297 & 9\\
+\hline
+P24735 & 9\\
+\hline
+P24931 & 9\\
+\hline
+P25910 & 9\\
+\hline
+P26361 & 9\\
+\hline
+P26446 & 9\\
+\hline
+P26935 & 9\\
+\hline
+P28650 & 9\\
+\hline
+P29600 & 9\\
+\hline
+P29957 & 9\\
+\hline
+P32340 & 9\\
+\hline
+P33284 & 9\\
+\hline
+P35236 & 9\\
+\hline
+P35813 & 9\\
+\hline
+P37173 & 9\\
+\hline
+P37698 & 9\\
+\hline
+P37975 & 9\\
+\hline
+P40732 & 9\\
+\hline
+P43166 & 9\\
+\hline
+P48426 & 9\\
+\hline
+P49053 & 9\\
+\hline
+P49235 & 9\\
+\hline
+P50097 & 9\\
+\hline
+P50389 & 9\\
+\hline
+P51698 & 9\\
+\hline
+P54651 & 9\\
+\hline
+P56119 & 9\\
+\hline
+P56734 & 9\\
+\hline
+P60844 & 9\\
+\hline
+P61829 & 9\\
+\hline
+P61889 & 9\\
+\hline
+P63705 & 9\\
+\hline
+P69441 & 9\\
+\hline
+P69834 & 9\\
+\hline
+P70731 & 9\\
+\hline
+P72181 & 9\\
+\hline
+P74102 & 9\\
+\hline
+P77398 & 9\\
+\hline
+P78540 & 9\\
+\hline
+P80561 & 9\\
+\hline
+P80912 & 9\\
+\hline
+P81245 & 9\\
+\hline
+P95748 & 9\\
+\hline
+P97275 & 9\\
+\hline
+P9WGR0 & 9\\
+\hline
+P9WMW9 & 9\\
+\hline
+P9WNY5 & 9\\
+\hline
+P9WPQ5 & 9\\
+\hline
+Q02790 & 9\\
+\hline
+Q05871 & 9\\
+\hline
+Q07841 & 9\\
+\hline
+Q12888 & 9\\
+\hline
+Q13363 & 9\\
+\hline
+Q15562 & 9\\
+\hline
+Q16773 & 9\\
+\hline
+Q194T1 & 9\\
+\hline
+Q27796 & 9\\
+\hline
+Q29551 & 9\\
+\hline
+Q2GB12 & 9\\
+\hline
+Q3JRA0 & 9\\
+\hline
+Q3MFZ5 & 9\\
+\hline
+Q48935 & 9\\
+\hline
+Q4JA33 & 9\\
+\hline
+Q4KMI8 & 9\\
+\hline
+Q4TVQ0 & 9\\
+\hline
+Q52675 & 9\\
+\hline
+Q53728 & 9\\
+\hline
+Q56232 & 9\\
+\hline
+Q5HCU0 & 9\\
+\hline
+Q5HLN6 & 9\\
+\hline
+Q5I4E1 & 9\\
+\hline
+Q5SKW5 & 9\\
+\hline
+Q5UEA2 & 9\\
+\hline
+Q64373 & 9\\
+\hline
+Q6LDG3 & 9\\
+\hline
+Q6P179 & 9\\
+\hline
+Q6WVP6 & 9\\
+\hline
+Q716H3 & 9\\
+\hline
+Q72K29 & 9\\
+\hline
+Q739M9 & 9\\
+\hline
+Q79JB5 & 9\\
+\hline
+Q79PF4 & 9\\
+\hline
+Q7BJX9 & 9\\
+\hline
+Q7D785 & 9\\
+\hline
+Q7M422 & 9\\
+\hline
+Q7Z1V1 & 9\\
+\hline
+Q80J95 & 9\\
+\hline
+Q82Y41 & 9\\
+\hline
+Q84AR1 & 9\\
+\hline
+Q8CHT0 & 9\\
+\hline
+Q8IKG4 & 9\\
+\hline
+Q8IL11 & 9\\
+\hline
+Q8L940 & 9\\
+\hline
+Q8MNY2 & 9\\
+\hline
+Q8NXI6 & 9\\
+\hline
+Q8T6J6 & 9\\
+\hline
+Q8U094 & 9\\
+\hline
+Q8VQF6 & 9\\
+\hline
+Q8WTS6 & 9\\
+\hline
+Q8WWM9 & 9\\
+\hline
+Q8WXF7 & 9\\
+\hline
+Q8X1D8 & 9\\
+\hline
+Q8ZKF6 & 9\\
+\hline
+Q90249 & 9\\
+\hline
+Q93D82 & 9\\
+\hline
+Q96662 & 9\\
+\hline
+Q96DE0 & 9\\
+\hline
+Q99640 & 9\\
+\hline
+Q9AGY4 & 9\\
+\hline
+Q9C5U0 & 9\\
+\hline
+Q9D020 & 9\\
+\hline
+Q9GZT4 & 9\\
+\hline
+Q9H477 & 9\\
+\hline
+Q9HVC3 & 9\\
+\hline
+Q9I2Q1 & 9\\
+\hline
+Q9JYV4 & 9\\
+\hline
+Q9KFI6 & 9\\
+\hline
+Q9KG76 & 9\\
+\hline
+Q9KL03 & 9\\
+\hline
+Q9KPL5 & 9\\
+\hline
+Q9L2C2 & 9\\
+\hline
+Q9LFT6 & 9\\
+\hline
+Q9R186 & 9\\
+\hline
+Q9S1E5 & 9\\
+\hline
+Q9S3V1 & 9\\
+\hline
+Q9U6Y3 & 9\\
+\hline
+Q9X1X0 & 9\\
+\hline
+Q9Y7D1 & 9\\
+\hline
+W0TJ64 & 9\\
+\hline
+27806671 & 8\\
+\hline
+4566505 & 8\\
+\hline
+A0A0F7JCI1 & 8\\
+\hline
+A0A0G9FES3 & 8\\
+\hline
+A0A0H5BL38 & 8\\
+\hline
+A0A1Q8I6M1 & 8\\
+\hline
+A0A246CDW5 & 8\\
+\hline
+A4IQU1 & 8\\
+\hline
+A5TY84 & 8\\
+\hline
+A6V1E4 & 8\\
+\hline
+B2DFG5 & 8\\
+\hline
+B3Y018 & 8\\
+\hline
+B8LFD6 & 8\\
+\hline
+C0IR58 & 8\\
+\hline
+C0JV69 & 8\\
+\hline
+C1JI15 & 8\\
+\hline
+C3SV52 & 8\\
+\hline
+C4B644 & 8\\
+\hline
+C8W8H7 & 8\\
+\hline
+D0VWZ1 & 8\\
+\hline
+D3KVM3 & 8\\
+\hline
+D6PAH1 & 8\\
+\hline
+F0TRT1 & 8\\
+\hline
+F9UST4 & 8\\
+\hline
+G3J531 & 8\\
+\hline
+G7VCG0 & 8\\
+\hline
+G9BY57 & 8\\
+\hline
+H6UQI0 & 8\\
+\hline
+J9VFT1 & 8\\
+\hline
+M7M1G8 & 8\\
+\hline
+N1P8Q8 & 8\\
+\hline
+O00481 & 8\\
+\hline
+O14607 & 8\\
+\hline
+O25008 & 8\\
+\hline
+O30700 & 8\\
+\hline
+O43464 & 8\\
+\hline
+O44049 & 8\\
+\hline
+O49686 & 8\\
+\hline
+O53168 & 8\\
+\hline
+O57693 & 8\\
+\hline
+O59651 & 8\\
+\hline
+O68720 & 8\\
+\hline
+O69771 & 8\\
+\hline
+O76745 & 8\\
+\hline
+P00445 & 8\\
+\hline
+P00557 & 8\\
+\hline
+P00690 & 8\\
+\hline
+P00816 & 8\\
+\hline
+P02751 & 8\\
+\hline
+P02973 & 8\\
+\hline
+P03147 & 8\\
+\hline
+P03692 & 8\\
+\hline
+P04067 & 8\\
+\hline
+P04406 & 8\\
+\hline
+P04584 & 8\\
+\hline
+P04850 & 8\\
+\hline
+P04963 & 8\\
+\hline
+P05112 & 8\\
+\hline
+P05364 & 8\\
+\hline
+P06129 & 8\\
+\hline
+P06971 & 8\\
+\hline
+P07435 & 8\\
+\hline
+P07850 & 8\\
+\hline
+P07987 & 8\\
+\hline
+P07996 & 8\\
+\hline
+P07998 & 8\\
+\hline
+P08037 & 8\\
+\hline
+P08519 & 8\\
+\hline
+P08536 & 8\\
+\hline
+P08716 & 8\\
+\hline
+P09373 & 8\\
+\hline
+P09467 & 8\\
+\hline
+P0A031 & 8\\
+\hline
+P0A592 & 8\\
+\hline
+P0A5J4 & 8\\
+\hline
+P0A6B4 & 8\\
+\hline
+P0A6F3 & 8\\
+\hline
+P0A6I0 & 8\\
+\hline
+P0A6R3 & 8\\
+\hline
+P0A6Y8 & 8\\
+\hline
+P0A759 & 8\\
+\hline
+P0A790 & 8\\
+\hline
+P0ACC7 & 8\\
+\hline
+P0AE70 & 8\\
+\hline
+P0AEK4 & 8\\
+\hline
+P0C960 & 8\\
+\hline
+P10153 & 8\\
+\hline
+P10807 & 8\\
+\hline
+P11215 & 8\\
+\hline
+P11411 & 8\\
+\hline
+P11444 & 8\\
+\hline
+P11986 & 8\\
+\hline
+P12724 & 8\\
+\hline
+P13009 & 8\\
+\hline
+P13051 & 8\\
+\hline
+P14941 & 8\\
+\hline
+P15692 & 8\\
+\hline
+P15873 & 8\\
+\hline
+P16144 & 8\\
+\hline
+P16278 & 8\\
+\hline
+P16435 & 8\\
+\hline
+P17900 & 8\\
+\hline
+P19321 & 8\\
+\hline
+P20138 & 8\\
+\hline
+P21579 & 8\\
+\hline
+P21675 & 8\\
+\hline
+P22088 & 8\\
+\hline
+P22643 & 8\\
+\hline
+P23202 & 8\\
+\hline
+P23540 & 8\\
+\hline
+P24247 & 8\\
+\hline
+P24630 & 8\\
+\hline
+P25311 & 8\\
+\hline
+P27302 & 8\\
+\hline
+P31335 & 8\\
+\hline
+P32055 & 8\\
+\hline
+P32173 & 8\\
+\hline
+P33183 & 8\\
+\hline
+P33650 & 8\\
+\hline
+P36655 & 8\\
+\hline
+P38398 & 8\\
+\hline
+P38894 & 8\\
+\hline
+P39767 & 8\\
+\hline
+P39779 & 8\\
+\hline
+P40943 & 8\\
+\hline
+P41052 & 8\\
+\hline
+P41250 & 8\\
+\hline
+P41480 & 8\\
+\hline
+P42216 & 8\\
+\hline
+P42574 & 8\\
+\hline
+P42592 & 8\\
+\hline
+P43003 & 8\\
+\hline
+P45040 & 8\\
+\hline
+P47075 & 8\\
+\hline
+P49789 & 8\\
+\hline
+P49861 & 8\\
+\hline
+P49862 & 8\\
+\hline
+P50053-2 & 8\\
+\hline
+P52045 & 8\\
+\hline
+P56218 & 8\\
+\hline
+P56680 & 8\\
+\hline
+P56690 & 8\\
+\hline
+P60045 & 8\\
+\hline
+P62136 & 8\\
+\hline
+P63228 & 8\\
+\hline
+P66734 & 8\\
+\hline
+P69776 & 8\\
+\hline
+P69910 & 8\\
+\hline
+P71119 & 8\\
+\hline
+P74325 & 8\\
+\hline
+P74881 & 8\\
+\hline
+P76015 & 8\\
+\hline
+P82197 & 8\\
+\hline
+P82597 & 8\\
+\hline
+P83686 & 8\\
+\hline
+P95481 & 8\\
+\hline
+P97571 & 8\\
+\hline
+P99999 & 8\\
+\hline
+P9WNV1 & 8\\
+\hline
+P9WPA5 & 8\\
+\hline
+P9WQN9 & 8\\
+\hline
+Q00441 & 8\\
+\hline
+Q01532 & 8\\
+\hline
+Q01745 & 8\\
+\hline
+Q02567 & 8\\
+\hline
+Q06GJ0 & 8\\
+\hline
+Q07869 & 8\\
+\hline
+Q09LX1 & 8\\
+\hline
+Q0P6M7 & 8\\
+\hline
+Q0SE24 & 8\\
+\hline
+Q11KV9 & 8\\
+\hline
+Q12931 & 8\\
+\hline
+Q14191 & 8\\
+\hline
+Q15149 & 8\\
+\hline
+Q15382 & 8\\
+\hline
+Q15661 & 8\\
+\hline
+Q15691 & 8\\
+\hline
+Q15KI8 & 8\\
+\hline
+Q16654 & 8\\
+\hline
+Q186B7 & 8\\
+\hline
+Q2KKH9 & 8\\
+\hline
+Q2RM91 & 8\\
+\hline
+Q2U8Y3 & 8\\
+\hline
+Q44177 & 8\\
+\hline
+Q47030 & 8\\
+\hline
+Q48255 & 8\\
+\hline
+Q50EJ2 & 8\\
+\hline
+Q50EL4 & 8\\
+\hline
+Q51912 & 8\\
+\hline
+Q53239 & 8\\
+\hline
+Q55088 & 8\\
+\hline
+Q57193 & 8\\
+\hline
+Q59523 & 8\\
+\hline
+Q5HII6 & 8\\
+\hline
+Q5M4H8 & 8\\
+\hline
+Q5S3I3 & 8\\
+\hline
+Q5SE95 & 8\\
+\hline
+Q5SLI8 & 8\\
+\hline
+Q60032 & 8\\
+\hline
+Q60053 & 8\\
+\hline
+Q64610 & 8\\
+\hline
+Q66DQ2 & 8\\
+\hline
+Q66GI4 & 8\\
+\hline
+Q6SJY7 & 8\\
+\hline
+Q70KY3 & 8\\
+\hline
+Q7B8V4 & 8\\
+\hline
+Q81R67 & 8\\
+\hline
+Q81RT8 & 8\\
+\hline
+Q839Z1 & 8\\
+\hline
+Q83V33 & 8\\
+\hline
+Q873X9 & 8\\
+\hline
+Q8A5J2 & 8\\
+\hline
+Q8GGH0 & 8\\
+\hline
+Q8IJH3 & 8\\
+\hline
+Q8N539 & 8\\
+\hline
+Q8NCC3 & 8\\
+\hline
+Q8NFU5 & 8\\
+\hline
+Q8SPQ0 & 8\\
+\hline
+Q8U2X0 & 8\\
+\hline
+Q8WZA1 & 8\\
+\hline
+Q8X123 & 8\\
+\hline
+Q91H74 & 8\\
+\hline
+Q91UM2 & 8\\
+\hline
+Q92630 & 8\\
+\hline
+Q92743 & 8\\
+\hline
+Q92918 & 8\\
+\hline
+Q93J45 & 8\\
+\hline
+Q93L51 & 8\\
+\hline
+Q93NW7 & 8\\
+\hline
+Q96HY7 & 8\\
+\hline
+Q97ML2 & 8\\
+\hline
+Q99IB8 & 8\\
+\hline
+Q9AGH8 & 8\\
+\hline
+Q9AJS0 & 8\\
+\hline
+Q9ALW2 & 8\\
+\hline
+Q9BJJ9 & 8\\
+\hline
+Q9BX68 & 8\\
+\hline
+Q9BZP6 & 8\\
+\hline
+Q9C169 & 8\\
+\hline
+Q9C3Y6 & 8\\
+\hline
+Q9EB06 & 8\\
+\hline
+Q9FD68 & 8\\
+\hline
+Q9FN03 & 8\\
+\hline
+Q9H9S5 & 8\\
+\hline
+Q9I4L4 & 8\\
+\hline
+Q9NRW4 & 8\\
+\hline
+Q9NZQ7 & 8\\
+\hline
+Q9RKQ2 & 8\\
+\hline
+Q9RS96 & 8\\
+\hline
+Q9S1K0 & 8\\
+\hline
+Q9SZU7 & 8\\
+\hline
+Q9V2T0 & 8\\
+\hline
+Q9WXT2 & 8\\
+\hline
+Q9WZ31 & 8\\
+\hline
+Q9X0E0 & 8\\
+\hline
+Q9X273 & 8\\
+\hline
+Q9X4K7 & 8\\
+\hline
+Q9X721 & 8\\
+\hline
+Q9XAL8 & 8\\
+\hline
+Q9Y4E8 & 8\\
+\hline
+Q9Y6A2 & 8\\
+\hline
+Q9ZC36 & 8\\
+\hline
+S5TUM1 & 8\\
+\hline
+U5LUV7 & 8\\
+\hline
+V5TDY7 & 8\\
+\hline
+A0A045IXZ8 & 7\\
+\hline
+A0A0A0RDR2 & 7\\
+\hline
+A0A0C5GWS2 & 7\\
+\hline
+A0A0M3PNA2 & 7\\
+\hline
+A0A0S2UQQ5 & 7\\
+\hline
+A0A0S7ASE9 & 7\\
+\hline
+A0A0T9CRX1 & 7\\
+\hline
+A0A117IMA6 & 7\\
+\hline
+A0A140NFI1 & 7\\
+\hline
+A0A140UHX0 & 7\\
+\hline
+A0A380PV03 & 7\\
+\hline
+A0A3Q0KSG2 & 7\\
+\hline
+A0A485PVH1 & 7\\
+\hline
+A2RI36 & 7\\
+\hline
+A2RM80 & 7\\
+\hline
+A3M692 & 7\\
+\hline
+A4HSF7 & 7\\
+\hline
+A5IMX7 & 7\\
+\hline
+A7XXR1 & 7\\
+\hline
+A8FMJ3 & 7\\
+\hline
+B0VD92 & 7\\
+\hline
+B1MD73 & 7\\
+\hline
+B1VBB0 & 7\\
+\hline
+B3VMP8 & 7\\
+\hline
+B6CAM1 & 7\\
+\hline
+B6DMH6 & 7\\
+\hline
+B8FUR2 & 7\\
+\hline
+C1KIK8 & 7\\
+\hline
+C3P9L8 & 7\\
+\hline
+C5A5N6 & 7\\
+\hline
+D0C7J2 & 7\\
+\hline
+D0VV09 & 7\\
+\hline
+D3EID5 & 7\\
+\hline
+D7WGJ0 & 7\\
+\hline
+D9N164 & 7\\
+\hline
+E3T1W8 & 7\\
+\hline
+E5ATN9 & 7\\
+\hline
+E9Q401 & 7\\
+\hline
+E9QYP0 & 7\\
+\hline
+F1NZ18 & 7\\
+\hline
+F5L3B8 & 7\\
+\hline
+F8W4B7 & 7\\
+\hline
+G0RQS7 & 7\\
+\hline
+G3I8R9 & 7\\
+\hline
+G8UY02 & 7\\
+\hline
+H3BCW1 & 7\\
+\hline
+H8Y6N2 & 7\\
+\hline
+I6LRS1 & 7\\
+\hline
+O00443 & 7\\
+\hline
+O04379 & 7\\
+\hline
+O05207 & 7\\
+\hline
+O05338 & 7\\
+\hline
+O07347 & 7\\
+\hline
+O14641 & 7\\
+\hline
+O15118 & 7\\
+\hline
+O15264 & 7\\
+\hline
+O15357 & 7\\
+\hline
+O15636 & 7\\
+\hline
+O16025 & 7\\
+\hline
+O24782 & 7\\
+\hline
+O24872 & 7\\
+\hline
+O28126 & 7\\
+\hline
+O28769 & 7\\
+\hline
+O29883 & 7\\
+\hline
+O31156 & 7\\
+\hline
+O33877 & 7\\
+\hline
+O34757 & 7\\
+\hline
+O43252 & 7\\
+\hline
+O62479 & 7\\
+\hline
+O67323 & 7\\
+\hline
+O67518 & 7\\
+\hline
+O67572 & 7\\
+\hline
+O70370 & 7\\
+\hline
+O74237 & 7\\
+\hline
+O75340 & 7\\
+\hline
+O77811 & 7\\
+\hline
+O81192 & 7\\
+\hline
+O85361 & 7\\
+\hline
+O88622 & 7\\
+\hline
+O94768 & 7\\
+\hline
+O96693 & 7\\
+\hline
+P00175 & 7\\
+\hline
+P00259 & 7\\
+\hline
+P00299 & 7\\
+\hline
+P00488 & 7\\
+\hline
+P00590 & 7\\
+\hline
+P00807 & 7\\
+\hline
+P00957 & 7\\
+\hline
+P01854 & 7\\
+\hline
+P02649 & 7\\
+\hline
+P02749 & 7\\
+\hline
+P02789 & 7\\
+\hline
+P03072 & 7\\
+\hline
+P03134 & 7\\
+\hline
+P03962 & 7\\
+\hline
+P04075 & 7\\
+\hline
+P04166 & 7\\
+\hline
+P04252 & 7\\
+\hline
+P05804 & 7\\
+\hline
+P06437 & 7\\
+\hline
+P06614 & 7\\
+\hline
+P06672 & 7\\
+\hline
+P06744 & 7\\
+\hline
+P07102 & 7\\
+\hline
+P07267 & 7\\
+\hline
+P07320 & 7\\
+\hline
+P07355 & 7\\
+\hline
+P08246 & 7\\
+\hline
+P09167 & 7\\
+\hline
+P09598 & 7\\
+\hline
+P0A1C7 & 7\\
+\hline
+P0A3E0 & 7\\
+\hline
+P0A3Y5 & 7\\
+\hline
+P0A6L0 & 7\\
+\hline
+P0A6T5 & 7\\
+\hline
+P0A6U8 & 7\\
+\hline
+P0A794 & 7\\
+\hline
+P0A7G6 & 7\\
+\hline
+P0A8P1 & 7\\
+\hline
+P0ABS5 & 7\\
+\hline
+P0AEE5 & 7\\
+\hline
+P0C1A9 & 7\\
+\hline
+P10121 & 7\\
+\hline
+P10253 & 7\\
+\hline
+P10584 & 7\\
+\hline
+P10586 & 7\\
+\hline
+P10619 & 7\\
+\hline
+P10760 & 7\\
+\hline
+P10933 & 7\\
+\hline
+P10943 & 7\\
+\hline
+P11233 & 7\\
+\hline
+P11550 & 7\\
+\hline
+P11586 & 7\\
+\hline
+P11712 & 7\\
+\hline
+P12295 & 7\\
+\hline
+P13254 & 7\\
+\hline
+P13864 & 7\\
+\hline
+P13995 & 7\\
+\hline
+P14697 & 7\\
+\hline
+P15289 & 7\\
+\hline
+P16098 & 7\\
+\hline
+P16154 & 7\\
+\hline
+P16218 & 7\\
+\hline
+P17050 & 7\\
+\hline
+P17752 & 7\\
+\hline
+P17989 & 7\\
+\hline
+P18206 & 7\\
+\hline
+P19080 & 7\\
+\hline
+P19493 & 7\\
+\hline
+P19866 & 7\\
+\hline
+P19938 & 7\\
+\hline
+P20932 & 7\\
+\hline
+P21333 & 7\\
+\hline
+P21695 & 7\\
+\hline
+P22073 & 7\\
+\hline
+P22262 & 7\\
+\hline
+P22487 & 7\\
+\hline
+P22983 & 7\\
+\hline
+P23727 & 7\\
+\hline
+P23874 & 7\\
+\hline
+P23921 & 7\\
+\hline
+P24021 & 7\\
+\hline
+P24058 & 7\\
+\hline
+P24752 & 7\\
+\hline
+P26039 & 7\\
+\hline
+P26093 & 7\\
+\hline
+P26602 & 7\\
+\hline
+P27115 & 7\\
+\hline
+P28012 & 7\\
+\hline
+P28225 & 7\\
+\hline
+P28366 & 7\\
+\hline
+P29082 & 7\\
+\hline
+P29350 & 7\\
+\hline
+P30046 & 7\\
+\hline
+P30613 & 7\\
+\hline
+P30920 & 7\\
+\hline
+P31572 & 7\\
+\hline
+P32322 & 7\\
+\hline
+P32697 & 7\\
+\hline
+P33221 & 7\\
+\hline
+P34071 & 7\\
+\hline
+P35354 & 7\\
+\hline
+P36222 & 7\\
+\hline
+P38507 & 7\\
+\hline
+P38862 & 7\\
+\hline
+P38998 & 7\\
+\hline
+P39042 & 7\\
+\hline
+P39045 & 7\\
+\hline
+P40926 & 7\\
+\hline
+P41016 & 7\\
+\hline
+P41594 & 7\\
+\hline
+P42321 & 7\\
+\hline
+P46849 & 7\\
+\hline
+P48825 & 7\\
+\hline
+P52179 & 7\\
+\hline
+P52565 & 7\\
+\hline
+P53396 & 7\\
+\hline
+P54278 & 7\\
+\hline
+P54321 & 7\\
+\hline
+P56221 & 7\\
+\hline
+P56427 & 7\\
+\hline
+P58301 & 7\\
+\hline
+P59594 & 7\\
+\hline
+P59846 & 7\\
+\hline
+P60033 & 7\\
+\hline
+P60338 & 7\\
+\hline
+P61972 & 7\\
+\hline
+P62158 & 7\\
+\hline
+P62161 & 7\\
+\hline
+P63000 & 7\\
+\hline
+P63279 & 7\\
+\hline
+P63611 & 7\\
+\hline
+P63709 & 7\\
+\hline
+P65865 & 7\\
+\hline
+P68175 & 7\\
+\hline
+P68826 & 7\\
+\hline
+P71140 & 7\\
+\hline
+P75906 & 7\\
+\hline
+P76141 & 7\\
+\hline
+P76344 & 7\\
+\hline
+P80028 & 7\\
+\hline
+P80040 & 7\\
+\hline
+P80735 & 7\\
+\hline
+P81186 & 7\\
+\hline
+P84612 & 7\\
+\hline
+P85524 & 7\\
+\hline
+P94951 & 7\\
+\hline
+P95480 & 7\\
+\hline
+P96420 & 7\\
+\hline
+P9WI69 & 7\\
+\hline
+P9WKE5 & 7\\
+\hline
+P9WKI7 & 7\\
+\hline
+Q00496 & 7\\
+\hline
+Q01064 & 7\\
+\hline
+Q01782 & 7\\
+\hline
+Q04760 & 7\\
+\hline
+Q04863 & 7\\
+\hline
+Q05193 & 7\\
+\hline
+Q06520 & 7\\
+\hline
+Q09064 & 7\\
+\hline
+Q0P8Q4 & 7\\
+\hline
+Q0VB45 & 7\\
+\hline
+Q12178 & 7\\
+\hline
+Q13148 & 7\\
+\hline
+Q13426 & 7\\
+\hline
+Q14108 & 7\\
+\hline
+Q14376 & 7\\
+\hline
+Q15059 & 7\\
+\hline
+Q15GI4 & 7\\
+\hline
+Q16651 & 7\\
+\hline
+Q16850 & 7\\
+\hline
+Q1HRL7 & 7\\
+\hline
+Q1LRY0 & 7\\
+\hline
+Q1RBS0 & 7\\
+\hline
+Q1W640 & 7\\
+\hline
+Q21KE5 & 7\\
+\hline
+Q26964 & 7\\
+\hline
+Q27793 & 7\\
+\hline
+Q2FIA5 & 7\\
+\hline
+Q31KC7 & 7\\
+\hline
+Q381M1 & 7\\
+\hline
+Q385E8 & 7\\
+\hline
+Q3TBT3 & 7\\
+\hline
+Q43088 & 7\\
+\hline
+Q44467 & 7\\
+\hline
+Q46085 & 7\\
+\hline
+Q47396 & 7\\
+\hline
+Q47898 & 7\\
+\hline
+Q48485 & 7\\
+\hline
+Q4E4E1 & 7\\
+\hline
+Q4FQF7 & 7\\
+\hline
+Q4U1A6 & 7\\
+\hline
+Q51792 & 7\\
+\hline
+Q53752 & 7\\
+\hline
+Q54AI1 & 7\\
+\hline
+Q56187 & 7\\
+\hline
+Q57159 & 7\\
+\hline
+Q57872 & 7\\
+\hline
+Q58F21 & 7\\
+\hline
+Q5CGA3 & 7\\
+\hline
+Q5EP34 & 7\\
+\hline
+Q5HSJ4 & 7\\
+\hline
+Q5L4B1 & 7\\
+\hline
+Q5NFX0 & 7\\
+\hline
+Q5SJA1 & 7\\
+\hline
+Q5SMG8 & 7\\
+\hline
+Q5SQI0 & 7\\
+\hline
+Q5SRI9 & 7\\
+\hline
+Q60187 & 7\\
+\hline
+Q6DCU6 & 7\\
+\hline
+Q6G709 & 7\\
+\hline
+Q6GHP9 & 7\\
+\hline
+Q6TMG6 & 7\\
+\hline
+Q6V8M0 & 7\\
+\hline
+Q6XHB2 & 7\\
+\hline
+Q72GF3 & 7\\
+\hline
+Q746X3 & 7\\
+\hline
+Q76LX5 & 7\\
+\hline
+Q79FX8 & 7\\
+\hline
+Q7D2F4 & 7\\
+\hline
+Q7YW97 & 7\\
+\hline
+Q81BL7 & 7\\
+\hline
+Q81P86 & 7\\
+\hline
+Q82134 & 7\\
+\hline
+Q837V6 & 7\\
+\hline
+Q83884 & 7\\
+\hline
+Q838S1 & 7\\
+\hline
+Q84BQ9 & 7\\
+\hline
+Q88K39 & 7\\
+\hline
+Q88QV5 & 7\\
+\hline
+Q89ZI2 & 7\\
+\hline
+Q8C3H8 & 7\\
+\hline
+Q8DLC7 & 7\\
+\hline
+Q8EBV3 & 7\\
+\hline
+Q8EEC8 & 7\\
+\hline
+Q8H1R0 & 7\\
+\hline
+Q8K4Z3 & 7\\
+\hline
+Q8RJN8 & 7\\
+\hline
+Q8SR66 & 7\\
+\hline
+Q8TCU6 & 7\\
+\hline
+Q8TEQ6 & 7\\
+\hline
+Q8WZM3 & 7\\
+\hline
+Q92547 & 7\\
+\hline
+Q93ZN9 & 7\\
+\hline
+Q96242 & 7\\
+\hline
+Q962Y6 & 7\\
+\hline
+Q965D7 & 7\\
+\hline
+Q96EP0 & 7\\
+\hline
+Q96W94 & 7\\
+\hline
+Q96ZY1 & 7\\
+\hline
+Q97VZ7 & 7\\
+\hline
+Q99003 & 7\\
+\hline
+Q99418 & 7\\
+\hline
+Q99972 & 7\\
+\hline
+Q99PI8 & 7\\
+\hline
+Q99UY8 & 7\\
+\hline
+Q9AIU0 & 7\\
+\hline
+Q9BVA6 & 7\\
+\hline
+Q9BZX2 & 7\\
+\hline
+Q9C171 & 7\\
+\hline
+Q9HC16 & 7\\
+\hline
+Q9HUP2 & 7\\
+\hline
+Q9HWF9 & 7\\
+\hline
+Q9HWR3 & 7\\
+\hline
+Q9HXE3 & 7\\
+\hline
+Q9HZK0 & 7\\
+\hline
+Q9HZN8 & 7\\
+\hline
+Q9IAT9 & 7\\
+\hline
+Q9J006 & 7\\
+\hline
+Q9JWM8 & 7\\
+\hline
+Q9KB30 & 7\\
+\hline
+Q9KHK2 & 7\\
+\hline
+Q9KS45 & 7\\
+\hline
+Q9KTW3 & 7\\
+\hline
+Q9LAK3 & 7\\
+\hline
+Q9LCQ7 & 7\\
+\hline
+Q9N1E2 & 7\\
+\hline
+Q9NQG6 & 7\\
+\hline
+Q9NWW6 & 7\\
+\hline
+Q9NX74 & 7\\
+\hline
+Q9NZ08 & 7\\
+\hline
+Q9R2C2 & 7\\
+\hline
+Q9R4E4 & 7\\
+\hline
+Q9RBY1 & 7\\
+\hline
+Q9RC92 & 7\\
+\hline
+Q9REU3 & 7\\
+\hline
+Q9RYA6 & 7\\
+\hline
+Q9UDY8 & 7\\
+\hline
+Q9UKG1 & 7\\
+\hline
+Q9UNA0 & 7\\
+\hline
+Q9X0L2 & 7\\
+\hline
+Q9X1H0 & 7\\
+\hline
+Q9X6R4 & 7\\
+\hline
+Q9Y657 & 7\\
+\hline
+Q9Y6M4 & 7\\
+\hline
+Q9YIC2 & 7\\
+\hline
+Q9Z4P9 & 7\\
+\hline
+Q9ZGI2 & 7\\
+\hline
+S8G8I1 & 7\\
+\hline
+U3G913 & 7\\
+\hline
+V5YM14 & 7\\
+\hline
+W8QL66 & 7\\
+\hline
+W9BH30 & 7\\
+\hline
+15928840 & 6\\
+\hline
+50842522 & 6\\
+\hline
+517481 & 6\\
+\hline
+5458856 & 6\\
+\hline
+A0A024V0B1 & 6\\
+\hline
+A0A045IZS3 & 6\\
+\hline
+A0A059PIR4 & 6\\
+\hline
+A0A059VAZ3 & 6\\
+\hline
+A0A059ZFC5 & 6\\
+\hline
+A0A0A5P8W7 & 6\\
+\hline
+A0A0B5H9B3 & 6\\
+\hline
+A0A0D2ILK1 & 6\\
+\hline
+A0A0E8NFD1 & 6\\
+\hline
+A0A0H2URQ6 & 6\\
+\hline
+A0A0H5BR52 & 6\\
+\hline
+A0A0H6VSA0 & 6\\
+\hline
+A0A0J1A8B1 & 6\\
+\hline
+A0A0K8P8E7 & 6\\
+\hline
+A0A0X1KHD1 & 6\\
+\hline
+A0A125SA29 & 6\\
+\hline
+A0A140DJY3 & 6\\
+\hline
+A0A143SL92 & 6\\
+\hline
+A0A162Q3J9 & 6\\
+\hline
+A0A172U6X0 & 6\\
+\hline
+A0A181F8T0 & 6\\
+\hline
+A0A1C7BES9 & 6\\
+\hline
+A0A1E7P7U4 & 6\\
+\hline
+A0A1Q9N9N5 & 6\\
+\hline
+A0A291L8F4 & 6\\
+\hline
+A0A655AHQ9 & 6\\
+\hline
+A0LNN5 & 6\\
+\hline
+A0R5M8 & 6\\
+\hline
+A1W1R1 & 6\\
+\hline
+A2NAI0 & 6\\
+\hline
+A2QAN3 & 6\\
+\hline
+A3FQ16 & 6\\
+\hline
+A4X3Q0 & 6\\
+\hline
+A5K0N4 & 6\\
+\hline
+A5U4M0 & 6\\
+\hline
+A7KMF0 & 6\\
+\hline
+A7YT55 & 6\\
+\hline
+A8LP63 & 6\\
+\hline
+A8MI53 & 6\\
+\hline
+A9YN63 & 6\\
+\hline
+B0L7B0 & 6\\
+\hline
+B0SWV2 & 6\\
+\hline
+B1YAL1 & 6\\
+\hline
+B2ZWE9 & 6\\
+\hline
+B3EYM9 & 6\\
+\hline
+B3TLD6 & 6\\
+\hline
+B3TMR8 & 6\\
+\hline
+B4EH86 & 6\\
+\hline
+C1CH75 & 6\\
+\hline
+C3NP04 & 6\\
+\hline
+C3NSJ9 & 6\\
+\hline
+C4LW95 & 6\\
+\hline
+C7E5X4 & 6\\
+\hline
+C8N5A9 & 6\\
+\hline
+C8XPB0 & 6\\
+\hline
+C9Z6T8 & 6\\
+\hline
+D0VWQ0 & 6\\
+\hline
+D0VX21 & 6\\
+\hline
+D0XC84 & 6\\
+\hline
+D0ZP76 & 6\\
+\hline
+D2J2T6 & 6\\
+\hline
+D2Z025 & 6\\
+\hline
+D3W0F1 & 6\\
+\hline
+D3YEX6 & 6\\
+\hline
+D8A942 & 6\\
+\hline
+D8NA05 & 6\\
+\hline
+E0XN39 & 6\\
+\hline
+E0YCS2 & 6\\
+\hline
+E3NZ06 & 6\\
+\hline
+E9AW84 & 6\\
+\hline
+E9P5T5 & 6\\
+\hline
+F7BAY6 & 6\\
+\hline
+F8JB59 & 6\\
+\hline
+G0S3F2 & 6\\
+\hline
+G0ZGJ8 & 6\\
+\hline
+G1XA82 & 6\\
+\hline
+G4CRQ5 & 6\\
+\hline
+G4V8J4 & 6\\
+\hline
+G4XDR8 & 6\\
+\hline
+G7K2D1 & 6\\
+\hline
+G8FL04 & 6\\
+\hline
+H0SLX7 & 6\\
+\hline
+H9A910 & 6\\
+\hline
+I3VVC1 & 6\\
+\hline
+I6WU39 & 6\\
+\hline
+I7BFC3 & 6\\
+\hline
+J8BY31 & 6\\
+\hline
+K4DIE3 & 6\\
+\hline
+K7WDL7 & 6\\
+\hline
+K7ZP88 & 6\\
+\hline
+L0T911 & 6\\
+\hline
+M1HE54 & 6\\
+\hline
+NOR00243 & 6\\
+\hline
+NOR00681 & 6\\
+\hline
+O00429 & 6\\
+\hline
+O00444 & 6\\
+\hline
+O00571 & 6\\
+\hline
+O00602 & 6\\
+\hline
+O00763 & 6\\
+\hline
+O00834 & 6\\
+\hline
+O06414 & 6\\
+\hline
+O06587 & 6\\
+\hline
+O06994 & 6\\
+\hline
+O08989 & 6\\
+\hline
+O15075 & 6\\
+\hline
+O15305 & 6\\
+\hline
+O15392 & 6\\
+\hline
+O15394 & 6\\
+\hline
+O23939 & 6\\
+\hline
+O25896 & 6\\
+\hline
+O26771 & 6\\
+\hline
+O28480 & 6\\
+\hline
+O29777 & 6\\
+\hline
+O29903 & 6\\
+\hline
+O31663 & 6\\
+\hline
+O31801 & 6\\
+\hline
+O32504 & 6\\
+\hline
+O33853 & 6\\
+\hline
+O34667 & 6\\
+\hline
+O35820 & 6\\
+\hline
+O40922 & 6\\
+\hline
+O42807 & 6\\
+\hline
+O58307 & 6\\
+\hline
+O58429 & 6\\
+\hline
+O58720 & 6\\
+\hline
+O59245 & 6\\
+\hline
+O59580 & 6\\
+\hline
+O60260 & 6\\
+\hline
+O60844 & 6\\
+\hline
+O66264 & 6\\
+\hline
+O67198 & 6\\
+\hline
+O69230 & 6\\
+\hline
+O69274 & 6\\
+\hline
+O70348 & 6\\
+\hline
+O70632 & 6\\
+\hline
+O74958 & 6\\
+\hline
+O75116 & 6\\
+\hline
+O80066 & 6\\
+\hline
+O81086 & 6\\
+\hline
+O81100 & 6\\
+\hline
+O82392 & 6\\
+\hline
+O83774 & 6\\
+\hline
+O84835 & 6\\
+\hline
+O87605 & 6\\
+\hline
+O93627 & 6\\
+\hline
+O94760 & 6\\
+\hline
+O94804 & 6\\
+\hline
+O96438 & 6\\
+\hline
+O97447 & 6\\
+\hline
+P00352 & 6\\
+\hline
+P00375 & 6\\
+\hline
+P00503 & 6\\
+\hline
+P00512 & 6\\
+\hline
+P00775 & 6\\
+\hline
+P00798 & 6\\
+\hline
+P01343 & 6\\
+\hline
+P01709 & 6\\
+\hline
+P01861 & 6\\
+\hline
+P02189 & 6\\
+\hline
+P02769 & 6\\
+\hline
+P02920 & 6\\
+\hline
+P02930 & 6\\
+\hline
+P03211 & 6\\
+\hline
+P03428 & 6\\
+\hline
+P03958 & 6\\
+\hline
+P04287 & 6\\
+\hline
+P05050 & 6\\
+\hline
+P05181 & 6\\
+\hline
+P05327 & 6\\
+\hline
+P05777 & 6\\
+\hline
+P06128 & 6\\
+\hline
+P06721 & 6\\
+\hline
+P06986 & 6\\
+\hline
+P06999 & 6\\
+\hline
+P07140 & 6\\
+\hline
+P07550 & 6\\
+\hline
+P07954 & 6\\
+\hline
+P08164 & 6\\
+\hline
+P08473 & 6\\
+\hline
+P08668 & 6\\
+\hline
+P08773 & 6\\
+\hline
+P09488 & 6\\
+\hline
+P09838 & 6\\
+\hline
+P09871 & 6\\
+\hline
+P09917 & 6\\
+\hline
+P0A0Z8 & 6\\
+\hline
+P0A3C7 & 6\\
+\hline
+P0A3F4 & 6\\
+\hline
+P0A5I4 & 6\\
+\hline
+P0A632 & 6\\
+\hline
+P0A6A8 & 6\\
+\hline
+P0A6Z3 & 6\\
+\hline
+P0A6Z6 & 6\\
+\hline
+P0A817 & 6\\
+\hline
+P0A921 & 6\\
+\hline
+P0ABH7 & 6\\
+\hline
+P0ABU0 & 6\\
+\hline
+P0AEB2 & 6\\
+\hline
+P0AEE8 & 6\\
+\hline
+P0AFG8 & 6\\
+\hline
+P0AGF4 & 6\\
+\hline
+P0C794 & 6\\
+\hline
+P11064 & 6\\
+\hline
+P11413 & 6\\
+\hline
+P11970 & 6\\
+\hline
+P11974 & 6\\
+\hline
+P12256 & 6\\
+\hline
+P13693 & 6\\
+\hline
+P13699 & 6\\
+\hline
+P14262 & 6\\
+\hline
+P14557 & 6\\
+\hline
+P15057 & 6\\
+\hline
+P15132 & 6\\
+\hline
+P15442 & 6\\
+\hline
+P15531 & 6\\
+\hline
+P15925 & 6\\
+\hline
+P16152 & 6\\
+\hline
+P16317 & 6\\
+\hline
+P17865 & 6\\
+\hline
+P17906 & 6\\
+\hline
+P18326 & 6\\
+\hline
+P18886 & 6\\
+\hline
+P19478 & 6\\
+\hline
+P19571 & 6\\
+\hline
+P19712 & 6\\
+\hline
+P20231 & 6\\
+\hline
+P20425 & 6\\
+\hline
+P20480 & 6\\
+\hline
+P20974 & 6\\
+\hline
+P21310 & 6\\
+\hline
+P22337 & 6\\
+\hline
+P22862 & 6\\
+\hline
+P22966 & 6\\
+\hline
+P23616 & 6\\
+\hline
+P23971 & 6\\
+\hline
+P24228 & 6\\
+\hline
+P25147 & 6\\
+\hline
+P25799 & 6\\
+\hline
+P26447 & 6\\
+\hline
+P27150 & 6\\
+\hline
+P27652 & 6\\
+\hline
+P27696 & 6\\
+\hline
+P28248 & 6\\
+\hline
+P28867 & 6\\
+\hline
+P30044 & 6\\
+\hline
+P30113 & 6\\
+\hline
+P30615 & 6\\
+\hline
+P31101 & 6\\
+\hline
+P31751 & 6\\
+\hline
+P33160 & 6\\
+\hline
+P33324 & 6\\
+\hline
+P33334 & 6\\
+\hline
+P34170 & 6\\
+\hline
+P35228 & 6\\
+\hline
+P35270 & 6\\
+\hline
+P35340 & 6\\
+\hline
+P35520 & 6\\
+\hline
+P36419 & 6\\
+\hline
+P37355 & 6\\
+\hline
+P38169 & 6\\
+\hline
+P39172 & 6\\
+\hline
+P40032 & 6\\
+\hline
+P40161 & 6\\
+\hline
+P42196 & 6\\
+\hline
+P44539 & 6\\
+\hline
+P44859 & 6\\
+\hline
+P45381 & 6\\
+\hline
+P46084 & 6\\
+\hline
+P46598 & 6\\
+\hline
+P46859 & 6\\
+\hline
+P47228 & 6\\
+\hline
+P47934 & 6\\
+\hline
+P48515 & 6\\
+\hline
+P48542 & 6\\
+\hline
+P48775 & 6\\
+\hline
+P49588 & 6\\
+\hline
+P49638 & 6\\
+\hline
+P49760 & 6\\
+\hline
+P50172 & 6\\
+\hline
+P50384 & 6\\
+\hline
+P50405 & 6\\
+\hline
+P50743 & 6\\
+\hline
+P51693 & 6\\
+\hline
+P52270 & 6\\
+\hline
+P54652 & 6\\
+\hline
+P55055 & 6\\
+\hline
+P56073 & 6\\
+\hline
+P56965 & 6\\
+\hline
+P60063 & 6\\
+\hline
+P60546 & 6\\
+\hline
+P62575 & 6\\
+\hline
+P62837 & 6\\
+\hline
+P64170 & 6\\
+\hline
+P65248 & 6\\
+\hline
+P66034 & 6\\
+\hline
+P67475 & 6\\
+\hline
+P69902 & 6\\
+\hline
+P71968 & 6\\
+\hline
+P73213 & 6\\
+\hline
+P73925 & 6\\
+\hline
+P75682 & 6\\
+\hline
+P76637 & 6\\
+\hline
+P77774 & 6\\
+\hline
+P78330 & 6\\
+\hline
+P78380 & 6\\
+\hline
+P80293 & 6\\
+\hline
+P80484 & 6\\
+\hline
+P80884 & 6\\
+\hline
+P84141 & 6\\
+\hline
+P90498 & 6\\
+\hline
+P90551 & 6\\
+\hline
+P93836 & 6\\
+\hline
+P94286 & 6\\
+\hline
+P94678 & 6\\
+\hline
+P97675 & 6\\
+\hline
+P9WJF1 & 6\\
+\hline
+P9WNX1 & 6\\
+\hline
+P9WPE0 & 6\\
+\hline
+P9WPP3 & 6\\
+\hline
+Q00534 & 6\\
+\hline
+Q00740 & 6\\
+\hline
+Q01234 & 6\\
+\hline
+Q01469 & 6\\
+\hline
+Q01813 & 6\\
+\hline
+Q01853 & 6\\
+\hline
+Q02251 & 6\\
+\hline
+Q02762 & 6\\
+\hline
+Q03048 & 6\\
+\hline
+Q03243 & 6\\
+\hline
+Q04081 & 6\\
+\hline
+Q05098 & 6\\
+\hline
+Q05128 & 6\\
+\hline
+Q05315 & 6\\
+\hline
+Q07075 & 6\\
+\hline
+Q07912 & 6\\
+\hline
+Q08649 & 6\\
+\hline
+Q097N3 & 6\\
+\hline
+Q0P9D1 & 6\\
+\hline
+Q0PB90 & 6\\
+\hline
+Q0SFK6 & 6\\
+\hline
+Q10588 & 6\\
+\hline
+Q10589 & 6\\
+\hline
+Q11055 & 6\\
+\hline
+Q11YW6 & 6\\
+\hline
+Q12737 & 6\\
+\hline
+Q12852 & 6\\
+\hline
+Q13164 & 6\\
+\hline
+Q14680 & 6\\
+\hline
+Q15109 & 6\\
+\hline
+Q15303 & 6\\
+\hline
+Q15JG1 & 6\\
+\hline
+Q16849 & 6\\
+\hline
+Q18R04 & 6\\
+\hline
+Q1K9H2 & 6\\
+\hline
+Q1W6B1 & 6\\
+\hline
+Q1XGK3 & 6\\
+\hline
+Q26239 & 6\\
+\hline
+Q26710 & 6\\
+\hline
+Q26966 & 6\\
+\hline
+Q29495 & 6\\
+\hline
+Q2G036 & 6\\
+\hline
+Q2PHL4 & 6\\
+\hline
+Q2UNF9 & 6\\
+\hline
+Q2V6H4 & 6\\
+\hline
+Q38BV6 & 6\\
+\hline
+Q396C9 & 6\\
+\hline
+Q3IWB0 & 6\\
+\hline
+Q3JP94 & 6\\
+\hline
+Q3JUV5 & 6\\
+\hline
+Q3LHN3 & 6\\
+\hline
+Q42975 & 6\\
+\hline
+Q46495 & 6\\
+\hline
+Q46E79 & 6\\
+\hline
+Q49492 & 6\\
+\hline
+Q4CWB4 & 6\\
+\hline
+Q4DSA0 & 6\\
+\hline
+Q4Q4I6 & 6\\
+\hline
+Q4QDU3 & 6\\
+\hline
+Q4W6L6 & 6\\
+\hline
+Q51507 & 6\\
+\hline
+Q53VZ2 & 6\\
+\hline
+Q54436 & 6\\
+\hline
+Q55012 & 6\\
+\hline
+Q55075 & 6\\
+\hline
+Q56148 & 6\\
+\hline
+Q56313 & 6\\
+\hline
+Q56839 & 6\\
+\hline
+Q57ZL6 & 6\\
+\hline
+Q58194 & 6\\
+\hline
+Q581Y0 & 6\\
+\hline
+Q58435 & 6\\
+\hline
+Q58989 & 6\\
+\hline
+Q59623 & 6\\
+\hline
+Q59931 & 6\\
+\hline
+Q5A5E0 & 6\\
+\hline
+Q5AD07 & 6\\
+\hline
+Q5CPH1 & 6\\
+\hline
+Q5HFV4 & 6\\
+\hline
+Q5JD03 & 6\\
+\hline
+Q5JID0 & 6\\
+\hline
+Q5PY51 & 6\\
+\hline
+Q5S3G7 & 6\\
+\hline
+Q5SHV2 & 6\\
+\hline
+Q5SJP3 & 6\\
+\hline
+Q5SJP8 & 6\\
+\hline
+Q5SLP1 & 6\\
+\hline
+Q5TA50 & 6\\
+\hline
+Q5TCY1 & 6\\
+\hline
+Q5W9R9 & 6\\
+\hline
+Q5Y812 & 6\\
+\hline
+Q6FV03 & 6\\
+\hline
+Q6GIL6 & 6\\
+\hline
+Q6MM15 & 6\\
+\hline
+Q6P0Y1 & 6\\
+\hline
+Q6P6C2 & 6\\
+\hline
+Q6SA23 & 6\\
+\hline
+Q6VBJ0 & 6\\
+\hline
+Q6ZMT4 & 6\\
+\hline
+Q70626 & 6\\
+\hline
+Q71RI9 & 6\\
+\hline
+Q71YW5 & 6\\
+\hline
+Q72874 & 6\\
+\hline
+Q75WP3 & 6\\
+\hline
+Q7A827 & 6\\
+\hline
+Q7ABC4 & 6\\
+\hline
+Q7BNC2 & 6\\
+\hline
+Q7CX36 & 6\\
+\hline
+Q7DDR9 & 6\\
+\hline
+Q7M1T4 & 6\\
+\hline
+Q7NWG4 & 6\\
+\hline
+Q7V6D4 & 6\\
+\hline
+Q7WTR6 & 6\\
+\hline
+Q7WYN3 & 6\\
+\hline
+Q7XT97 & 6\\
+\hline
+Q7Z721 & 6\\
+\hline
+Q81GI3 & 6\\
+\hline
+Q83467 & 6\\
+\hline
+Q83E11 & 6\\
+\hline
+Q83Z62 & 6\\
+\hline
+Q84EX5 & 6\\
+\hline
+Q869C3 & 6\\
+\hline
+Q88JK6 & 6\\
+\hline
+Q8A712 & 6\\
+\hline
+Q8CHN8 & 6\\
+\hline
+Q8DCF5 & 6\\
+\hline
+Q8DQ00 & 6\\
+\hline
+Q8EMJ9 & 6\\
+\hline
+Q8GGP1 & 6\\
+\hline
+Q8GMG0 & 6\\
+\hline
+Q8I4S1 & 6\\
+\hline
+Q8I8I2 & 6\\
+\hline
+Q8IDJ8 & 6\\
+\hline
+Q8KI25 & 6\\
+\hline
+Q8KKG0 & 6\\
+\hline
+Q8KLK7 & 6\\
+\hline
+Q8KMX3 & 6\\
+\hline
+Q8N465 & 6\\
+\hline
+Q8PDA8 & 6\\
+\hline
+Q8TZH8 & 6\\
+\hline
+Q8U3I4 & 6\\
+\hline
+Q8VW87 & 6\\
+\hline
+Q8WYA6 & 6\\
+\hline
+Q8WZK8 & 6\\
+\hline
+Q8ZIE7 & 6\\
+\hline
+Q8ZNF9 & 6\\
+\hline
+Q91HI9 & 6\\
+\hline
+Q92830 & 6\\
+\hline
+Q92LZ4 & 6\\
+\hline
+Q92ZP9 & 6\\
+\hline
+Q931P4 & 6\\
+\hline
+Q93I48 & 6\\
+\hline
+Q93LE9 & 6\\
+\hline
+Q93LQ9 & 6\\
+\hline
+Q93WP2 & 6\\
+\hline
+Q95PM0 & 6\\
+\hline
+Q96LA8 & 6\\
+\hline
+Q96T66 & 6\\
+\hline
+Q977U7 & 6\\
+\hline
+Q97UA0 & 6\\
+\hline
+Q980R9 & 6\\
+\hline
+Q99835 & 6\\
+\hline
+Q99JT9 & 6\\
+\hline
+Q99PJ1 & 6\\
+\hline
+Q9BH77 & 6\\
+\hline
+Q9CPU0 & 6\\
+\hline
+Q9EPH0 & 6\\
+\hline
+Q9FCA6 & 6\\
+\hline
+Q9FYU1 & 6\\
+\hline
+Q9GZQ8 & 6\\
+\hline
+Q9GZZ1 & 6\\
+\hline
+Q9H6P5 & 6\\
+\hline
+Q9H8M5 & 6\\
+\hline
+Q9HKI3 & 6\\
+\hline
+Q9HTJ1 & 6\\
+\hline
+Q9HWY4 & 6\\
+\hline
+Q9HXM1 & 6\\
+\hline
+Q9HYZ3 & 6\\
+\hline
+Q9HZ76 & 6\\
+\hline
+Q9I229 & 6\\
+\hline
+Q9I5F3 & 6\\
+\hline
+Q9KKP2 & 6\\
+\hline
+Q9KNE0 & 6\\
+\hline
+Q9KVG7 & 6\\
+\hline
+Q9L0T8 & 6\\
+\hline
+Q9L387 & 6\\
+\hline
+Q9L915 & 6\\
+\hline
+Q9LBX2 & 6\\
+\hline
+Q9LCV9 & 6\\
+\hline
+Q9LV91 & 6\\
+\hline
+Q9NYY3 & 6\\
+\hline
+Q9NZJ4 & 6\\
+\hline
+Q9P371 & 6\\
+\hline
+Q9R194 & 6\\
+\hline
+Q9RXY9 & 6\\
+\hline
+Q9U6B8 & 6\\
+\hline
+Q9U6Y8 & 6\\
+\hline
+Q9UIK4 & 6\\
+\hline
+Q9UJY5 & 6\\
+\hline
+Q9UKM7 & 6\\
+\hline
+Q9UQF2 & 6\\
+\hline
+Q9UWP7 & 6\\
+\hline
+Q9V228 & 6\\
+\hline
+Q9VU77 & 6\\
+\hline
+Q9WLZ8 & 6\\
+\hline
+Q9WXN1 & 6\\
+\hline
+Q9WYA5 & 6\\
+\hline
+Q9WYP7 & 6\\
+\hline
+Q9WZL1 & 6\\
+\hline
+Q9WZW1 & 6\\
+\hline
+Q9X0C6 & 6\\
+\hline
+Q9X0X3 & 6\\
+\hline
+Q9X112 & 6\\
+\hline
+Q9X6J6 & 6\\
+\hline
+Q9XBQ3 & 6\\
+\hline
+Q9Y286 & 6\\
+\hline
+Q9Y5Y6 & 6\\
+\hline
+Q9YBL2 & 6\\
+\hline
+Q9ZA17 & 6\\
+\hline
+Q9ZLI1 & 6\\
+\hline
+Q9ZVN4 & 6\\
+\hline
+S8EY38 & 6\\
+\hline
+U6N356 & 6\\
+\hline
+U6NCW5 & 6\\
+\hline
+W0DP94 & 6\\
+\hline
+144429 & 5\\
+\hline
+2117181 & 5\\
+\hline
+27368665 & 5\\
+\hline
+29692147 & 5\\
+\hline
+37958139 & 5\\
+\hline
+6983931 & 5\\
+\hline
+9929802 & 5\\
+\hline
+A0A011 & 5\\
+\hline
+A0A024E3Q2 & 5\\
+\hline
+A0A037YR34 & 5\\
+\hline
+A0A059WZ16 & 5\\
+\hline
+A0A059X981 & 5\\
+\hline
+A0A059ZPP5 & 5\\
+\hline
+A0A063X8M7 & 5\\
+\hline
+A0A087I947 & 5\\
+\hline
+A0A087WNH6 & 5\\
+\hline
+A0A088T0J9 & 5\\
+\hline
+A0A093VKV7 & 5\\
+\hline
+A0A0D6GS23 & 5\\
+\hline
+A0A0G2K8Z9 & 5\\
+\hline
+A0A0G4DBU7 & 5\\
+\hline
+A0A0H2URD6 & 5\\
+\hline
+A0A0H3AER7 & 5\\
+\hline
+A0A0H3JNB0 & 5\\
+\hline
+A0A0H3JRN6 & 5\\
+\hline
+A0A0H3PA01 & 5\\
+\hline
+A0A0N0C224 & 5\\
+\hline
+A0A0P0QM28 & 5\\
+\hline
+A0A0R1IQH8 & 5\\
+\hline
+A0A0S2T163 & 5\\
+\hline
+A0A0Y5D4F5 & 5\\
+\hline
+A0A0Y5YPU4 & 5\\
+\hline
+A0A125YSJ9 & 5\\
+\hline
+A0A140NBN7 & 5\\
+\hline
+A0A160YKM3 & 5\\
+\hline
+A0A178UAB5 & 5\\
+\hline
+A0A193PKW5 & 5\\
+\hline
+A0A1A7BFR5 & 5\\
+\hline
+A0A1P8VSI6 & 5\\
+\hline
+A0A2H4Z949 & 5\\
+\hline
+A0A2S1PK93 & 5\\
+\hline
+A0A2U8UYM6 & 5\\
+\hline
+A0A2V2XFZ1 & 5\\
+\hline
+A0A369R1N0 & 5\\
+\hline
+A0A482LRD5 & 5\\
+\hline
+A0A4Y7X244 & 5\\
+\hline
+A0QWG5 & 5\\
+\hline
+A3DD67 & 5\\
+\hline
+A3LT82 & 5\\
+\hline
+A4F1R4 & 5\\
+\hline
+A4GK78 & 5\\
+\hline
+A4QUT2 & 5\\
+\hline
+A4XF23 & 5\\
+\hline
+A5H025 & 5\\
+\hline
+A5HZZ9 & 5\\
+\hline
+A5U6L5 & 5\\
+\hline
+A6T8V8 & 5\\
+\hline
+A6T925 & 5\\
+\hline
+A7LVT2 & 5\\
+\hline
+A7Y7W1 & 5\\
+\hline
+A8GFD6 & 5\\
+\hline
+A8WFV1 & 5\\
+\hline
+A9AC61 & 5\\
+\hline
+A9CB96 & 5\\
+\hline
+A9CGI0 & 5\\
+\hline
+B0B7H9 & 5\\
+\hline
+B0F9F6 & 5\\
+\hline
+B0R5M0 & 5\\
+\hline
+B0TZW0 & 5\\
+\hline
+B0YIU5 & 5\\
+\hline
+B2CZF3 & 5\\
+\hline
+B2HVG8 & 5\\
+\hline
+B3DUR4 & 5\\
+\hline
+B3EYM8 & 5\\
+\hline
+B3PD52 & 5\\
+\hline
+B3PEE6 & 5\\
+\hline
+B3W8L3 & 5\\
+\hline
+B5ABY0 & 5\\
+\hline
+B5BTR7 & 5\\
+\hline
+B5ZAD9 & 5\\
+\hline
+B7XCV4 & 5\\
+\hline
+B8I944 & 5\\
+\hline
+B8XA40 & 5\\
+\hline
+B9JK80 & 5\\
+\hline
+C1KBQ3 & 5\\
+\hline
+C3TR70 & 5\\
+\hline
+C3W5S3 & 5\\
+\hline
+C4M1P9 & 5\\
+\hline
+C4XAX5 & 5\\
+\hline
+C6XID6 & 5\\
+\hline
+C7Q5P8 & 5\\
+\hline
+C7T9P4 & 5\\
+\hline
+C9DRU9 & 5\\
+\hline
+C9ZDC6 & 5\\
+\hline
+D0QJ68 & 5\\
+\hline
+D1C7D8 & 5\\
+\hline
+D2YW45 & 5\\
+\hline
+D5CV28 & 5\\
+\hline
+D5DC07 & 5\\
+\hline
+D5X329 & 5\\
+\hline
+D7DTD6 & 5\\
+\hline
+D8KFM5 & 5\\
+\hline
+D9MPF2 & 5\\
+\hline
+E1BHM0 & 5\\
+\hline
+E1XUJ2 & 5\\
+\hline
+E3U904 & 5\\
+\hline
+E7E2M2 & 5\\
+\hline
+E7E815 & 5\\
+\hline
+E8NLP5 & 5\\
+\hline
+F1X4B5 & 5\\
+\hline
+F2L613 & 5\\
+\hline
+F2WR52 & 5\\
+\hline
+F7RW09 & 5\\
+\hline
+F8G0P2 & 5\\
+\hline
+F9ZFJ0 & 5\\
+\hline
+G0FQ07 & 5\\
+\hline
+G0WVH3 & 5\\
+\hline
+G1C794 & 5\\
+\hline
+G1K3R9 & 5\\
+\hline
+G1UII1 & 5\\
+\hline
+G2IQT9 & 5\\
+\hline
+G3M189 & 5\\
+\hline
+G4VGI0 & 5\\
+\hline
+G7J7Q5 & 5\\
+\hline
+G8G134 & 5\\
+\hline
+H0W0T5 & 5\\
+\hline
+H2FH31 & 5\\
+\hline
+H6BDX1 & 5\\
+\hline
+I1REW2 & 5\\
+\hline
+I6NAW4 & 5\\
+\hline
+J3KJC6 & 5\\
+\hline
+J9ULM6 & 5\\
+\hline
+K1QRB6 & 5\\
+\hline
+K9N638 & 5\\
+\hline
+L0E4H0 & 5\\
+\hline
+L7PYQ2 & 5\\
+\hline
+O00092 & 5\\
+\hline
+O00206 & 5\\
+\hline
+O00213 & 5\\
+\hline
+O04385 & 5\\
+\hline
+O05309 & 5\\
+\hline
+O06629 & 5\\
+\hline
+O06644 & 5\\
+\hline
+O14684 & 5\\
+\hline
+O22267 & 5\\
+\hline
+O22822 & 5\\
+\hline
+O24146 & 5\\
+\hline
+O24769 & 5\\
+\hline
+O25318 & 5\\
+\hline
+O25511 & 5\\
+\hline
+O25708 & 5\\
+\hline
+O26314 & 5\\
+\hline
+O26745 & 5\\
+\hline
+O28597 & 5\\
+\hline
+O29280 & 5\\
+\hline
+O30245 & 5\\
+\hline
+O30642 & 5\\
+\hline
+O31698 & 5\\
+\hline
+O32243 & 5\\
+\hline
+O32253 & 5\\
+\hline
+O33199 & 5\\
+\hline
+O33336 & 5\\
+\hline
+O34153 & 5\\
+\hline
+O34918 & 5\\
+\hline
+O34919 & 5\\
+\hline
+O35795 & 5\\
+\hline
+O43173 & 5\\
+\hline
+O43293 & 5\\
+\hline
+O49003 & 5\\
+\hline
+O52063 & 5\\
+\hline
+O53665 & 5\\
+\hline
+O54161 & 5\\
+\hline
+O57767 & 5\\
+\hline
+O57946 & 5\\
+\hline
+O58316 & 5\\
+\hline
+O59021 & 5\\
+\hline
+O59919 & 5\\
+\hline
+O60462 & 5\\
+\hline
+O64587 & 5\\
+\hline
+O66037 & 5\\
+\hline
+O66528 & 5\\
+\hline
+O66529 & 5\\
+\hline
+O66905 & 5\\
+\hline
+O66990 & 5\\
+\hline
+O67140 & 5\\
+\hline
+O67528 & 5\\
+\hline
+O67883 & 5\\
+\hline
+O67987 & 5\\
+\hline
+O68014 & 5\\
+\hline
+O68252 & 5\\
+\hline
+O69262 & 5\\
+\hline
+O69756 & 5\\
+\hline
+O74035 & 5\\
+\hline
+O75151 & 5\\
+\hline
+O75311 & 5\\
+\hline
+O75923 & 5\\
+\hline
+O77093 & 5\\
+\hline
+O85353 & 5\\
+\hline
+O85726 & 5\\
+\hline
+O86159 & 5\\
+\hline
+O92323 & 5\\
+\hline
+O95619 & 5\\
+\hline
+O96048 & 5\\
+\hline
+P00394 & 5\\
+\hline
+P00447 & 5\\
+\hline
+P00451 & 5\\
+\hline
+P00496 & 5\\
+\hline
+P00588 & 5\\
+\hline
+P00654 & 5\\
+\hline
+P00692 & 5\\
+\hline
+P00712 & 5\\
+\hline
+P00725 & 5\\
+\hline
+P00950 & 5\\
+\hline
+P00951 & 5\\
+\hline
+P01024 & 5\\
+\hline
+P01053 & 5\\
+\hline
+P01552 & 5\\
+\hline
+P01558 & 5\\
+\hline
+P01887 & 5\\
+\hline
+P02340 & 5\\
+\hline
+P02528 & 5\\
+\hline
+P02592 & 5\\
+\hline
+P02753 & 5\\
+\hline
+P02943 & 5\\
+\hline
+P03007 & 5\\
+\hline
+P03023 & 5\\
+\hline
+P03040 & 5\\
+\hline
+P03313 & 5\\
+\hline
+P03355 & 5\\
+\hline
+P03474 & 5\\
+\hline
+P03495 & 5\\
+\hline
+P03528 & 5\\
+\hline
+P04040 & 5\\
+\hline
+P04164 & 5\\
+\hline
+P04176 & 5\\
+\hline
+P04483 & 5\\
+\hline
+P04552 & 5\\
+\hline
+P04578 & 5\\
+\hline
+P04995 & 5\\
+\hline
+P05046 & 5\\
+\hline
+P05187 & 5\\
+\hline
+P05655 & 5\\
+\hline
+P05696 & 5\\
+\hline
+P06400 & 5\\
+\hline
+P06565 & 5\\
+\hline
+P06653 & 5\\
+\hline
+P06701 & 5\\
+\hline
+P07132 & 5\\
+\hline
+P07237 & 5\\
+\hline
+P07311 & 5\\
+\hline
+P07451 & 5\\
+\hline
+P07463 & 5\\
+\hline
+P07511 & 5\\
+\hline
+P07737 & 5\\
+\hline
+P07797 & 5\\
+\hline
+P07858 & 5\\
+\hline
+P07906 & 5\\
+\hline
+P08027 & 5\\
+\hline
+P08165 & 5\\
+\hline
+P08174 & 5\\
+\hline
+P08179 & 5\\
+\hline
+P08238 & 5\\
+\hline
+P08603 & 5\\
+\hline
+P08854 & 5\\
+\hline
+P08954 & 5\\
+\hline
+P09889 & 5\\
+\hline
+P09958 & 5\\
+\hline
+P09989 & 5\\
+\hline
+P0A029 & 5\\
+\hline
+P0A0K6 & 5\\
+\hline
+P0A108 & 5\\
+\hline
+P0A2M9 & 5\\
+\hline
+P0A334 & 5\\
+\hline
+P0A5L6 & 5\\
+\hline
+P0A5S4 & 5\\
+\hline
+P0A6G7 & 5\\
+\hline
+P0A731 & 5\\
+\hline
+P0A749 & 5\\
+\hline
+P0A7E1 & 5\\
+\hline
+P0A935 & 5\\
+\hline
+P0A962 & 5\\
+\hline
+P0A9M0 & 5\\
+\hline
+P0A9M5 & 5\\
+\hline
+P0A9T0 & 5\\
+\hline
+P0AB80 & 5\\
+\hline
+P0AB91 & 5\\
+\hline
+P0ABK9 & 5\\
+\hline
+P0ABQ5 & 5\\
+\hline
+P0AC81 & 5\\
+\hline
+P0ACB2 & 5\\
+\hline
+P0AEH1 & 5\\
+\hline
+P0C1B3 & 5\\
+\hline
+P0DPI0 & 5\\
+\hline
+P10688 & 5\\
+\hline
+P10868 & 5\\
+\hline
+P10987 & 5\\
+\hline
+P11124 & 5\\
+\hline
+P11142 & 5\\
+\hline
+P11157 & 5\\
+\hline
+P11169 & 5\\
+\hline
+P11445 & 5\\
+\hline
+P11588 & 5\\
+\hline
+P11904 & 5\\
+\hline
+P12004 & 5\\
+\hline
+P12081 & 5\\
+\hline
+P12296 & 5\\
+\hline
+P12319 & 5\\
+\hline
+P12425 & 5\\
+\hline
+P12499 & 5\\
+\hline
+P12823 & 5\\
+\hline
+P12883 & 5\\
+\hline
+P13000 & 5\\
+\hline
+P13006 & 5\\
+\hline
+P13035 & 5\\
+\hline
+P13036 & 5\\
+\hline
+P13298 & 5\\
+\hline
+P13444 & 5\\
+\hline
+P13507 & 5\\
+\hline
+P13633 & 5\\
+\hline
+P13650 & 5\\
+\hline
+P13956 & 5\\
+\hline
+P13981 & 5\\
+\hline
+P14207 & 5\\
+\hline
+P14335 & 5\\
+\hline
+P14743 & 5\\
+\hline
+P14751 & 5\\
+\hline
+P14831 & 5\\
+\hline
+P14894 & 5\\
+\hline
+P15309 & 5\\
+\hline
+P15328 & 5\\
+\hline
+P15474 & 5\\
+\hline
+P15723 & 5\\
+\hline
+P15790 & 5\\
+\hline
+P16157 & 5\\
+\hline
+P16952 & 5\\
+\hline
+P17117 & 5\\
+\hline
+P17119 & 5\\
+\hline
+P17724 & 5\\
+\hline
+P18771 & 5\\
+\hline
+P18843 & 5\\
+\hline
+P18891 & 5\\
+\hline
+P18902 & 5\\
+\hline
+P19099 & 5\\
+\hline
+P19623 & 5\\
+\hline
+P19652 & 5\\
+\hline
+P19711 & 5\\
+\hline
+P19801 & 5\\
+\hline
+P19811 & 5\\
+\hline
+P21359 & 5\\
+\hline
+P21580 & 5\\
+\hline
+P21673 & 5\\
+\hline
+P21707 & 5\\
+\hline
+P21860 & 5\\
+\hline
+P22244 & 5\\
+\hline
+P22256 & 5\\
+\hline
+P22681 & 5\\
+\hline
+P22932 & 5\\
+\hline
+P22963 & 5\\
+\hline
+P23370 & 5\\
+\hline
+P23385 & 5\\
+\hline
+P23395 & 5\\
+\hline
+P23526 & 5\\
+\hline
+P23577 & 5\\
+\hline
+P23890 & 5\\
+\hline
+P24481 & 5\\
+\hline
+P25084 & 5\\
+\hline
+P25984 & 5\\
+\hline
+P27142 & 5\\
+\hline
+P27245 & 5\\
+\hline
+P27431 & 5\\
+\hline
+P28161 & 5\\
+\hline
+P28314 & 5\\
+\hline
+P28329 & 5\\
+\hline
+P29218 & 5\\
+\hline
+P29320 & 5\\
+\hline
+P29603 & 5\\
+\hline
+P29679 & 5\\
+\hline
+P29717 & 5\\
+\hline
+P30403 & 5\\
+\hline
+P30793 & 5\\
+\hline
+P31345 & 5\\
+\hline
+P31356 & 5\\
+\hline
+P31422 & 5\\
+\hline
+P31434 & 5\\
+\hline
+P31522 & 5\\
+\hline
+P31723 & 5\\
+\hline
+P32019 & 5\\
+\hline
+P32179 & 5\\
+\hline
+P32324 & 5\\
+\hline
+P32361 & 5\\
+\hline
+P32929 & 5\\
+\hline
+P33316 & 5\\
+\hline
+P33764 & 5\\
+\hline
+P34897 & 5\\
+\hline
+P35031 & 5\\
+\hline
+P35049 & 5\\
+\hline
+P35505 & 5\\
+\hline
+P35609 & 5\\
+\hline
+P35963 & 5\\
+\hline
+P36037 & 5\\
+\hline
+P36186 & 5\\
+\hline
+P36776 & 5\\
+\hline
+P36888 & 5\\
+\hline
+P37063 & 5\\
+\hline
+P37487 & 5\\
+\hline
+P38319 & 5\\
+\hline
+P38505 & 5\\
+\hline
+P38636 & 5\\
+\hline
+P38646 & 5\\
+\hline
+P39485 & 5\\
+\hline
+P39593 & 5\\
+\hline
+P39621 & 5\\
+\hline
+P40261 & 5\\
+\hline
+P40406 & 5\\
+\hline
+P40802 & 5\\
+\hline
+P40806 & 5\\
+\hline
+P41212 & 5\\
+\hline
+P42326 & 5\\
+\hline
+P42336 & 5\\
+\hline
+P42684 & 5\\
+\hline
+P43529 & 5\\
+\hline
+P46828 & 5\\
+\hline
+P48735 & 5\\
+\hline
+P49256 & 5\\
+\hline
+P49888 & 5\\
+\hline
+P49917 & 5\\
+\hline
+P50135 & 5\\
+\hline
+P50477 & 5\\
+\hline
+P50870 & 5\\
+\hline
+P51570 & 5\\
+\hline
+P51649 & 5\\
+\hline
+P51659 & 5\\
+\hline
+P51812 & 5\\
+\hline
+P51852 & 5\\
+\hline
+P52011 & 5\\
+\hline
+P52917 & 5\\
+\hline
+P53051 & 5\\
+\hline
+P53608 & 5\\
+\hline
+P54577 & 5\\
+\hline
+P54965 & 5\\
+\hline
+P55038 & 5\\
+\hline
+P55042 & 5\\
+\hline
+P55734 & 5\\
+\hline
+P55789 & 5\\
+\hline
+P55892 & 5\\
+\hline
+P56220 & 5\\
+\hline
+P56524 & 5\\
+\hline
+P56649 & 5\\
+\hline
+P56839 & 5\\
+\hline
+P58315 & 5\\
+\hline
+P58399 & 5\\
+\hline
+P58753 & 5\\
+\hline
+P59676 & 5\\
+\hline
+P59807 & 5\\
+\hline
+P60176 & 5\\
+\hline
+P60487 & 5\\
+\hline
+P60864 & 5\\
+\hline
+P61006 & 5\\
+\hline
+P61316 & 5\\
+\hline
+P61497 & 5\\
+\hline
+P62157 & 5\\
+\hline
+P62826 & 5\\
+\hline
+P64016 & 5\\
+\hline
+P66899 & 5\\
+\hline
+P67044 & 5\\
+\hline
+P68802 & 5\\
+\hline
+P71586 & 5\\
+\hline
+P72024 & 5\\
+\hline
+P73020 & 5\\
+\hline
+P73492 & 5\\
+\hline
+P73600 & 5\\
+\hline
+P74750 & 5\\
+\hline
+P76129 & 5\\
+\hline
+P76578 & 5\\
+\hline
+P77202 & 5\\
+\hline
+P77214 & 5\\
+\hline
+P79073 & 5\\
+\hline
+P80401 & 5\\
+\hline
+P80734 & 5\\
+\hline
+P81371 & 5\\
+\hline
+P82974 & 5\\
+\hline
+P83512 & 5\\
+\hline
+P83690 & 5\\
+\hline
+P93799 & 5\\
+\hline
+P94458 & 5\\
+\hline
+P96202 & 5\\
+\hline
+P96356 & 5\\
+\hline
+P96787 & 5\\
+\hline
+P96896 & 5\\
+\hline
+P97784 & 5\\
+\hline
+P9WFK7 & 5\\
+\hline
+P9WFX5 & 5\\
+\hline
+P9WHR3 & 5\\
+\hline
+P9WIQ1 & 5\\
+\hline
+Q005N3 & 5\\
+\hline
+Q01217 & 5\\
+\hline
+Q02248 & 5\\
+\hline
+Q03656 & 5\\
+\hline
+Q04230 & 5\\
+\hline
+Q04828 & 5\\
+\hline
+Q04IN8 & 5\\
+\hline
+Q06528 & 5\\
+\hline
+Q07108 & 5\\
+\hline
+Q08129 & 5\\
+\hline
+Q08188 & 5\\
+\hline
+Q08AH3 & 5\\
+\hline
+Q0CCT3 & 5\\
+\hline
+Q12109 & 5\\
+\hline
+Q12154 & 5\\
+\hline
+Q12314 & 5\\
+\hline
+Q12797 & 5\\
+\hline
+Q13188 & 5\\
+\hline
+Q13332 & 5\\
+\hline
+Q13523 & 5\\
+\hline
+Q13838 & 5\\
+\hline
+Q13PB7 & 5\\
+\hline
+Q14623 & 5\\
+\hline
+Q14676 & 5\\
+\hline
+Q14790 & 5\\
+\hline
+Q15413 & 5\\
+\hline
+Q15431 & 5\\
+\hline
+Q15782 & 5\\
+\hline
+Q16555 & 5\\
+\hline
+Q16620 & 5\\
+\hline
+Q16763 & 5\\
+\hline
+Q16853 & 5\\
+\hline
+Q16968 & 5\\
+\hline
+Q17U16 & 5\\
+\hline
+Q18DH8 & 5\\
+\hline
+Q1M7F4 & 5\\
+\hline
+Q1PX48 & 5\\
+\hline
+Q1ZS18 & 5\\
+\hline
+Q24413 & 5\\
+\hline
+Q26490 & 5\\
+\hline
+Q27701 & 5\\
+\hline
+Q27895 & 5\\
+\hline
+Q27GR2 & 5\\
+\hline
+Q28146 & 5\\
+\hline
+Q28943 & 5\\
+\hline
+Q29460 & 5\\
+\hline
+Q2A612 & 5\\
+\hline
+Q2G160 & 5\\
+\hline
+Q2GA79 & 5\\
+\hline
+Q2JJF6 & 5\\
+\hline
+Q2QEH4 & 5\\
+\hline
+Q2SZE4 & 5\\
+\hline
+Q2TR58 & 5\\
+\hline
+Q2YQQ9 & 5\\
+\hline
+Q306J3 & 5\\
+\hline
+Q30C70 & 5\\
+\hline
+Q30NP1 & 5\\
+\hline
+Q38087 & 5\\
+\hline
+Q387G0 & 5\\
+\hline
+Q38DE2 & 5\\
+\hline
+Q3K5N8 & 5\\
+\hline
+Q3K9A1 & 5\\
+\hline
+Q3KK31 & 5\\
+\hline
+Q3MHW7 & 5\\
+\hline
+Q3S340 & 5\\
+\hline
+Q3U2S8 & 5\\
+\hline
+Q41372 & 5\\
+\hline
+Q41415 & 5\\
+\hline
+Q44238 & 5\\
+\hline
+Q45071 & 5\\
+\hline
+Q46893 & 5\\
+\hline
+Q47510 & 5\\
+\hline
+Q48391 & 5\\
+\hline
+Q4Q3K2 & 5\\
+\hline
+Q4U443 & 5\\
+\hline
+Q50224 & 5\\
+\hline
+Q51487 & 5\\
+\hline
+Q52VH2 & 5\\
+\hline
+Q53908 & 5\\
+\hline
+Q53W82 & 5\\
+\hline
+Q53W92 & 5\\
+\hline
+Q54113 & 5\\
+\hline
+Q54450 & 5\\
+\hline
+Q55080 & 5\\
+\hline
+Q56312 & 5\\
+\hline
+Q569R2 & 5\\
+\hline
+Q57913 & 5\\
+\hline
+Q57VC7 & 5\\
+\hline
+Q57ZH3 & 5\\
+\hline
+Q58504 & 5\\
+\hline
+Q58610 & 5\\
+\hline
+Q58734 & 5\\
+\hline
+Q59277 & 5\\
+\hline
+Q59288 & 5\\
+\hline
+Q59H18 & 5\\
+\hline
+Q5CR27 & 5\\
+\hline
+Q5CYZ2 & 5\\
+\hline
+Q5EEL8 & 5\\
+\hline
+Q5EGK8 & 5\\
+\hline
+Q5FAK7 & 5\\
+\hline
+Q5H5J0 & 5\\
+\hline
+Q5HLM5 & 5\\
+\hline
+Q5JII7 & 5\\
+\hline
+Q5KST5 & 5\\
+\hline
+Q5NGE8 & 5\\
+\hline
+Q5NGQ3 & 5\\
+\hline
+Q5NTE5 & 5\\
+\hline
+Q5NU17 & 5\\
+\hline
+Q5SHE1 & 5\\
+\hline
+Q5SHN1 & 5\\
+\hline
+Q5SKW0 & 5\\
+\hline
+Q5SL35 & 5\\
+\hline
+Q5SM19 & 5\\
+\hline
+Q5W271 & 5\\
+\hline
+Q5YNS8 & 5\\
+\hline
+Q5ZUV9 & 5\\
+\hline
+Q60358 & 5\\
+\hline
+Q61194 & 5\\
+\hline
+Q62230 & 5\\
+\hline
+Q67A25 & 5\\
+\hline
+Q67PY4 & 5\\
+\hline
+Q6DPL2 & 5\\
+\hline
+Q6FNA9 & 5\\
+\hline
+Q6GGU4 & 5\\
+\hline
+Q6MLN6 & 5\\
+\hline
+Q6MZV7 & 5\\
+\hline
+Q6N8W4 & 5\\
+\hline
+Q6NY42 & 5\\
+\hline
+Q6NYR1 & 5\\
+\hline
+Q6PHU5 & 5\\
+\hline
+Q6RYW5 & 5\\
+\hline
+Q6ST21 & 5\\
+\hline
+Q6TUJ5 & 5\\
+\hline
+Q6UDW7 & 5\\
+\hline
+Q6XBH1 & 5\\
+\hline
+Q70LM7 & 5\\
+\hline
+Q716H4 & 5\\
+\hline
+Q72LL6 & 5\\
+\hline
+Q73WU1 & 5\\
+\hline
+Q746K1 & 5\\
+\hline
+Q74FS9 & 5\\
+\hline
+Q76SB0 & 5\\
+\hline
+Q775D6 & 5\\
+\hline
+Q7A655 & 5\\
+\hline
+Q7BSW5 & 5\\
+\hline
+Q7CP66 & 5\\
+\hline
+Q7KZF4 & 5\\
+\hline
+Q7MUW6 & 5\\
+\hline
+Q7PGA3 & 5\\
+\hline
+Q7RYZ9 & 5\\
+\hline
+Q7X0D9 & 5\\
+\hline
+Q7Y3F3 & 5\\
+\hline
+Q7Z8V1 & 5\\
+\hline
+Q81ST4 & 5\\
+\hline
+Q834W6 & 5\\
+\hline
+Q837U7 & 5\\
+\hline
+Q83XK4 & 5\\
+\hline
+Q83XN4 & 5\\
+\hline
+Q84HQ2 & 5\\
+\hline
+Q84II6 & 5\\
+\hline
+Q86G74 & 5\\
+\hline
+Q877G8 & 5\\
+\hline
+Q8A090 & 5\\
+\hline
+Q8A1G2 & 5\\
+\hline
+Q8DR52 & 5\\
+\hline
+Q8E0S7 & 5\\
+\hline
+Q8E372 & 5\\
+\hline
+Q8F3Q1 & 5\\
+\hline
+Q8I3X4 & 5\\
+\hline
+Q8I6V3 & 5\\
+\hline
+Q8IEE9 & 5\\
+\hline
+Q8ISF8 & 5\\
+\hline
+Q8JW44 & 5\\
+\hline
+Q8KGE0 & 5\\
+\hline
+Q8L7J2 & 5\\
+\hline
+Q8LDU4 & 5\\
+\hline
+Q8N5Z0 & 5\\
+\hline
+Q8NB16 & 5\\
+\hline
+Q8NBK3 & 5\\
+\hline
+Q8NFE9 & 5\\
+\hline
+Q8NHL6 & 5\\
+\hline
+Q8NJY3 & 5\\
+\hline
+Q8NYS7 & 5\\
+\hline
+Q8P9V9 & 5\\
+\hline
+Q8Q3H0 & 5\\
+\hline
+Q8R910 & 5\\
+\hline
+Q8RLY5 & 5\\
+\hline
+Q8TDX5 & 5\\
+\hline
+Q8TG90 & 5\\
+\hline
+Q8TTZ5 & 5\\
+\hline
+Q8U3V1 & 5\\
+\hline
+Q8UB77 & 5\\
+\hline
+Q8ULI2 & 5\\
+\hline
+Q8VP75 & 5\\
+\hline
+Q8WTT0 & 5\\
+\hline
+Q8WUI4 & 5\\
+\hline
+Q8WUM4 & 5\\
+\hline
+Q8XNB2 & 5\\
+\hline
+Q8Y3M3 & 5\\
+\hline
+Q8ZPC0 & 5\\
+\hline
+Q8ZQ06 & 5\\
+\hline
+Q903N5 & 5\\
+\hline
+Q92769 & 5\\
+\hline
+Q92900 & 5\\
+\hline
+Q92N37 & 5\\
+\hline
+Q92UV7 & 5\\
+\hline
+Q92UV8 & 5\\
+\hline
+Q939R9 & 5\\
+\hline
+Q93PQ0 & 5\\
+\hline
+Q93S40 & 5\\
+\hline
+Q93UQ5 & 5\\
+\hline
+Q96554 & 5\\
+\hline
+Q96EK6 & 5\\
+\hline
+Q96IY4 & 5\\
+\hline
+Q96QU1 & 5\\
+\hline
+Q970Q8 & 5\\
+\hline
+Q976W8 & 5\\
+\hline
+Q977W1 & 5\\
+\hline
+Q97NZ8 & 5\\
+\hline
+Q97PM2 & 5\\
+\hline
+Q97Q99 & 5\\
+\hline
+Q97R46 & 5\\
+\hline
+Q97ZL0 & 5\\
+\hline
+Q980S9 & 5\\
+\hline
+Q98GN8 & 5\\
+\hline
+Q99036 & 5\\
+\hline
+Q99523 & 5\\
+\hline
+Q99QC1 & 5\\
+\hline
+Q99T05 & 5\\
+\hline
+Q9A0M7 & 5\\
+\hline
+Q9A5I4 & 5\\
+\hline
+Q9AJF8 & 5\\
+\hline
+Q9ALJ4 & 5\\
+\hline
+Q9ALS9 & 5\\
+\hline
+Q9AQ17 & 5\\
+\hline
+Q9AQS0 & 5\\
+\hline
+Q9BIH3 & 5\\
+\hline
+Q9BYC5 & 5\\
+\hline
+Q9C9G4 & 5\\
+\hline
+Q9CDU5 & 5\\
+\hline
+Q9CES5 & 5\\
+\hline
+Q9CKB0 & 5\\
+\hline
+Q9DC23 & 5\\
+\hline
+Q9DCX8 & 5\\
+\hline
+Q9ESN4 & 5\\
+\hline
+Q9F4L3 & 5\\
+\hline
+Q9FEW9 & 5\\
+\hline
+Q9GN60 & 5\\
+\hline
+Q9GZU7 & 5\\
+\hline
+Q9H0H5 & 5\\
+\hline
+Q9H227 & 5\\
+\hline
+Q9H6W3 & 5\\
+\hline
+Q9HKT1 & 5\\
+\hline
+Q9HMP7 & 5\\
+\hline
+Q9HT87 & 5\\
+\hline
+Q9HU04 & 5\\
+\hline
+Q9HU77 & 5\\
+\hline
+Q9HUK6 & 5\\
+\hline
+Q9HUU7 & 5\\
+\hline
+Q9HX72 & 5\\
+\hline
+Q9HXH7 & 5\\
+\hline
+Q9HXN1 & 5\\
+\hline
+Q9I1X7 & 5\\
+\hline
+Q9I3A4 & 5\\
+\hline
+Q9I4K6 & 5\\
+\hline
+Q9I5I9 & 5\\
+\hline
+Q9I6V6 & 5\\
+\hline
+Q9JIL4 & 5\\
+\hline
+Q9K5F2 & 5\\
+\hline
+Q9KH42 & 5\\
+\hline
+Q9KQG2 & 5\\
+\hline
+Q9KU37 & 5\\
+\hline
+Q9KWN0 & 5\\
+\hline
+Q9KWT6 & 5\\
+\hline
+Q9LS02 & 5\\
+\hline
+Q9LYU4 & 5\\
+\hline
+Q9M6U3 & 5\\
+\hline
+Q9NP55 & 5\\
+\hline
+Q9NSY1 & 5\\
+\hline
+Q9NXS2 & 5\\
+\hline
+Q9NYA1 & 5\\
+\hline
+Q9Q0U9 & 5\\
+\hline
+Q9QZ85 & 5\\
+\hline
+Q9R1E6 & 5\\
+\hline
+Q9R8E3 & 5\\
+\hline
+Q9RE05 & 5\\
+\hline
+Q9S5G5 & 5\\
+\hline
+Q9SIY3 & 5\\
+\hline
+Q9SSM7 & 5\\
+\hline
+Q9STC1 & 5\\
+\hline
+Q9T0I8 & 5\\
+\hline
+Q9UBG0 & 5\\
+\hline
+Q9UBU9 & 5\\
+\hline
+Q9UG22 & 5\\
+\hline
+Q9UGN5 & 5\\
+\hline
+Q9UHP7 & 5\\
+\hline
+Q9UIQ6 & 5\\
+\hline
+Q9UKA1 & 5\\
+\hline
+Q9ULW0 & 5\\
+\hline
+Q9UNP9 & 5\\
+\hline
+Q9UVX3 & 5\\
+\hline
+Q9UXG1 & 5\\
+\hline
+Q9V1G0 & 5\\
+\hline
+Q9WWU5 & 5\\
+\hline
+Q9WXM1 & 5\\
+\hline
+Q9WYS0 & 5\\
+\hline
+Q9WZ62 & 5\\
+\hline
+Q9X0D0 & 5\\
+\hline
+Q9X286 & 5\\
+\hline
+Q9Y052 & 5\\
+\hline
+Q9Y2R2 & 5\\
+\hline
+Q9Y3Q4 & 5\\
+\hline
+Q9Y4U1 & 5\\
+\hline
+Q9Y5A9 & 5\\
+\hline
+Q9Y5K2 & 5\\
+\hline
+Q9Y5K5 & 5\\
+\hline
+Q9Y5S2 & 5\\
+\hline
+Q9Y5X1 & 5\\
+\hline
+Q9Y606 & 5\\
+\hline
+Q9ZGC0 & 5\\
+\hline
+R4JTF7 & 5\\
+\hline
+T2I3Q3 & 5\\
+\hline
+U3GK13 & 5\\
+\hline
+U3J0P1 & 5\\
+\hline
+U8MRX2 & 5\\
+\hline
+V9HW83 & 5\\
+\hline
+W8X534 & 5\\
+\hline
+W9AB79 & 5\\
+\hline
+W9BNU9 & 5\\
+\hline
+X5I2D7 & 5\\
+\hline
+13701524 & 4\\
+\hline
+165844 & 4\\
+\hline
+21280333 & 4\\
+\hline
+324880 & 4\\
+\hline
+4107260 & 4\\
+\hline
+437705 & 4\\
+\hline
+48769986 & 4\\
+\hline
+55772813 & 4\\
+\hline
+606960 & 4\\
+\hline
+854516 & 4\\
+\hline
+A0A024E1G1 & 4\\
+\hline
+A0A045KCS8 & 4\\
+\hline
+A0A063XDJ9 & 4\\
+\hline
+A0A074Z863 & 4\\
+\hline
+A0A075Q0W3 & 4\\
+\hline
+A0A077JG85 & 4\\
+\hline
+A0A095KYK6 & 4\\
+\hline
+A0A097H118 & 4\\
+\hline
+A0A0A0V031 & 4\\
+\hline
+A0A0A1EQY0 & 4\\
+\hline
+A0A0B5GUD2 & 4\\
+\hline
+A0A0D6HHM8 & 4\\
+\hline
+A0A0D6J225 & 4\\
+\hline
+A0A0E1FIJ3 & 4\\
+\hline
+A0A0F3U9S7 & 4\\
+\hline
+A0A0F6VWC7 & 4\\
+\hline
+A0A0H1ZSM1 & 4\\
+\hline
+A0A0H2UPF3 & 4\\
+\hline
+A0A0H2US78 & 4\\
+\hline
+A0A0H2XCS3 & 4\\
+\hline
+A0A0H2Z7A6 & 4\\
+\hline
+A0A0H3K033 & 4\\
+\hline
+A0A0H3KGN1 & 4\\
+\hline
+A0A0J9X1X3 & 4\\
+\hline
+A0A0Q3EUQ3 & 4\\
+\hline
+A0A0R5NGA4 & 4\\
+\hline
+A0A109C781 & 4\\
+\hline
+A0A109QFA5 & 4\\
+\hline
+A0A140HJ20 & 4\\
+\hline
+A0A145BYP4 & 4\\
+\hline
+A0A1B3XFT6 & 4\\
+\hline
+A0A1C7DQ98 & 4\\
+\hline
+A0A1C9J6A7 & 4\\
+\hline
+A0A1E9VP98 & 4\\
+\hline
+A0A1G4HIY1 & 4\\
+\hline
+A0A1H2DDB9 & 4\\
+\hline
+A0A1I5NEH3 & 4\\
+\hline
+A0A1L8Y4Q3 & 4\\
+\hline
+A0A1U7N2Z8 & 4\\
+\hline
+A0A1U9AK63 & 4\\
+\hline
+A0A226BA59 & 4\\
+\hline
+A0A247D6Y2 & 4\\
+\hline
+A0A2D0TC92 & 4\\
+\hline
+A0A2D1CM82 & 4\\
+\hline
+A0A2N0UU23 & 4\\
+\hline
+A0A329B7M1 & 4\\
+\hline
+A0A376KDN7 & 4\\
+\hline
+A0A4P1LXE0 & 4\\
+\hline
+A0A4Y5R032 & 4\\
+\hline
+A0A4Y5R087 & 4\\
+\hline
+A0B757 & 4\\
+\hline
+A0KGU9 & 4\\
+\hline
+A0QQ45 & 4\\
+\hline
+A0QWG6 & 4\\
+\hline
+A0QWT2 & 4\\
+\hline
+A0R607 & 4\\
+\hline
+A1B2F3 & 4\\
+\hline
+A1BTJ7 & 4\\
+\hline
+A1ILL9 & 4\\
+\hline
+A2DLL4 & 4\\
+\hline
+A2R2V4 & 4\\
+\hline
+A3DIL8 & 4\\
+\hline
+A3LHH1 & 4\\
+\hline
+A3MU08 & 4\\
+\hline
+A3N294 & 4\\
+\hline
+A3QAV3 & 4\\
+\hline
+A3UNN4 & 4\\
+\hline
+A4ZF98 & 4\\
+\hline
+A4ZKM1 & 4\\
+\hline
+A5H1I6 & 4\\
+\hline
+A5JUY8 & 4\\
+\hline
+A5K2B2 & 4\\
+\hline
+A5K8X6 & 4\\
+\hline
+A5PJH9 & 4\\
+\hline
+A5U2B7 & 4\\
+\hline
+A5U9I4 & 4\\
+\hline
+A6H6Y4 & 4\\
+\hline
+A6LX94 & 4\\
+\hline
+A6QDA0 & 4\\
+\hline
+A6QJM6 & 4\\
+\hline
+A6T9H1 & 4\\
+\hline
+A6XFF7 & 4\\
+\hline
+A7A1Y4 & 4\\
+\hline
+A7ASX7 & 4\\
+\hline
+A7LAI8 & 4\\
+\hline
+A7UNK4 & 4\\
+\hline
+A8BB85 & 4\\
+\hline
+A8E0K8 & 4\\
+\hline
+A8PUY1 & 4\\
+\hline
+A9ANE4 & 4\\
+\hline
+A9CP13 & 4\\
+\hline
+A9FDB7 & 4\\
+\hline
+A9KJS6 & 4\\
+\hline
+A9XK88 & 4\\
+\hline
+AF190633 & 4\\
+\hline
+B0B0V1 & 4\\
+\hline
+B0JDW3 & 4\\
+\hline
+B0VHH0 & 4\\
+\hline
+B0ZE06 & 4\\
+\hline
+B1MMZ4 & 4\\
+\hline
+B1Q236 & 4\\
+\hline
+B1XC49 & 4\\
+\hline
+B2ZGS7 & 4\\
+\hline
+B3PBE0 & 4\\
+\hline
+B3VI55 & 4\\
+\hline
+B4EB35 & 4\\
+\hline
+B4ECY9 & 4\\
+\hline
+B4EVM3 & 4\\
+\hline
+B4SLK2 & 4\\
+\hline
+B4XVN1 & 4\\
+\hline
+B4Y380 & 4\\
+\hline
+B4Y381 & 4\\
+\hline
+B5HSR1 & 4\\
+\hline
+B5N507 & 4\\
+\hline
+B6DRA0 & 4\\
+\hline
+B6TPH0 & 4\\
+\hline
+B6V7E4 & 4\\
+\hline
+B6YWC3 & 4\\
+\hline
+B7JX99 & 4\\
+\hline
+B7MLA0 & 4\\
+\hline
+B7X9Z0 & 4\\
+\hline
+B7X9Z2 & 4\\
+\hline
+B8CYA8 & 4\\
+\hline
+B8M9J8 & 4\\
+\hline
+B8QIQ9 & 4\\
+\hline
+C0JPK1 & 4\\
+\hline
+C0JRF5 & 4\\
+\hline
+C0STD7 & 4\\
+\hline
+C1EBN1 & 4\\
+\hline
+C3PBM5 & 4\\
+\hline
+C3W5X5 & 4\\
+\hline
+C3W5X6 & 4\\
+\hline
+C4IEM5 & 4\\
+\hline
+C4LWU6 & 4\\
+\hline
+C4M7X2 & 4\\
+\hline
+C5BJ89 & 4\\
+\hline
+C5H429 & 4\\
+\hline
+C5WBA2 & 4\\
+\hline
+C6G9U5 & 4\\
+\hline
+C6XGT2 & 4\\
+\hline
+C7MT25 & 4\\
+\hline
+C7QJ42 & 4\\
+\hline
+C9QQ79 & 4\\
+\hline
+C9QS13 & 4\\
+\hline
+C9QSC3 & 4\\
+\hline
+C9QST6 & 4\\
+\hline
+C9ZP98 & 4\\
+\hline
+C9ZUV7 & 4\\
+\hline
+D0CY07 & 4\\
+\hline
+D0CY60 & 4\\
+\hline
+D0E8I5 & 4\\
+\hline
+D0MDR1 & 4\\
+\hline
+D0VUS3 & 4\\
+\hline
+D0VWU8 & 4\\
+\hline
+D0VX33 & 4\\
+\hline
+D1A230 & 4\\
+\hline
+D1AC29 & 4\\
+\hline
+D1BQI7 & 4\\
+\hline
+D2PPM8 & 4\\
+\hline
+D2YYE1 & 4\\
+\hline
+D3T4E0 & 4\\
+\hline
+D3W065 & 4\\
+\hline
+D3Y1I2 & 4\\
+\hline
+D4G3D4 & 4\\
+\hline
+D4HRL0 & 4\\
+\hline
+D4L313 & 4\\
+\hline
+D5IEZ9 & 4\\
+\hline
+D6R8X8 & 4\\
+\hline
+D7K0H3 & 4\\
+\hline
+D9ISE0 & 4\\
+\hline
+E1UUV3 & 4\\
+\hline
+E2STD2 & 4\\
+\hline
+E3Q9X3 & 4\\
+\hline
+E4S6E9 & 4\\
+\hline
+E5BDC6 & 4\\
+\hline
+E5EVW2 & 4\\
+\hline
+E5R5T0 & 4\\
+\hline
+E7CH51 & 4\\
+\hline
+E9BIX7 & 4\\
+\hline
+E9NQ90 & 4\\
+\hline
+F0K5D8 & 4\\
+\hline
+F0M433 & 4\\
+\hline
+F0X360 & 4\\
+\hline
+F2QVG4 & 4\\
+\hline
+F2RGC9 & 4\\
+\hline
+F2TZN0 & 4\\
+\hline
+F6I323 & 4\\
+\hline
+F7J696 & 4\\
+\hline
+F8WJP6 & 4\\
+\hline
+F8WRK9 & 4\\
+\hline
+G0SFD1 & 4\\
+\hline
+G0SG42 & 4\\
+\hline
+G1U9S2 & 4\\
+\hline
+G1UIZ3 & 4\\
+\hline
+G2IKE5 & 4\\
+\hline
+G3JPF7 & 4\\
+\hline
+G3M192 & 4\\
+\hline
+G3XCV0 & 4\\
+\hline
+G5EG62 & 4\\
+\hline
+G5ELM1 & 4\\
+\hline
+G6TGY9 & 4\\
+\hline
+G7ITU5 & 4\\
+\hline
+G7KRM5 & 4\\
+\hline
+G8SX20 & 4\\
+\hline
+G9BEX6 & 4\\
+\hline
+G9M5R4 & 4\\
+\hline
+G9NLP8 & 4\\
+\hline
+H0AM96 & 4\\
+\hline
+H2VFG5 & 4\\
+\hline
+H3JU00 & 4\\
+\hline
+H3K096 & 4\\
+\hline
+H6WCZ0 & 4\\
+\hline
+H7BRJ8 & 4\\
+\hline
+H7C745 & 4\\
+\hline
+H8ESN0 & 4\\
+\hline
+H8YRY9 & 4\\
+\hline
+I2DBY1 & 4\\
+\hline
+I3P686 & 4\\
+\hline
+I6X7F9 & 4\\
+\hline
+I6XHI4 & 4\\
+\hline
+I6YD01 & 4\\
+\hline
+K0NB39 & 4\\
+\hline
+K2NMS4 & 4\\
+\hline
+K7NBW3 & 4\\
+\hline
+L0DSL2 & 4\\
+\hline
+L0N3Y0 & 4\\
+\hline
+L0N7E5 & 4\\
+\hline
+L7R9I1 & 4\\
+\hline
+M1GRN3 & 4\\
+\hline
+M1GSK9 & 4\\
+\hline
+M9P6K0 & 4\\
+\hline
+M9TGV3 & 4\\
+\hline
+N6FDB4 & 4\\
+\hline
+N6UXY4 & 4\\
+\hline
+N9UNA8 & 4\\
+\hline
+NOR00692 & 4\\
+\hline
+O00105 & 4\\
+\hline
+O00204 & 4\\
+\hline
+O00560 & 4\\
+\hline
+O02697 & 4\\
+\hline
+O04073 & 4\\
+\hline
+O04797 & 4\\
+\hline
+O05594 & 4\\
+\hline
+O06553 & 4\\
+\hline
+O06594 & 4\\
+\hline
+O06662 & 4\\
+\hline
+O07529 & 4\\
+\hline
+O08679 & 4\\
+\hline
+O08967 & 4\\
+\hline
+O14727 & 4\\
+\hline
+O15294 & 4\\
+\hline
+O15550 & 4\\
+\hline
+O15570 & 4\\
+\hline
+O15992 & 4\\
+\hline
+O18423 & 4\\
+\hline
+O22321 & 4\\
+\hline
+O23799 & 4\\
+\hline
+O24729 & 4\\
+\hline
+O25025 & 4\\
+\hline
+O25836 & 4\\
+\hline
+O26249 & 4\\
+\hline
+O26708 & 4\\
+\hline
+O27099 & 4\\
+\hline
+O28511 & 4\\
+\hline
+O28524 & 4\\
+\hline
+O28625 & 4\\
+\hline
+O28751 & 4\\
+\hline
+O29285 & 4\\
+\hline
+O29362 & 4\\
+\hline
+O29424 & 4\\
+\hline
+O29537 & 4\\
+\hline
+O30297 & 4\\
+\hline
+O31465 & 4\\
+\hline
+O31539 & 4\\
+\hline
+O31616 & 4\\
+\hline
+O31671 & 4\\
+\hline
+O32218 & 4\\
+\hline
+O32449 & 4\\
+\hline
+O33599 & 4\\
+\hline
+O34340 & 4\\
+\hline
+O34522 & 4\\
+\hline
+O34632 & 4\\
+\hline
+O34790 & 4\\
+\hline
+O34926 & 4\\
+\hline
+O34974 & 4\\
+\hline
+O38885 & 4\\
+\hline
+O38893 & 4\\
+\hline
+O43414 & 4\\
+\hline
+O43663 & 4\\
+\hline
+O43683 & 4\\
+\hline
+O48917 & 4\\
+\hline
+O50008 & 4\\
+\hline
+O50641 & 4\\
+\hline
+O50657 & 4\\
+\hline
+O51933 & 4\\
+\hline
+O52805 & 4\\
+\hline
+O53343 & 4\\
+\hline
+O55011 & 4\\
+\hline
+O57975 & 4\\
+\hline
+O58038 & 4\\
+\hline
+O58236 & 4\\
+\hline
+O58762 & 4\\
+\hline
+O59179 & 4\\
+\hline
+O59188 & 4\\
+\hline
+O59493 & 4\\
+\hline
+O59791 & 4\\
+\hline
+O60603 & 4\\
+\hline
+O66472 & 4\\
+\hline
+O66511 & 4\\
+\hline
+O66837 & 4\\
+\hline
+O66874 & 4\\
+\hline
+O67069 & 4\\
+\hline
+O67077 & 4\\
+\hline
+O67503 & 4\\
+\hline
+O67618 & 4\\
+\hline
+O67636 & 4\\
+\hline
+O67757 & 4\\
+\hline
+O67778 & 4\\
+\hline
+O67998 & 4\\
+\hline
+O69644 & 4\\
+\hline
+O73946 & 4\\
+\hline
+O73947 & 4\\
+\hline
+O74866 & 4\\
+\hline
+O74933 & 4\\
+\hline
+O75044 & 4\\
+\hline
+O75173 & 4\\
+\hline
+O75521 & 4\\
+\hline
+O75581 & 4\\
+\hline
+O75643 & 4\\
+\hline
+O77059 & 4\\
+\hline
+O84866 & 4\\
+\hline
+O85725 & 4\\
+\hline
+O87170 & 4\\
+\hline
+O87172 & 4\\
+\hline
+O87989 & 4\\
+\hline
+O89017 & 4\\
+\hline
+O89049 & 4\\
+\hline
+P00091 & 4\\
+\hline
+P00172 & 4\\
+\hline
+P00273 & 4\\
+\hline
+P00289 & 4\\
+\hline
+P00325 & 4\\
+\hline
+P00392 & 4\\
+\hline
+P00470 & 4\\
+\hline
+P00480 & 4\\
+\hline
+P00586 & 4\\
+\hline
+P00641 & 4\\
+\hline
+P00709 & 4\\
+\hline
+P00736 & 4\\
+\hline
+P00791 & 4\\
+\hline
+P00939 & 4\\
+\hline
+P00942 & 4\\
+\hline
+P01031 & 4\\
+\hline
+P01111 & 4\\
+\hline
+P01116-2 & 4\\
+\hline
+P01275 & 4\\
+\hline
+P02618 & 4\\
+\hline
+P02654 & 4\\
+\hline
+P02741 & 4\\
+\hline
+P02756 & 4\\
+\hline
+P02767 & 4\\
+\hline
+P02776 & 4\\
+\hline
+P02917 & 4\\
+\hline
+P03034 & 4\\
+\hline
+P03120 & 4\\
+\hline
+P03122 & 4\\
+\hline
+P03315 & 4\\
+\hline
+P03612 & 4\\
+\hline
+P03952 & 4\\
+\hline
+P03956 & 4\\
+\hline
+P04036 & 4\\
+\hline
+P04183 & 4\\
+\hline
+P04332 & 4\\
+\hline
+P04506 & 4\\
+\hline
+P04537 & 4\\
+\hline
+P04626 & 4\\
+\hline
+P04964 & 4\\
+\hline
+P05769 & 4\\
+\hline
+P05820 & 4\\
+\hline
+P06169 & 4\\
+\hline
+P06181 & 4\\
+\hline
+P06681 & 4\\
+\hline
+P06703 & 4\\
+\hline
+P06730 & 4\\
+\hline
+P06782 & 4\\
+\hline
+P06876 & 4\\
+\hline
+P06983 & 4\\
+\hline
+P06988 & 4\\
+\hline
+P07195 & 4\\
+\hline
+P07236 & 4\\
+\hline
+P07332 & 4\\
+\hline
+P07359 & 4\\
+\hline
+P07374 & 4\\
+\hline
+P07464 & 4\\
+\hline
+P07607 & 4\\
+\hline
+P07686 & 4\\
+\hline
+P07773 & 4\\
+\hline
+P07805 & 4\\
+\hline
+P07822 & 4\\
+\hline
+P08185 & 4\\
+\hline
+P08311 & 4\\
+\hline
+P08337 & 4\\
+\hline
+P08476 & 4\\
+\hline
+P08690 & 4\\
+\hline
+P08758 & 4\\
+\hline
+P08902 & 4\\
+\hline
+P09029 & 4\\
+\hline
+P09038 & 4\\
+\hline
+P09464 & 4\\
+\hline
+P09616 & 4\\
+\hline
+P0A0K0 & 4\\
+\hline
+P0A0L2 & 4\\
+\hline
+P0A4V4 & 4\\
+\hline
+P0A538 & 4\\
+\hline
+P0A5N0 & 4\\
+\hline
+P0A5S6 & 4\\
+\hline
+P0A610 & 4\\
+\hline
+P0A6E4 & 4\\
+\hline
+P0A6W9 & 4\\
+\hline
+P0A6X3 & 4\\
+\hline
+P0A7C2 & 4\\
+\hline
+P0A853 & 4\\
+\hline
+P0A862 & 4\\
+\hline
+P0A877 & 4\\
+\hline
+P0A8I8 & 4\\
+\hline
+P0A901 & 4\\
+\hline
+P0A940 & 4\\
+\hline
+P0A955 & 4\\
+\hline
+P0A993 & 4\\
+\hline
+P0A9C9 & 4\\
+\hline
+P0A9E0 & 4\\
+\hline
+P0A9J4 & 4\\
+\hline
+P0A9J6 & 4\\
+\hline
+P0AA86 & 4\\
+\hline
+P0AB85 & 4\\
+\hline
+P0ABQ0 & 4\\
+\hline
+P0ADA1 & 4\\
+\hline
+P0AE22 & 4\\
+\hline
+P0AES7 & 4\\
+\hline
+P0AEZ1 & 4\\
+\hline
+P0AG18 & 4\\
+\hline
+P0C0J0 & 4\\
+\hline
+P0C0V0 & 4\\
+\hline
+P0C2B2 & 4\\
+\hline
+P0C2P0 & 4\\
+\hline
+P0C6U2 & 4\\
+\hline
+P0CB53 & 4\\
+\hline
+P0DP23 & 4\\
+\hline
+P0DTC2 & 4\\
+\hline
+P10081 & 4\\
+\hline
+P10104 & 4\\
+\hline
+P10297 & 4\\
+\hline
+P10372 & 4\\
+\hline
+P10632 & 4\\
+\hline
+P10635 & 4\\
+\hline
+P10827 & 4\\
+\hline
+P10958 & 4\\
+\hline
+P11181 & 4\\
+\hline
+P11244 & 4\\
+\hline
+P11353 & 4\\
+\hline
+P11590 & 4\\
+\hline
+P11889 & 4\\
+\hline
+P12270 & 4\\
+\hline
+P12318 & 4\\
+\hline
+P12643 & 4\\
+\hline
+P12998 & 4\\
+\hline
+P13129 & 4\\
+\hline
+P13319 & 4\\
+\hline
+P13376 & 4\\
+\hline
+P13482 & 4\\
+\hline
+P13631 & 4\\
+\hline
+P13716 & 4\\
+\hline
+P14191 & 4\\
+\hline
+P14565 & 4\\
+\hline
+P14604 & 4\\
+\hline
+P14639 & 4\\
+\hline
+P14740 & 4\\
+\hline
+P14904 & 4\\
+\hline
+P15116 & 4\\
+\hline
+P15272 & 4\\
+\hline
+P15310 & 4\\
+\hline
+P15311 & 4\\
+\hline
+P15316 & 4\\
+\hline
+P15452 & 4\\
+\hline
+P15468 & 4\\
+\hline
+P15498 & 4\\
+\hline
+P15879 & 4\\
+\hline
+P15907 & 4\\
+\hline
+P15924 & 4\\
+\hline
+P16455 & 4\\
+\hline
+P16559 & 4\\
+\hline
+P16575 & 4\\
+\hline
+P17312 & 4\\
+\hline
+P17562 & 4\\
+\hline
+P17618 & 4\\
+\hline
+P17670 & 4\\
+\hline
+P17695 & 4\\
+\hline
+P17948 & 4\\
+\hline
+P18000 & 4\\
+\hline
+P18013 & 4\\
+\hline
+P18153 & 4\\
+\hline
+P18357 & 4\\
+\hline
+P18640 & 4\\
+\hline
+P18669 & 4\\
+\hline
+P18708 & 4\\
+\hline
+P18895 & 4\\
+\hline
+P19079 & 4\\
+\hline
+P20035 & 4\\
+\hline
+P20083 & 4\\
+\hline
+P20160 & 4\\
+\hline
+P20292 & 4\\
+\hline
+P20457 & 4\\
+\hline
+P20591 & 4\\
+\hline
+P20807 & 4\\
+\hline
+P20936 & 4\\
+\hline
+P21327 & 4\\
+\hline
+P21397 & 4\\
+\hline
+P21553 & 4\\
+\hline
+P21554 & 4\\
+\hline
+P21796 & 4\\
+\hline
+P21892 & 4\\
+\hline
+P21954 & 4\\
+\hline
+P21980 & 4\\
+\hline
+P22361 & 4\\
+\hline
+P22392 & 4\\
+\hline
+P22411 & 4\\
+\hline
+P22505 & 4\\
+\hline
+P22513 & 4\\
+\hline
+P22897 & 4\\
+\hline
+P23096 & 4\\
+\hline
+P23339 & 4\\
+\hline
+P23367 & 4\\
+\hline
+p23472 & 4\\
+\hline
+P23615 & 4\\
+\hline
+P23657 & 4\\
+\hline
+P23685 & 4\\
+\hline
+P23805 & 4\\
+\hline
+P23837 & 4\\
+\hline
+P23904 & 4\\
+\hline
+P24425 & 4\\
+\hline
+P24476 & 4\\
+\hline
+P24930 & 4\\
+\hline
+P25052 & 4\\
+\hline
+P25911 & 4\\
+\hline
+P26045 & 4\\
+\hline
+P26221 & 4\\
+\hline
+P26392 & 4\\
+\hline
+P26660 & 4\\
+\hline
+P26697 & 4\\
+\hline
+P27472 & 4\\
+\hline
+P27958 & 4\\
+\hline
+P27988 & 4\\
+\hline
+P28037 & 4\\
+\hline
+P28223 & 4\\
+\hline
+P28676 & 4\\
+\hline
+P29155 & 4\\
+\hline
+P29563 & 4\\
+\hline
+P30038 & 4\\
+\hline
+P30340 & 4\\
+\hline
+P30626 & 4\\
+\hline
+P31116 & 4\\
+\hline
+P31122 & 4\\
+\hline
+P31350 & 4\\
+\hline
+P31570 & 4\\
+\hline
+P32099 & 4\\
+\hline
+P32132 & 4\\
+\hline
+P32325 & 4\\
+\hline
+P32440 & 4\\
+\hline
+P32477 & 4\\
+\hline
+P32523 & 4\\
+\hline
+P32558 & 4\\
+\hline
+P32582 & 4\\
+\hline
+P32797 & 4\\
+\hline
+P33025 & 4\\
+\hline
+P33176 & 4\\
+\hline
+P34174 & 4\\
+\hline
+P34914 & 4\\
+\hline
+P35052 & 4\\
+\hline
+P35555 & 4\\
+\hline
+P35558 & 4\\
+\hline
+P35837 & 4\\
+\hline
+P35914 & 4\\
+\hline
+P36873 & 4\\
+\hline
+P36936 & 4\\
+\hline
+P36946 & 4\\
+\hline
+P36952 & 4\\
+\hline
+P37019 & 4\\
+\hline
+P37093 & 4\\
+\hline
+P37128 & 4\\
+\hline
+P37329 & 4\\
+\hline
+P37700 & 4\\
+\hline
+P37792 & 4\\
+\hline
+P37821 & 4\\
+\hline
+P38013 & 4\\
+\hline
+P38054 & 4\\
+\hline
+P38348 & 4\\
+\hline
+P38940 & 4\\
+\hline
+P39155 & 4\\
+\hline
+P39377 & 4\\
+\hline
+P39662 & 4\\
+\hline
+P39929 & 4\\
+\hline
+P40189 & 4\\
+\hline
+P40288 & 4\\
+\hline
+P40363 & 4\\
+\hline
+P40399 & 4\\
+\hline
+P40485 & 4\\
+\hline
+P40729 & 4\\
+\hline
+P41007 & 4\\
+\hline
+P41743 & 4\\
+\hline
+P41783 & 4\\
+\hline
+P42530 & 4\\
+\hline
+P42620 & 4\\
+\hline
+P42773 & 4\\
+\hline
+P43378 & 4\\
+\hline
+P43403 & 4\\
+\hline
+P43432 & 4\\
+\hline
+P43457 & 4\\
+\hline
+P43886 & 4\\
+\hline
+P44514 & 4\\
+\hline
+P44868 & 4\\
+\hline
+P45066 & 4\\
+\hline
+P45850 & 4\\
+\hline
+P45974 & 4\\
+\hline
+P46237 & 4\\
+\hline
+P46422 & 4\\
+\hline
+P46934 & 4\\
+\hline
+P47016 & 4\\
+\hline
+P47112 & 4\\
+\hline
+P47709 & 4\\
+\hline
+P48061 & 4\\
+\hline
+P48827 & 4\\
+\hline
+P49366 & 4\\
+\hline
+P49424 & 4\\
+\hline
+P49643 & 4\\
+\hline
+P49913 & 4\\
+\hline
+P49914 & 4\\
+\hline
+P50163 & 4\\
+\hline
+P50578 & 4\\
+\hline
+P51532 & 4\\
+\hline
+P51691 & 4\\
+\hline
+P51955 & 4\\
+\hline
+P52002 & 4\\
+\hline
+P52293 & 4\\
+\hline
+P52778 & 4\\
+\hline
+P52874 & 4\\
+\hline
+P53559 & 4\\
+\hline
+P53704 & 4\\
+\hline
+P53853 & 4\\
+\hline
+P53860 & 4\\
+\hline
+P54132 & 4\\
+\hline
+P54136 & 4\\
+\hline
+P54300 & 4\\
+\hline
+P54550 & 4\\
+\hline
+P54646 & 4\\
+\hline
+P54687 & 4\\
+\hline
+P54763 & 4\\
+\hline
+P55818 & 4\\
+\hline
+P56653 & 4\\
+\hline
+P57789 & 4\\
+\hline
+P58329 & 4\\
+\hline
+P58758 & 4\\
+\hline
+P59337 & 4\\
+\hline
+P60484 & 4\\
+\hline
+P60775 & 4\\
+\hline
+P61073 & 4\\
+\hline
+P61459 & 4\\
+\hline
+P61517 & 4\\
+\hline
+P61956 & 4\\
+\hline
+P62554 & 4\\
+\hline
+P62577 & 4\\
+\hline
+P62825 & 4\\
+\hline
+P62898 & 4\\
+\hline
+P63104 & 4\\
+\hline
+P63250 & 4\\
+\hline
+P63359 & 4\\
+\hline
+P63786 & 4\\
+\hline
+P63820 & 4\\
+\hline
+P65178 & 4\\
+\hline
+P68106 & 4\\
+\hline
+P69178 & 4\\
+\hline
+P69488 & 4\\
+\hline
+P69506 & 4\\
+\hline
+P69543 & 4\\
+\hline
+P71403 & 4\\
+\hline
+P71571 & 4\\
+\hline
+P71727 & 4\\
+\hline
+P71817 & 4\\
+\hline
+P71854 & 4\\
+\hline
+P72097 & 4\\
+\hline
+P73184 & 4\\
+\hline
+P75002 & 4\\
+\hline
+P75792 & 4\\
+\hline
+P76143 & 4\\
+\hline
+P76541 & 4\\
+\hline
+P77211 & 4\\
+\hline
+P77239 & 4\\
+\hline
+P77541 & 4\\
+\hline
+P77581 & 4\\
+\hline
+P77781 & 4\\
+\hline
+P77872 & 4\\
+\hline
+P78055 & 4\\
+\hline
+P78067 & 4\\
+\hline
+P80029 & 4\\
+\hline
+P80226 & 4\\
+\hline
+P80244 & 4\\
+\hline
+P80276 & 4\\
+\hline
+P80324 & 4\\
+\hline
+P80366 & 4\\
+\hline
+P81054 & 4\\
+\hline
+P81238 & 4\\
+\hline
+P81364 & 4\\
+\hline
+P81637 & 4\\
+\hline
+P81708 & 4\\
+\hline
+P83310 & 4\\
+\hline
+P83734 & 4\\
+\hline
+P84155 & 4\\
+\hline
+P84284 & 4\\
+\hline
+P86993 & 4\\
+\hline
+P90613 & 4\\
+\hline
+P93193 & 4\\
+\hline
+P93330 & 4\\
+\hline
+P94426 & 4\\
+\hline
+P95028 & 4\\
+\hline
+P95339 & 4\\
+\hline
+P95649 & 4\\
+\hline
+P96112 & 4\\
+\hline
+P96851 & 4\\
+\hline
+P96884 & 4\\
+\hline
+P96907 & 4\\
+\hline
+P97084 & 4\\
+\hline
+P9WJD9 & 4\\
+\hline
+P9WKD3 & 4\\
+\hline
+P9WKJ0 & 4\\
+\hline
+P9WKL5 & 4\\
+\hline
+P9WN94 & 4\\
+\hline
+P9WP53 & 4\\
+\hline
+Q00017 & 4\\
+\hline
+Q01770 & 4\\
+\hline
+Q03133 & 4\\
+\hline
+Q03148 & 4\\
+\hline
+Q03347 & 4\\
+\hline
+Q036L9 & 4\\
+\hline
+Q04432 & 4\\
+\hline
+Q04636 & 4\\
+\hline
+Q04ML5 & 4\\
+\hline
+Q05115 & 4\\
+\hline
+Q05JF3 & 4\\
+\hline
+Q07540 & 4\\
+\hline
+Q07688 & 4\\
+\hline
+Q07785 & 4\\
+\hline
+Q07794 & 4\\
+\hline
+Q07982 & 4\\
+\hline
+Q08174 & 4\\
+\hline
+Q08506 & 4\\
+\hline
+Q08638 & 4\\
+\hline
+Q08698 & 4\\
+\hline
+Q09LY9 & 4\\
+\hline
+Q0ASS9 & 4\\
+\hline
+Q0GMU3 & 4\\
+\hline
+Q0P7Y3 & 4\\
+\hline
+Q0PBL7 & 4\\
+\hline
+Q0PF16 & 4\\
+\hline
+Q0QJA3 & 4\\
+\hline
+Q0SBK1 & 4\\
+\hline
+Q0TRJ3 & 4\\
+\hline
+Q10905 & 4\\
+\hline
+Q11034 & 4\\
+\hline
+Q12053 & 4\\
+\hline
+Q12149 & 4\\
+\hline
+Q12629 & 4\\
+\hline
+Q12657 & 4\\
+\hline
+Q13009 & 4\\
+\hline
+Q13105 & 4\\
+\hline
+Q13237 & 4\\
+\hline
+Q13554 & 4\\
+\hline
+Q13614 & 4\\
+\hline
+Q13946 & 4\\
+\hline
+Q14012 & 4\\
+\hline
+Q14019 & 4\\
+\hline
+Q14432 & 4\\
+\hline
+Q14565 & 4\\
+\hline
+Q14995 & 4\\
+\hline
+Q15027 & 4\\
+\hline
+Q15418 & 4\\
+\hline
+Q15493 & 4\\
+\hline
+Q16222 & 4\\
+\hline
+Q16512 & 4\\
+\hline
+Q16644 & 4\\
+\hline
+Q16659 & 4\\
+\hline
+Q16666 & 4\\
+\hline
+Q16696 & 4\\
+\hline
+Q183F3 & 4\\
+\hline
+Q186I6 & 4\\
+\hline
+Q188Q3 & 4\\
+\hline
+Q18CL1 & 4\\
+\hline
+Q194Q4 & 4\\
+\hline
+Q1DB04 & 4\\
+\hline
+Q1PLI0 & 4\\
+\hline
+Q1QD33 & 4\\
+\hline
+Q1R0W5 & 4\\
+\hline
+Q1R3F7 & 4\\
+\hline
+Q1XH05 & 4\\
+\hline
+Q21FJ0 & 4\\
+\hline
+Q25C86 & 4\\
+\hline
+Q27679 & 4\\
+\hline
+Q27890 & 4\\
+\hline
+Q29U70 & 4\\
+\hline
+Q2A1P5 & 4\\
+\hline
+Q2FUW1 & 4\\
+\hline
+Q2G029 & 4\\
+\hline
+Q2G2B2 & 4\\
+\hline
+Q2I2N4 & 4\\
+\hline
+Q2K0Z2 & 4\\
+\hline
+Q2LG68 & 4\\
+\hline
+Q2MFS1 & 4\\
+\hline
+Q2RGM7 & 4\\
+\hline
+Q2TLC1 & 4\\
+\hline
+Q2YQ74 & 4\\
+\hline
+Q2YUF3 & 4\\
+\hline
+Q30W70 & 4\\
+\hline
+Q31KX8 & 4\\
+\hline
+Q31MN3 & 4\\
+\hline
+Q381H3 & 4\\
+\hline
+Q38CA1 & 4\\
+\hline
+Q38CF2 & 4\\
+\hline
+Q39VU6 & 4\\
+\hline
+Q39ZI0 & 4\\
+\hline
+Q3ACS5 & 4\\
+\hline
+Q3J179 & 4\\
+\hline
+Q3SAW3 & 4\\
+\hline
+Q3T1U8 & 4\\
+\hline
+Q3UHJ0 & 4\\
+\hline
+Q3UKX1 & 4\\
+\hline
+Q43866 & 4\\
+\hline
+Q43965 & 4\\
+\hline
+Q44167 & 4\\
+\hline
+Q45222 & 4\\
+\hline
+Q45894 & 4\\
+\hline
+Q46877 & 4\\
+\hline
+Q47537 & 4\\
+\hline
+Q47765 & 4\\
+\hline
+Q47NR9 & 4\\
+\hline
+Q48152 & 4\\
+\hline
+Q49PX0 & 4\\
+\hline
+Q4AE59 & 4\\
+\hline
+Q4AE70 & 4\\
+\hline
+Q4FNM4 & 4\\
+\hline
+Q4KCZ3 & 4\\
+\hline
+Q4TZQ3 & 4\\
+\hline
+Q4W2K4 & 4\\
+\hline
+Q4WAW9 & 4\\
+\hline
+Q503I3 & 4\\
+\hline
+Q50KB2 & 4\\
+\hline
+Q51817 & 4\\
+\hline
+Q51883 & 4\\
+\hline
+Q52424 & 4\\
+\hline
+Q52437 & 4\\
+\hline
+Q53119 & 4\\
+\hline
+Q53464 & 4\\
+\hline
+Q53654 & 4\\
+\hline
+Q53796 & 4\\
+\hline
+Q53FQ0 & 4\\
+\hline
+Q53U08 & 4\\
+\hline
+Q53W28 & 4\\
+\hline
+Q54137 & 4\\
+\hline
+Q54324 & 4\\
+\hline
+Q54468 & 4\\
+\hline
+Q54527 & 4\\
+\hline
+Q55418 & 4\\
+\hline
+Q55460 & 4\\
+\hline
+Q56026 & 4\\
+\hline
+Q564N5 & 4\\
+\hline
+Q57600 & 4\\
+\hline
+Q57912 & 4\\
+\hline
+Q57991 & 4\\
+\hline
+Q58164 & 4\\
+\hline
+Q58346 & 4\\
+\hline
+Q585F3 & 4\\
+\hline
+Q58605 & 4\\
+\hline
+Q58830 & 4\\
+\hline
+Q58970 & 4\\
+\hline
+Q59325 & 4\\
+\hline
+Q59UP8 & 4\\
+\hline
+Q5A4W8 & 4\\
+\hline
+Q5AAJ8 & 4\\
+\hline
+Q5AIZ3 & 4\\
+\hline
+Q5C9L7 & 4\\
+\hline
+Q5CZR5 & 4\\
+\hline
+Q5F2S9 & 4\\
+\hline
+Q5FA94 & 4\\
+\hline
+Q5H1U9 & 4\\
+\hline
+Q5H4T8 & 4\\
+\hline
+Q5HGZ3 & 4\\
+\hline
+Q5HKE8 & 4\\
+\hline
+Q5I6B0 & 4\\
+\hline
+Q5IW40 & 4\\
+\hline
+Q5JD38 & 4\\
+\hline
+Q5JIZ3 & 4\\
+\hline
+Q5KQI6 & 4\\
+\hline
+Q5L1E2 & 4\\
+\hline
+Q5L3C7 & 4\\
+\hline
+Q5LH68 & 4\\
+\hline
+Q5NFC4 & 4\\
+\hline
+Q5S007 & 4\\
+\hline
+Q5S581 & 4\\
+\hline
+Q5SBN3 & 4\\
+\hline
+Q5SII2 & 4\\
+\hline
+Q5SJF8 & 4\\
+\hline
+Q5SJN0 & 4\\
+\hline
+Q5SJV7 & 4\\
+\hline
+Q5SJY9 & 4\\
+\hline
+Q5SKR5 & 4\\
+\hline
+Q5SLE6 & 4\\
+\hline
+Q5SLE7 & 4\\
+\hline
+Q5SLI9 & 4\\
+\hline
+Q5SLQ3 & 4\\
+\hline
+Q5SM60 & 4\\
+\hline
+Q5UFR5 & 4\\
+\hline
+Q5YD59 & 4\\
+\hline
+Q5ZXN6 & 4\\
+\hline
+Q60099 & 4\\
+\hline
+Q61823 & 4\\
+\hline
+Q62636 & 4\\
+\hline
+Q62768 & 4\\
+\hline
+Q63T74 & 4\\
+\hline
+Q64374 & 4\\
+\hline
+Q643B8 & 4\\
+\hline
+Q65J43 & 4\\
+\hline
+Q672W7 & 4\\
+\hline
+Q68HB3 & 4\\
+\hline
+Q6CP22 & 4\\
+\hline
+Q6DNE7 & 4\\
+\hline
+Q6DNN3 & 4\\
+\hline
+Q6F3I7 & 4\\
+\hline
+Q6GI75 & 4\\
+\hline
+Q6IQ55 & 4\\
+\hline
+Q6JV24 & 4\\
+\hline
+Q6LX54 & 4\\
+\hline
+Q6MM14 & 4\\
+\hline
+Q6MM30 & 4\\
+\hline
+Q6MPX4 & 4\\
+\hline
+Q6MQY8 & 4\\
+\hline
+Q6N0W9 & 4\\
+\hline
+Q6N5P6 & 4\\
+\hline
+Q6ND88 & 4\\
+\hline
+Q6P1M3 & 4\\
+\hline
+Q6P5T7 & 4\\
+\hline
+Q6PH17 & 4\\
+\hline
+Q6R308 & 4\\
+\hline
+Q6T1W8 & 4\\
+\hline
+Q6TFC5 & 4\\
+\hline
+Q6UCJ9 & 4\\
+\hline
+Q6UVM5 & 4\\
+\hline
+Q6UWY2 & 4\\
+\hline
+Q6XV27 & 4\\
+\hline
+Q6YD91 & 4\\
+\hline
+Q70AC7 & 4\\
+\hline
+Q70AY4 & 4\\
+\hline
+Q70C53 & 4\\
+\hline
+Q70KH6 & 4\\
+\hline
+Q70KH9 & 4\\
+\hline
+Q70LE6 & 4\\
+\hline
+Q70SY0 & 4\\
+\hline
+Q72497 & 4\\
+\hline
+Q72CX3 & 4\\
+\hline
+Q72JG5 & 4\\
+\hline
+Q734X3 & 4\\
+\hline
+Q74FY6 & 4\\
+\hline
+Q76270 & 4\\
+\hline
+Q76K71 & 4\\
+\hline
+Q76NL8 & 4\\
+\hline
+Q76TX8 & 4\\
+\hline
+Q79791 & 4\\
+\hline
+Q79SH7 & 4\\
+\hline
+Q7A1I3 & 4\\
+\hline
+Q7A2Y4 & 4\\
+\hline
+Q7B8P6 & 4\\
+\hline
+Q7CH76 & 4\\
+\hline
+Q7CSI0 & 4\\
+\hline
+Q7CY45 & 4\\
+\hline
+Q7KQK5 & 4\\
+\hline
+Q7M523 & 4\\
+\hline
+Q7N8I8 & 4\\
+\hline
+Q7SIB8 & 4\\
+\hline
+Q7SIG1 & 4\\
+\hline
+Q7T1K6 & 4\\
+\hline
+Q7WEE8 & 4\\
+\hline
+Q7X2H8 & 4\\
+\hline
+Q7Z6Z7 & 4\\
+\hline
+Q80UG2 & 4\\
+\hline
+Q80Z29 & 4\\
+\hline
+Q81EE8 & 4\\
+\hline
+Q81EJ6 & 4\\
+\hline
+Q81G39 & 4\\
+\hline
+Q81P63 & 4\\
+\hline
+Q81TK8 & 4\\
+\hline
+Q81ZH8 & 4\\
+\hline
+Q82IZ1 & 4\\
+\hline
+Q82P90 & 4\\
+\hline
+Q82X47 & 4\\
+\hline
+Q830N7 & 4\\
+\hline
+Q83417 & 4\\
+\hline
+Q83AB2 & 4\\
+\hline
+Q83SB9 & 4\\
+\hline
+Q83WH5 & 4\\
+\hline
+Q84HC8 & 4\\
+\hline
+Q84HI8 & 4\\
+\hline
+Q84KR7 & 4\\
+\hline
+Q858B1 & 4\\
+\hline
+Q86D28 & 4\\
+\hline
+Q86US8 & 4\\
+\hline
+Q86W50 & 4\\
+\hline
+Q86WA6 & 4\\
+\hline
+Q874E3 & 4\\
+\hline
+Q887Q3 & 4\\
+\hline
+Q88E39 & 4\\
+\hline
+Q890V3 & 4\\
+\hline
+Q89E26 & 4\\
+\hline
+Q89VT8 & 4\\
+\hline
+Q89XR0 & 4\\
+\hline
+Q89YI8 & 4\\
+\hline
+Q8A1G3 & 4\\
+\hline
+Q8A4Q5 & 4\\
+\hline
+Q8AAN6 & 4\\
+\hline
+Q8AXY1 & 4\\
+\hline
+Q8C0E2 & 4\\
+\hline
+Q8C7D2 & 4\\
+\hline
+Q8CIB5 & 4\\
+\hline
+Q8CVD0 & 4\\
+\hline
+Q8CWN2 & 4\\
+\hline
+Q8DBF5 & 4\\
+\hline
+Q8DH45 & 4\\
+\hline
+Q8DJT8 & 4\\
+\hline
+Q8DKB5 & 4\\
+\hline
+Q8DT00 & 4\\
+\hline
+Q8DW05 & 4\\
+\hline
+Q8EDL6 & 4\\
+\hline
+Q8EF49 & 4\\
+\hline
+Q8EGA7 & 4\\
+\hline
+Q8EP31 & 4\\
+\hline
+Q8GB88 & 4\\
+\hline
+Q8GCA3 & 4\\
+\hline
+Q8GCH2 & 4\\
+\hline
+Q8GEJ9 & 4\\
+\hline
+Q8GHB2 & 4\\
+\hline
+Q8GRA2 & 4\\
+\hline
+Q8GTM0 & 4\\
+\hline
+Q8I4V8 & 4\\
+\hline
+Q8IIS0 & 4\\
+\hline
+Q8IJ74 & 4\\
+\hline
+Q8IJR9 & 4\\
+\hline
+Q8IVV7 & 4\\
+\hline
+Q8IX03 & 4\\
+\hline
+Q8IXI2 & 4\\
+\hline
+Q8IYM1 & 4\\
+\hline
+Q8J0K6 & 4\\
+\hline
+Q8JPY0 & 4\\
+\hline
+Q8JQF8 & 4\\
+\hline
+Q8KHZ8 & 4\\
+\hline
+Q8KNG3 & 4\\
+\hline
+Q8L1N9 & 4\\
+\hline
+Q8L5H4 & 4\\
+\hline
+Q8LPW4 & 4\\
+\hline
+Q8MMZ4 & 4\\
+\hline
+Q8N448 & 4\\
+\hline
+Q8NBS9 & 4\\
+\hline
+Q8NBZ7 & 4\\
+\hline
+Q8NE86 & 4\\
+\hline
+Q8NTB8 & 4\\
+\hline
+Q8NTB9 & 4\\
+\hline
+Q8NVG0 & 4\\
+\hline
+Q8P3K2 & 4\\
+\hline
+Q8PIS1 & 4\\
+\hline
+Q8PRD3 & 4\\
+\hline
+Q8PYN5 & 4\\
+\hline
+Q8RDI4 & 4\\
+\hline
+Q8RQP5 & 4\\
+\hline
+Q8RSQ2 & 4\\
+\hline
+Q8RT31 & 4\\
+\hline
+Q8T6T2 & 4\\
+\hline
+Q8TCD5 & 4\\
+\hline
+Q8TFL9 & 4\\
+\hline
+Q8TL28 & 4\\
+\hline
+Q8TX37 & 4\\
+\hline
+Q8TZE0 & 4\\
+\hline
+Q8U0R7 & 4\\
+\hline
+Q8U1H5 & 4\\
+\hline
+Q8VL32 & 4\\
+\hline
+Q8VPD4 & 4\\
+\hline
+Q8VRK8 & 4\\
+\hline
+Q8VVD2 & 4\\
+\hline
+Q8VZS8 & 4\\
+\hline
+Q8WVQ1 & 4\\
+\hline
+Q8WZQ2 & 4\\
+\hline
+Q8XDI5 & 4\\
+\hline
+Q8XMB9 & 4\\
+\hline
+Q8Y5F1 & 4\\
+\hline
+Q8YC53 & 4\\
+\hline
+Q8YQW3 & 4\\
+\hline
+Q8YSC3 & 4\\
+\hline
+Q8YWS9 & 4\\
+\hline
+Q8Z6A3 & 4\\
+\hline
+Q91XB0 & 4\\
+\hline
+Q91XE4 & 4\\
+\hline
+Q91XW9 & 4\\
+\hline
+Q92410 & 4\\
+\hline
+Q92692 & 4\\
+\hline
+Q92947 & 4\\
+\hline
+Q929S5 & 4\\
+\hline
+Q92DF6 & 4\\
+\hline
+Q93A71 & 4\\
+\hline
+Q93AT8 & 4\\
+\hline
+Q93H81 & 4\\
+\hline
+Q93X60 & 4\\
+\hline
+Q94521 & 4\\
+\hline
+Q94CL7 & 4\\
+\hline
+Q94LW9 & 4\\
+\hline
+Q96323 & 4\\
+\hline
+Q96533 & 4\\
+\hline
+Q969G6 & 4\\
+\hline
+Q96AT9 & 4\\
+\hline
+Q96BN8 & 4\\
+\hline
+Q96C19 & 4\\
+\hline
+Q96C86 & 4\\
+\hline
+Q96GD0 & 4\\
+\hline
+Q96HS1 & 4\\
+\hline
+Q96LI5 & 4\\
+\hline
+Q96MF2 & 4\\
+\hline
+Q96MU8 & 4\\
+\hline
+Q96SD1 & 4\\
+\hline
+Q970D9 & 4\\
+\hline
+Q97BK3 & 4\\
+\hline
+Q97CA5 & 4\\
+\hline
+Q97NW2 & 4\\
+\hline
+Q97R09 & 4\\
+\hline
+Q97UY8 & 4\\
+\hline
+Q980Q4 & 4\\
+\hline
+Q988B8 & 4\\
+\hline
+Q99558 & 4\\
+\hline
+Q99720 & 4\\
+\hline
+Q99728 & 4\\
+\hline
+Q99735 & 4\\
+\hline
+Q99816 & 4\\
+\hline
+Q99KQ4 & 4\\
+\hline
+Q99X63 & 4\\
+\hline
+Q9A6Q5 & 4\\
+\hline
+Q9AGP8 & 4\\
+\hline
+Q9AIX7 & 4\\
+\hline
+Q9AJ26 & 4\\
+\hline
+Q9AJC4 & 4\\
+\hline
+Q9AJF5 & 4\\
+\hline
+Q9AQQ8 & 4\\
+\hline
+Q9BI08 & 4\\
+\hline
+Q9BMI9 & 4\\
+\hline
+Q9BVI0 & 4\\
+\hline
+Q9C1S9 & 4\\
+\hline
+Q9C8E7 & 4\\
+\hline
+Q9CX32 & 4\\
+\hline
+Q9D394 & 4\\
+\hline
+Q9DC50 & 4\\
+\hline
+Q9DF52 & 4\\
+\hline
+Q9DFS3 & 4\\
+\hline
+Q9EQZ5 & 4\\
+\hline
+Q9ERN6 & 4\\
+\hline
+Q9ES89 & 4\\
+\hline
+Q9ESU6 & 4\\
+\hline
+Q9EXV5 & 4\\
+\hline
+Q9EY50 & 4\\
+\hline
+Q9F1Y6 & 4\\
+\hline
+Q9F5J9 & 4\\
+\hline
+Q9FBC2 & 4\\
+\hline
+Q9FCQ0 & 4\\
+\hline
+Q9FD71 & 4\\
+\hline
+Q9FV53 & 4\\
+\hline
+Q9G096 & 4\\
+\hline
+Q9GZZ9 & 4\\
+\hline
+Q9H3H5 & 4\\
+\hline
+Q9H3R0 & 4\\
+\hline
+Q9H7E2 & 4\\
+\hline
+Q9HCB6 & 4\\
+\hline
+Q9HDE2 & 4\\
+\hline
+Q9HJ28 & 4\\
+\hline
+Q9HK51 & 4\\
+\hline
+Q9HTZ1 & 4\\
+\hline
+Q9HUV7 & 4\\
+\hline
+Q9HWJ1 & 4\\
+\hline
+Q9HZE7 & 4\\
+\hline
+Q9I2V0 & 4\\
+\hline
+Q9I4L6 & 4\\
+\hline
+Q9I4X3 & 4\\
+\hline
+Q9I5L8 & 4\\
+\hline
+Q9I5Q5 & 4\\
+\hline
+Q9I6Y4 & 4\\
+\hline
+Q9I7A8 & 4\\
+\hline
+Q9IGQ6 & 4\\
+\hline
+Q9IK91 & 4\\
+\hline
+Q9JIH7 & 4\\
+\hline
+Q9JN36 & 4\\
+\hline
+Q9JYL2 & 4\\
+\hline
+Q9K492 & 4\\
+\hline
+Q9K578 & 4\\
+\hline
+Q9KCL9 & 4\\
+\hline
+Q9KJD0 & 4\\
+\hline
+Q9KLJ3 & 4\\
+\hline
+Q9KM24 & 4\\
+\hline
+Q9KMN1 & 4\\
+\hline
+Q9KQH7 & 4\\
+\hline
+Q9KT71 & 4\\
+\hline
+Q9KUA3 & 4\\
+\hline
+Q9KWU1 & 4\\
+\hline
+Q9L543 & 4\\
+\hline
+Q9LCC6 & 4\\
+\hline
+Q9LCY2 & 4\\
+\hline
+Q9LCZ4 & 4\\
+\hline
+Q9LLQ2 & 4\\
+\hline
+Q9LNE6 & 4\\
+\hline
+Q9NG96 & 4\\
+\hline
+Q9NNX6 & 4\\
+\hline
+Q9NP58 & 4\\
+\hline
+Q9NQG5 & 4\\
+\hline
+Q9NR48 & 4\\
+\hline
+Q9NRK6 & 4\\
+\hline
+Q9NS75 & 4\\
+\hline
+Q9NWX6 & 4\\
+\hline
+Q9NXA8 & 4\\
+\hline
+Q9NYL2 & 4\\
+\hline
+Q9NZ45 & 4\\
+\hline
+Q9P376 & 4\\
+\hline
+Q9QUN7 & 4\\
+\hline
+Q9QZ88 & 4\\
+\hline
+Q9R1M7 & 4\\
+\hline
+Q9R9V9 & 4\\
+\hline
+Q9RFC8 & 4\\
+\hline
+Q9RGD9 & 4\\
+\hline
+Q9RVK2 & 4\\
+\hline
+Q9RWK7 & 4\\
+\hline
+Q9RYF1 & 4\\
+\hline
+Q9S5Y7 & 4\\
+\hline
+Q9SPD4 & 4\\
+\hline
+Q9SQT8 & 4\\
+\hline
+Q9T0V5 & 4\\
+\hline
+Q9TQS6 & 4\\
+\hline
+Q9U1M8 & 4\\
+\hline
+Q9U5N6 & 4\\
+\hline
+Q9U9R3 & 4\\
+\hline
+Q9UDR5 & 4\\
+\hline
+Q9UHX1 & 4\\
+\hline
+Q9UIJ7 & 4\\
+\hline
+Q9UK39 & 4\\
+\hline
+Q9UL25 & 4\\
+\hline
+Q9ULV1 & 4\\
+\hline
+Q9ULW8 & 4\\
+\hline
+Q9UNF0 & 4\\
+\hline
+Q9UNG2 & 4\\
+\hline
+Q9UNN5 & 4\\
+\hline
+Q9UPJ8 & 4\\
+\hline
+Q9UQM7 & 4\\
+\hline
+Q9UYV8 & 4\\
+\hline
+Q9V2G1 & 4\\
+\hline
+Q9V429 & 4\\
+\hline
+Q9VBZ9 & 4\\
+\hline
+Q9VHA0 & 4\\
+\hline
+Q9WXN8 & 4\\
+\hline
+Q9WXQ8 & 4\\
+\hline
+Q9WY43 & 4\\
+\hline
+Q9WY54 & 4\\
+\hline
+Q9WYH8 & 4\\
+\hline
+Q9WYN2 & 4\\
+\hline
+Q9WYV8 & 4\\
+\hline
+Q9WZ49 & 4\\
+\hline
+Q9WZF8 & 4\\
+\hline
+Q9WZH4 & 4\\
+\hline
+Q9WZL4 & 4\\
+\hline
+Q9X0C0 & 4\\
+\hline
+Q9X0P5 & 4\\
+\hline
+Q9X0R4 & 4\\
+\hline
+Q9X180 & 4\\
+\hline
+Q9X265 & 4\\
+\hline
+Q9X266 & 4\\
+\hline
+Q9X2W0 & 4\\
+\hline
+Q9X519 & 4\\
+\hline
+Q9X6W1 & 4\\
+\hline
+Q9X9P9 & 4\\
+\hline
+Q9XG54 & 4\\
+\hline
+Q9XJP3 & 4\\
+\hline
+Q9XSC9 & 4\\
+\hline
+Q9Y316 & 4\\
+\hline
+Q9Y3C8 & 4\\
+\hline
+Q9Y3Q0 & 4\\
+\hline
+Q9Y5W5 & 4\\
+\hline
+Q9Y5W9 & 4\\
+\hline
+Q9Y5Z0 & 4\\
+\hline
+Q9Y689 & 4\\
+\hline
+Q9Y6N7 & 4\\
+\hline
+Q9Y6W6 & 4\\
+\hline
+Q9Y823 & 4\\
+\hline
+Q9YE81 & 4\\
+\hline
+Q9Z9H2 & 4\\
+\hline
+Q9ZP19 & 4\\
+\hline
+Q9ZPL5 & 4\\
+\hline
+Q9ZS17 & 4\\
+\hline
+T2B9G2 & 4\\
+\hline
+V5VHN7 & 4\\
+\hline
+V5YN37 & 4\\
+\hline
+V7II86 & 4\\
+\hline
+V7LAR8 & 4\\
+\hline
+W6DY02 & 4\\
+\hline
+W6KHH6 & 4\\
+\hline
+W7JP72 & 4\\
+\hline
+W8PGZ1 & 4\\
+\hline
+X2KZJ9 & 4\\
+\hline
+11320556 & 3\\
+\hline
+1314367 & 3\\
+\hline
+14787237 & 3\\
+\hline
+15277851 & 3\\
+\hline
+15281089 & 3\\
+\hline
+155661 & 3\\
+\hline
+15606134 & 3\\
+\hline
+15920953 & 3\\
+\hline
+1648826 & 3\\
+\hline
+178489 & 3\\
+\hline
+19526603 & 3\\
+\hline
+23612231 & 3\\
+\hline
+30350899 & 3\\
+\hline
+3308994 & 3\\
+\hline
+5748808 & 3\\
+\hline
+6323109 & 3\\
+\hline
+902938 & 3\\
+\hline
+A0A023UH08 & 3\\
+\hline
+A0A024QYS6 & 3\\
+\hline
+A0A024S820 & 3\\
+\hline
+A0A060P168 & 3\\
+\hline
+A0A067YX61 & 3\\
+\hline
+A0A068Q5Q5 & 3\\
+\hline
+A0A072ZPM2 & 3\\
+\hline
+A0A076MAJ9 & 3\\
+\hline
+A0A076NW73 & 3\\
+\hline
+A0A077K887 & 3\\
+\hline
+A0A080VNW8 & 3\\
+\hline
+A0A081YAY5 & 3\\
+\hline
+A0A083ZKV5 & 3\\
+\hline
+A0A085QGR2 & 3\\
+\hline
+A0A094YZ24 & 3\\
+\hline
+A0A0A0RCB5 & 3\\
+\hline
+A0A0A0UVH9 & 3\\
+\hline
+A0A0A8IDB7 & 3\\
+\hline
+A0A0B0DIC8 & 3\\
+\hline
+A0A0B7LQC0 & 3\\
+\hline
+A0A0C6EFY4 & 3\\
+\hline
+A0A0D5CVW2 & 3\\
+\hline
+A0A0D5YC82 & 3\\
+\hline
+A0A0D6GJV1 & 3\\
+\hline
+A0A0D6HE46 & 3\\
+\hline
+A0A0D6HL44 & 3\\
+\hline
+A0A0E1LZC3 & 3\\
+\hline
+A0A0E2IV13 & 3\\
+\hline
+A0A0E3JLZ0 & 3\\
+\hline
+A0A0E3URV8 & 3\\
+\hline
+A0A0E8ZWG6 & 3\\
+\hline
+A0A0F6AY66 & 3\\
+\hline
+A0A0F6FBL7 & 3\\
+\hline
+A0A0F7DJF1 & 3\\
+\hline
+A0A0F7R8C5 & 3\\
+\hline
+A0A0G4DCU0 & 3\\
+\hline
+A0A0H2UQ68 & 3\\
+\hline
+A0A0H2URM1 & 3\\
+\hline
+A0A0H2YRZ7 & 3\\
+\hline
+A0A0H2Z9F5 & 3\\
+\hline
+A0A0H2ZE85 & 3\\
+\hline
+A0A0H3AFW5 & 3\\
+\hline
+A0A0H3AME7 & 3\\
+\hline
+A0A0H3GV01 & 3\\
+\hline
+A0A0J5DK07 & 3\\
+\hline
+A0A0K6ITW2 & 3\\
+\hline
+A0A0M3KL20 & 3\\
+\hline
+A0A0Q2QQL1 & 3\\
+\hline
+A0A0Q2XKL6 & 3\\
+\hline
+A0A0R4IKJ1 & 3\\
+\hline
+A0A0T7JX40 & 3\\
+\hline
+A0A0U1MWF9 & 3\\
+\hline
+A0A0U3H1E6 & 3\\
+\hline
+A0A0Y0DFX2 & 3\\
+\hline
+A0A127ELD1 & 3\\
+\hline
+A0A133QQ41 & 3\\
+\hline
+A0A133UP32 & 3\\
+\hline
+A0A140JXP0 & 3\\
+\hline
+A0A140NAT1 & 3\\
+\hline
+A0A140NCD0 & 3\\
+\hline
+A0A140T871 & 3\\
+\hline
+A0A142J6I6 & 3\\
+\hline
+A0A150BLG9 & 3\\
+\hline
+A0A154EJU5 & 3\\
+\hline
+A0A162QMS4 & 3\\
+\hline
+A0A164TT67 & 3\\
+\hline
+A0A165F602 & 3\\
+\hline
+A0A173N065 & 3\\
+\hline
+A0A178EUH2 & 3\\
+\hline
+A0A178SBV6 & 3\\
+\hline
+A0A179QS89 & 3\\
+\hline
+A0A192ICX3 & 3\\
+\hline
+A0A1B2TT09 & 3\\
+\hline
+A0A1B3B7F6 & 3\\
+\hline
+A0A1D3HNX6 & 3\\
+\hline
+A0A1E5TT85 & 3\\
+\hline
+A0A1K1L6W4 & 3\\
+\hline
+A0A1L7J388 & 3\\
+\hline
+A0A1L7NZN4 & 3\\
+\hline
+A0A1P8VSL7 & 3\\
+\hline
+A0A1R0YRH0 & 3\\
+\hline
+A0A1R1AV52 & 3\\
+\hline
+A0A1S4FIB3 & 3\\
+\hline
+A0A1W6L588 & 3\\
+\hline
+A0A1X9WEN9 & 3\\
+\hline
+A0A1Y0K711 & 3\\
+\hline
+A0A1Y1C9N2 & 3\\
+\hline
+A0A239WB15 & 3\\
+\hline
+A0A248QE08 & 3\\
+\hline
+A0A256XLS3 & 3\\
+\hline
+A0A266CX40 & 3\\
+\hline
+A0A2K0XYW4 & 3\\
+\hline
+A0A2K2UT85 & 3\\
+\hline
+A0A2K3D6R4 & 3\\
+\hline
+A0A2N6JFX7 & 3\\
+\hline
+A0A2S1PWV0 & 3\\
+\hline
+A0A2S6F2W2 & 3\\
+\hline
+A0A2U0QMK8 & 3\\
+\hline
+A0A2U2H063 & 3\\
+\hline
+A0A334FGR6 & 3\\
+\hline
+A0A345U425 & 3\\
+\hline
+A0A386KZ50 & 3\\
+\hline
+A0A3A1BNP8 & 3\\
+\hline
+A0A3G1GK10 & 3\\
+\hline
+A0A3P3Q1W7 & 3\\
+\hline
+A0A3V0JC15 & 3\\
+\hline
+A0A4E9EZW9 & 3\\
+\hline
+A0A4P1LYH5 & 3\\
+\hline
+A0A5E4GBK6 & 3\\
+\hline
+A0A5M4AV20 & 3\\
+\hline
+A0A6S5NLK9 & 3\\
+\hline
+A0A716TY65 & 3\\
+\hline
+A0A832SFM5 & 3\\
+\hline
+A0LU48 & 3\\
+\hline
+A0MCW0 & 3\\
+\hline
+A0QNL1 & 3\\
+\hline
+A0QTG2 & 3\\
+\hline
+A0QTN8 & 3\\
+\hline
+A0QTQ5 & 3\\
+\hline
+A0QU01 & 3\\
+\hline
+A0QYH7 & 3\\
+\hline
+A0R066 & 3\\
+\hline
+A0R1E8 & 3\\
+\hline
+A0R3D3 & 3\\
+\hline
+A0R3F9 & 3\\
+\hline
+A0R629 & 3\\
+\hline
+A1B060 & 3\\
+\hline
+A1B198 & 3\\
+\hline
+A1E8I9 & 3\\
+\hline
+A1L259 & 3\\
+\hline
+A1SR01 & 3\\
+\hline
+A1SZA3 & 3\\
+\hline
+A1X808 & 3\\
+\hline
+A2ICH1 & 3\\
+\hline
+A2PZA5 & 3\\
+\hline
+A2QS62 & 3\\
+\hline
+A2T3N6 & 3\\
+\hline
+A2V759 & 3\\
+\hline
+A2VA43 & 3\\
+\hline
+A2VCV7 & 3\\
+\hline
+A3CM52 & 3\\
+\hline
+A3CWV0 & 3\\
+\hline
+A3DCH2 & 3\\
+\hline
+A3DJ37 & 3\\
+\hline
+A3FJ64 & 3\\
+\hline
+A3KF09 & 3\\
+\hline
+A3MSH1 & 3\\
+\hline
+A3MUJ4 & 3\\
+\hline
+A3XHF9 & 3\\
+\hline
+A4CYJ6 & 3\\
+\hline
+A4D0H5 & 3\\
+\hline
+A4F9D7 & 3\\
+\hline
+A4GRC6 & 3\\
+\hline
+A4GRE3 & 3\\
+\hline
+A4PB64 & 3\\
+\hline
+A4PHY4 & 3\\
+\hline
+A4Q9E8 & 3\\
+\hline
+A4V8M9 & 3\\
+\hline
+A4XGA6 & 3\\
+\hline
+A4YHC5 & 3\\
+\hline
+A4ZKE4 & 3\\
+\hline
+A5CLK3 & 3\\
+\hline
+A5F0Q0 & 3\\
+\hline
+A5F1B7 & 3\\
+\hline
+A5FBI1 & 3\\
+\hline
+A5J299 & 3\\
+\hline
+A5JGM8 & 3\\
+\hline
+A5KE01 & 3\\
+\hline
+A5KUH4 & 3\\
+\hline
+A5VAT9 & 3\\
+\hline
+A6BMJ3 & 3\\
+\hline
+A6T9E8 & 3\\
+\hline
+A6UVT1 & 3\\
+\hline
+A6VQF6 & 3\\
+\hline
+A6XNE6 & 3\\
+\hline
+A6YEI2 & 3\\
+\hline
+A7B555 & 3\\
+\hline
+A7HD43 & 3\\
+\hline
+A7LXT8 & 3\\
+\hline
+A7LY27 & 3\\
+\hline
+A7TM80 & 3\\
+\hline
+A7ZSW5 & 3\\
+\hline
+A8A5E6 & 3\\
+\hline
+A8AC72 & 3\\
+\hline
+A8AW49 & 3\\
+\hline
+A8CFR3 & 3\\
+\hline
+A8K0B5 & 3\\
+\hline
+A8W790 & 3\\
+\hline
+A8WBX8 & 3\\
+\hline
+A8WHX9 & 3\\
+\hline
+A8YJ50 & 3\\
+\hline
+A9ANE0 & 3\\
+\hline
+A9CEY6 & 3\\
+\hline
+A9CH39 & 3\\
+\hline
+A9KN57 & 3\\
+\hline
+A9SS48 & 3\\
+\hline
+A9UT73 & 3\\
+\hline
+A9VCZ3 & 3\\
+\hline
+A9WCM4 & 3\\
+\hline
+B0BAN6 & 3\\
+\hline
+B0S4Q0 & 3\\
+\hline
+B0YD89 & 3\\
+\hline
+B1ABI1 & 3\\
+\hline
+B1BQ33 & 3\\
+\hline
+B1FZ96 & 3\\
+\hline
+B1L4V6 & 3\\
+\hline
+B1MKD5 & 3\\
+\hline
+B1P3E1 & 3\\
+\hline
+B1PND0 & 3\\
+\hline
+B1R775 & 3\\
+\hline
+B1VZT1 & 3\\
+\hline
+B1WBP0 & 3\\
+\hline
+B1XMM6 & 3\\
+\hline
+B2HUN5 & 3\\
+\hline
+B2IUW9 & 3\\
+\hline
+B2J981 & 3\\
+\hline
+B2L9C1 & 3\\
+\hline
+B2RQS6 & 3\\
+\hline
+B2TEQ2 & 3\\
+\hline
+B2ZRS9 & 3\\
+\hline
+B3ECE3 & 3\\
+\hline
+B3EYN2 & 3\\
+\hline
+B3HTA9 & 3\\
+\hline
+B3PBD9 & 3\\
+\hline
+B3TMQ9 & 3\\
+\hline
+B4EA43 & 3\\
+\hline
+B4EC22 & 3\\
+\hline
+B4EKB3 & 3\\
+\hline
+B4SII9 & 3\\
+\hline
+B5ABT1 & 3\\
+\hline
+B5B9W8 & 3\\
+\hline
+B5CY74 & 3\\
+\hline
+B5MGN7 & 3\\
+\hline
+B5R541 & 3\\
+\hline
+B5THI3 & 3\\
+\hline
+B5TV91 & 3\\
+\hline
+B5Z9J2 & 3\\
+\hline
+B6AA20 & 3\\
+\hline
+B6GXZ8 & 3\\
+\hline
+B6HWK0 & 3\\
+\hline
+B6RGK2 & 3\\
+\hline
+B7GNN8 & 3\\
+\hline
+B7WQT1 & 3\\
+\hline
+B7XH69 & 3\\
+\hline
+B8FW00 & 3\\
+\hline
+B8GY04 & 3\\
+\hline
+B8J605 & 3\\
+\hline
+B8ZY56 & 3\\
+\hline
+B9MKT4 & 3\\
+\hline
+B9MKT7 & 3\\
+\hline
+B9MKU7 & 3\\
+\hline
+B9MMA5 & 3\\
+\hline
+B9U139 & 3\\
+\hline
+C0QQ26 & 3\\
+\hline
+C0SSE7 & 3\\
+\hline
+C0STX7 & 3\\
+\hline
+C0STY1 & 3\\
+\hline
+C1F2K5 & 3\\
+\hline
+C3JYL7 & 3\\
+\hline
+C3K8K1 & 3\\
+\hline
+C3L5T6 & 3\\
+\hline
+C3LTF1 & 3\\
+\hline
+C3RVP5 & 3\\
+\hline
+C3SBW0 & 3\\
+\hline
+C3TEC2 & 3\\
+\hline
+C4LSE7 & 3\\
+\hline
+C4LSS0 & 3\\
+\hline
+C4LYI2 & 3\\
+\hline
+C4TPG1 & 3\\
+\hline
+C4XPJ9 & 3\\
+\hline
+C5AJX5 & 3\\
+\hline
+C5AP93 & 3\\
+\hline
+C5MCQ7 & 3\\
+\hline
+C5W2U9 & 3\\
+\hline
+C5ZW02 & 3\\
+\hline
+C6A9Y6 & 3\\
+\hline
+C6CRV0 & 3\\
+\hline
+C6EFU4 & 3\\
+\hline
+C6EJA7 & 3\\
+\hline
+C6EK89 & 3\\
+\hline
+C6H0Y9 & 3\\
+\hline
+C6KT64 & 3\\
+\hline
+C6KT68 & 3\\
+\hline
+C6VIM1 & 3\\
+\hline
+C6VNC6 & 3\\
+\hline
+C6ZCR8 & 3\\
+\hline
+C7MEP1 & 3\\
+\hline
+C7U112 & 3\\
+\hline
+C9E261 & 3\\
+\hline
+C9QXY7 & 3\\
+\hline
+C9YJ22 & 3\\
+\hline
+C9YQ11 & 3\\
+\hline
+D0A7P1 & 3\\
+\hline
+D0AB41 & 3\\
+\hline
+D0C7F3 & 3\\
+\hline
+D0X4R4 & 3\\
+\hline
+D1LP63 & 3\\
+\hline
+D1MH64 & 3\\
+\hline
+D1NNT8 & 3\\
+\hline
+D2K8B3 & 3\\
+\hline
+D2PPM7 & 3\\
+\hline
+D2UDM3 & 3\\
+\hline
+D2Y3F4 & 3\\
+\hline
+D3DJ42 & 3\\
+\hline
+D3JCC5 & 3\\
+\hline
+D3KYU3 & 3\\
+\hline
+D3U1A5 & 3\\
+\hline
+D4GTL2 & 3\\
+\hline
+D4P8C6 & 3\\
+\hline
+D4S0D1 & 3\\
+\hline
+D5A0Q7 & 3\\
+\hline
+D5KM69 & 3\\
+\hline
+D5QFC5 & 3\\
+\hline
+D5UM26 & 3\\
+\hline
+D6EFA0 & 3\\
+\hline
+D6EWM0 & 3\\
+\hline
+D6RU56 & 3\\
+\hline
+D6UB50 & 3\\
+\hline
+D6Y7Y6 & 3\\
+\hline
+D7C0E5 & 3\\
+\hline
+D7PC21 & 3\\
+\hline
+D7RK32 & 3\\
+\hline
+D8S128 & 3\\
+\hline
+D9IEJ2 & 3\\
+\hline
+D9PY12 & 3\\
+\hline
+D9ZDQ9 & 3\\
+\hline
+E0EAD4 & 3\\
+\hline
+E0PTS8 & 3\\
+\hline
+E0SRA9 & 3\\
+\hline
+E0TW95 & 3\\
+\hline
+E0TXX3 & 3\\
+\hline
+E1ANH6 & 3\\
+\hline
+E1BIQ4 & 3\\
+\hline
+E1YD54 & 3\\
+\hline
+E2EKP5 & 3\\
+\hline
+E2ESL7 & 3\\
+\hline
+E2QE64 & 3\\
+\hline
+E2QLE1 & 3\\
+\hline
+E2RV62 & 3\\
+\hline
+E3JD18 & 3\\
+\hline
+E3PQS3 & 3\\
+\hline
+E4MYY0 & 3\\
+\hline
+E4RE40 & 3\\
+\hline
+E5KIY2 & 3\\
+\hline
+E6DAE5 & 3\\
+\hline
+E7FCY1 & 3\\
+\hline
+E7NKU1 & 3\\
+\hline
+E7U392 & 3\\
+\hline
+E8MF10 & 3\\
+\hline
+E8MF12 & 3\\
+\hline
+E8N6F3 & 3\\
+\hline
+E8Y9D8 & 3\\
+\hline
+E9AFQ5 & 3\\
+\hline
+E9BA17 & 3\\
+\hline
+E9BLM4 & 3\\
+\hline
+E9JES0 & 3\\
+\hline
+E9NWK5 & 3\\
+\hline
+E9P8D2 & 3\\
+\hline
+F0L8Z6 & 3\\
+\hline
+F0QP95 & 3\\
+\hline
+F0QXN6 & 3\\
+\hline
+F0V9W9 & 3\\
+\hline
+F1QSF9 & 3\\
+\hline
+F2E0G2 & 3\\
+\hline
+F2I8X9 & 3\\
+\hline
+F2JXJ3 & 3\\
+\hline
+F2RB80 & 3\\
+\hline
+F2XBU9 & 3\\
+\hline
+F2Y337 & 3\\
+\hline
+F4KU78 & 3\\
+\hline
+F4Y425 & 3\\
+\hline
+F5ANH9 & 3\\
+\hline
+F5BA50 & 3\\
+\hline
+F5HBQ9 & 3\\
+\hline
+F6DES6 & 3\\
+\hline
+F8QQG5 & 3\\
+\hline
+F8RC03 & 3\\
+\hline
+F8TRX0 & 3\\
+\hline
+F8UWD6 & 3\\
+\hline
+F8WJE0 & 3\\
+\hline
+F8WSX2 & 3\\
+\hline
+F9US10 & 3\\
+\hline
+F9UST1 & 3\\
+\hline
+G0L5X4 & 3\\
+\hline
+G0RH85 & 3\\
+\hline
+G0S3L5 & 3\\
+\hline
+G0S7B6 & 3\\
+\hline
+G0S8G9 & 3\\
+\hline
+G0SGU4 & 3\\
+\hline
+G0X8E3 & 3\\
+\hline
+G2IQQ5 & 3\\
+\hline
+G2LET6 & 3\\
+\hline
+G2QG48 & 3\\
+\hline
+G2QJR6 & 3\\
+\hline
+G2QVH7 & 3\\
+\hline
+G3CEP6 & 3\\
+\hline
+G3I1H5 & 3\\
+\hline
+G3LHD9 & 3\\
+\hline
+G3M190 & 3\\
+\hline
+G3XD28 & 3\\
+\hline
+G4VJY9 & 3\\
+\hline
+G4VLE5 & 3\\
+\hline
+G5ECA1 & 3\\
+\hline
+G7IKX3 & 3\\
+\hline
+G7XM46 & 3\\
+\hline
+G8NVB5 & 3\\
+\hline
+G9MBV4 & 3\\
+\hline
+G9MQD3 & 3\\
+\hline
+H2IFX0 & 3\\
+\hline
+H6CS64 & 3\\
+\hline
+H8EVV4 & 3\\
+\hline
+I0RTF3 & 3\\
+\hline
+I1VWH9 & 3\\
+\hline
+I3K8D3 & 3\\
+\hline
+I3NX86 & 3\\
+\hline
+I6NW33 & 3\\
+\hline
+I6X0K4 & 3\\
+\hline
+I6X8D2 & 3\\
+\hline
+I6Y4Q7 & 3\\
+\hline
+I6YAH0 & 3\\
+\hline
+I6YCI1 & 3\\
+\hline
+I7F541 & 3\\
+\hline
+I7FLU3 & 3\\
+\hline
+I7G7M2 & 3\\
+\hline
+I7H6W6 & 3\\
+\hline
+I7IIA9 & 3\\
+\hline
+J9U5U9 & 3\\
+\hline
+J9UN47 & 3\\
+\hline
+J9W473 & 3\\
+\hline
+J9XNG9 & 3\\
+\hline
+K0BUH0 & 3\\
+\hline
+K2JXG0 & 3\\
+\hline
+K4LC41 & 3\\
+\hline
+K7IM66 & 3\\
+\hline
+K7RJ88 & 3\\
+\hline
+K9L0H1 & 3\\
+\hline
+L5SU74 & 3\\
+\hline
+L7JBY8 & 3\\
+\hline
+L7N5T0 & 3\\
+\hline
+L7P7L6 & 3\\
+\hline
+L8GJB3 & 3\\
+\hline
+M9V5A4 & 3\\
+\hline
+N8X9V6 & 3\\
+\hline
+N9GH75 & 3\\
+\hline
+O00095 & 3\\
+\hline
+O00187 & 3\\
+\hline
+O00291 & 3\\
+\hline
+O00308 & 3\\
+\hline
+O00459 & 3\\
+\hline
+O04147 & 3\\
+\hline
+O04986 & 3\\
+\hline
+O05510 & 3\\
+\hline
+O05783 & 3\\
+\hline
+O05793 & 3\\
+\hline
+O05935 & 3\\
+\hline
+O06162 & 3\\
+\hline
+O06420 & 3\\
+\hline
+O06620 & 3\\
+\hline
+O06825 & 3\\
+\hline
+O06842 & 3\\
+\hline
+O06916 & 3\\
+\hline
+O07247 & 3\\
+\hline
+O07427 & 3\\
+\hline
+O07566 & 3\\
+\hline
+O07746 & 3\\
+\hline
+O07897 & 3\\
+\hline
+O08452 & 3\\
+\hline
+O08760 & 3\\
+\hline
+O12287 & 3\\
+\hline
+O14214 & 3\\
+\hline
+O14520 & 3\\
+\hline
+O14556 & 3\\
+\hline
+O14649 & 3\\
+\hline
+O14842 & 3\\
+\hline
+O14980 & 3\\
+\hline
+O15054 & 3\\
+\hline
+O15091 & 3\\
+\hline
+O15123 & 3\\
+\hline
+O15247 & 3\\
+\hline
+O15263 & 3\\
+\hline
+O15389 & 3\\
+\hline
+O15496 & 3\\
+\hline
+O15943 & 3\\
+\hline
+O22304 & 3\\
+\hline
+O23680 & 3\\
+\hline
+O24319 & 3\\
+\hline
+O25272 & 3\\
+\hline
+O25323 & 3\\
+\hline
+O25909 & 3\\
+\hline
+O26359 & 3\\
+\hline
+O27725 & 3\\
+\hline
+O27899 & 3\\
+\hline
+O27985 & 3\\
+\hline
+O28025 & 3\\
+\hline
+O28344 & 3\\
+\hline
+O28471 & 3\\
+\hline
+O28527 & 3\\
+\hline
+O28889 & 3\\
+\hline
+O29889 & 3\\
+\hline
+O29917 & 3\\
+\hline
+O30077 & 3\\
+\hline
+O30511 & 3\\
+\hline
+O30881 & 3\\
+\hline
+O31246 & 3\\
+\hline
+O31440 & 3\\
+\hline
+O31526 & 3\\
+\hline
+O31851 & 3\\
+\hline
+O32108 & 3\\
+\hline
+O32142 & 3\\
+\hline
+O32462 & 3\\
+\hline
+O33272 & 3\\
+\hline
+O34539 & 3\\
+\hline
+O34559 & 3\\
+\hline
+O34587 & 3\\
+\hline
+O34627 & 3\\
+\hline
+O34723 & 3\\
+\hline
+O34817 & 3\\
+\hline
+O34844 & 3\\
+\hline
+O34911 & 3\\
+\hline
+O34994 & 3\\
+\hline
+O36607 & 3\\
+\hline
+O38716 & 3\\
+\hline
+O42187 & 3\\
+\hline
+O43070 & 3\\
+\hline
+O43148 & 3\\
+\hline
+O43765 & 3\\
+\hline
+O50131 & 3\\
+\hline
+O50271 & 3\\
+\hline
+O50325 & 3\\
+\hline
+O50426 & 3\\
+\hline
+O51166 & 3\\
+\hline
+O51934 & 3\\
+\hline
+O52806 & 3\\
+\hline
+O52942 & 3\\
+\hline
+O53193 & 3\\
+\hline
+O53306 & 3\\
+\hline
+O53446 & 3\\
+\hline
+O53568 & 3\\
+\hline
+O53780 & 3\\
+\hline
+O53831 & 3\\
+\hline
+O54259 & 3\\
+\hline
+O55060 & 3\\
+\hline
+O56137 & 3\\
+\hline
+O57724 & 3\\
+\hline
+O57861 & 3\\
+\hline
+O57980 & 3\\
+\hline
+O58035 & 3\\
+\hline
+O58107 & 3\\
+\hline
+O58235 & 3\\
+\hline
+O58246 & 3\\
+\hline
+O58308 & 3\\
+\hline
+O58403 & 3\\
+\hline
+O58441 & 3\\
+\hline
+O58523 & 3\\
+\hline
+O58677 & 3\\
+\hline
+O58689 & 3\\
+\hline
+O58764 & 3\\
+\hline
+O58796 & 3\\
+\hline
+O58836 & 3\\
+\hline
+O58843 & 3\\
+\hline
+O58966 & 3\\
+\hline
+O59128 & 3\\
+\hline
+O59893 & 3\\
+\hline
+O60502 & 3\\
+\hline
+O60547 & 3\\
+\hline
+O60907 & 3\\
+\hline
+O60939 & 3\\
+\hline
+O62547 & 3\\
+\hline
+O64989 & 3\\
+\hline
+O65986 & 3\\
+\hline
+O66375 & 3\\
+\hline
+O66513 & 3\\
+\hline
+O66680 & 3\\
+\hline
+O67049 & 3\\
+\hline
+O67082 & 3\\
+\hline
+O67139 & 3\\
+\hline
+O67305 & 3\\
+\hline
+O67466 & 3\\
+\hline
+O67504 & 3\\
+\hline
+O67728 & 3\\
+\hline
+O67931 & 3\\
+\hline
+O68098 & 3\\
+\hline
+O68880 & 3\\
+\hline
+O69052 & 3\\
+\hline
+O69061 & 3\\
+\hline
+O69231 & 3\\
+\hline
+O69275 & 3\\
+\hline
+O69639 & 3\\
+\hline
+O69684 & 3\\
+\hline
+O70038 & 3\\
+\hline
+O74718 & 3\\
+\hline
+O74856 & 3\\
+\hline
+O75208 & 3\\
+\hline
+O75223 & 3\\
+\hline
+O75319 & 3\\
+\hline
+O75369 & 3\\
+\hline
+O75385 & 3\\
+\hline
+O75832 & 3\\
+\hline
+O75844 & 3\\
+\hline
+O75970 & 3\\
+\hline
+O76054 & 3\\
+\hline
+O77044 & 3\\
+\hline
+O77421 & 3\\
+\hline
+O85142 & 3\\
+\hline
+O86089 & 3\\
+\hline
+O86150 & 3\\
+\hline
+O86436 & 3\\
+\hline
+O87008 & 3\\
+\hline
+O87988 & 3\\
+\hline
+O88093 & 3\\
+\hline
+O88339 & 3\\
+\hline
+O89053 & 3\\
+\hline
+O93655 & 3\\
+\hline
+O94762 & 3\\
+\hline
+O94766 & 3\\
+\hline
+O94923 & 3\\
+\hline
+O95045 & 3\\
+\hline
+O95363 & 3\\
+\hline
+O95497 & 3\\
+\hline
+O95671 & 3\\
+\hline
+O95786 & 3\\
+\hline
+O96445 & 3\\
+\hline
+O97143 & 3\\
+\hline
+O97193 & 3\\
+\hline
+O97467 & 3\\
+\hline
+P00142 & 3\\
+\hline
+P00179 & 3\\
+\hline
+P00208 & 3\\
+\hline
+P00257 & 3\\
+\hline
+P00260 & 3\\
+\hline
+P00280 & 3\\
+\hline
+P00343 & 3\\
+\hline
+P00350 & 3\\
+\hline
+P00366 & 3\\
+\hline
+P00367 & 3\\
+\hline
+P00450 & 3\\
+\hline
+P00455 & 3\\
+\hline
+P00517 & 3\\
+\hline
+P00524 & 3\\
+\hline
+P00572 & 3\\
+\hline
+P00703 & 3\\
+\hline
+P00711 & 3\\
+\hline
+P00727 & 3\\
+\hline
+P00748 & 3\\
+\hline
+P00751 & 3\\
+\hline
+P00766 & 3\\
+\hline
+P00790 & 3\\
+\hline
+P00803 & 3\\
+\hline
+P00864 & 3\\
+\hline
+P01070 & 3\\
+\hline
+P01130 & 3\\
+\hline
+P01175 & 3\\
+\hline
+P01859 & 3\\
+\hline
+P01901 & 3\\
+\hline
+P02208 & 3\\
+\hline
+P02417 & 3\\
+\hline
+P02526 & 3\\
+\hline
+P02586 & 3\\
+\hline
+P02625 & 3\\
+\hline
+P02633 & 3\\
+\hline
+P02679 & 3\\
+\hline
+P02760 & 3\\
+\hline
+P02774 & 3\\
+\hline
+P02778 & 3\\
+\hline
+P02925 & 3\\
+\hline
+P02929 & 3\\
+\hline
+P02942 & 3\\
+\hline
+P02974 & 3\\
+\hline
+P03275 & 3\\
+\hline
+P03305 & 3\\
+\hline
+P03419 & 3\\
+\hline
+P03485 & 3\\
+\hline
+P03661 & 3\\
+\hline
+P03706 & 3\\
+\hline
+P03819 & 3\\
+\hline
+P04268 & 3\\
+\hline
+P04271 & 3\\
+\hline
+P04303 & 3\\
+\hline
+P04331 & 3\\
+\hline
+P04391 & 3\\
+\hline
+P04501 & 3\\
+\hline
+P04545 & 3\\
+\hline
+P04776 & 3\\
+\hline
+P04816 & 3\\
+\hline
+P04824 & 3\\
+\hline
+P04871 & 3\\
+\hline
+P04905 & 3\\
+\hline
+P04918 & 3\\
+\hline
+P05045 & 3\\
+\hline
+P05062 & 3\\
+\hline
+P05102 & 3\\
+\hline
+P05109 & 3\\
+\hline
+P05155 & 3\\
+\hline
+P05362 & 3\\
+\hline
+P06229 & 3\\
+\hline
+P06624 & 3\\
+\hline
+P06628 & 3\\
+\hline
+P06632 & 3\\
+\hline
+P06786 & 3\\
+\hline
+P06855 & 3\\
+\hline
+P06982 & 3\\
+\hline
+P07001 & 3\\
+\hline
+P07013 & 3\\
+\hline
+P07016 & 3\\
+\hline
+P07239 & 3\\
+\hline
+P07254 & 3\\
+\hline
+P07306 & 3\\
+\hline
+P07620 & 3\\
+\hline
+P07650 & 3\\
+\hline
+P07658 & 3\\
+\hline
+P07663 & 3\\
+\hline
+P07762 & 3\\
+\hline
+P07813 & 3\\
+\hline
+P07839 & 3\\
+\hline
+P07845 & 3\\
+\hline
+P07953 & 3\\
+\hline
+P08017 & 3\\
+\hline
+P08049 & 3\\
+\hline
+P08160 & 3\\
+\hline
+P08169 & 3\\
+\hline
+P08244 & 3\\
+\hline
+P08373 & 3\\
+\hline
+P08567 & 3\\
+\hline
+P08575 & 3\\
+\hline
+P08640 & 3\\
+\hline
+P08921 & 3\\
+\hline
+P08997 & 3\\
+\hline
+P09012 & 3\\
+\hline
+P09041 & 3\\
+\hline
+P09210 & 3\\
+\hline
+P09331 & 3\\
+\hline
+P09486 & 3\\
+\hline
+P09528 & 3\\
+\hline
+P09651 & 3\\
+\hline
+P09866 & 3\\
+\hline
+P09936 & 3\\
+\hline
+P0A077 & 3\\
+\hline
+P0A080 & 3\\
+\hline
+P0A0L5 & 3\\
+\hline
+P0A0M0 & 3\\
+\hline
+P0A1P6 & 3\\
+\hline
+P0A382 & 3\\
+\hline
+P0A3M6 & 3\\
+\hline
+P0A3X7 & 3\\
+\hline
+P0A432 & 3\\
+\hline
+P0A4G2 & 3\\
+\hline
+P0A4U6 & 3\\
+\hline
+P0A4W8 & 3\\
+\hline
+P0A4X7 & 3\\
+\hline
+P0A4Y0 & 3\\
+\hline
+P0A4Y8 & 3\\
+\hline
+P0A526 & 3\\
+\hline
+P0A530 & 3\\
+\hline
+P0A544 & 3\\
+\hline
+P0A590 & 3\\
+\hline
+P0A5H3 & 3\\
+\hline
+P0A5I8 & 3\\
+\hline
+P0A5N4 & 3\\
+\hline
+P0A636 & 3\\
+\hline
+P0A672 & 3\\
+\hline
+P0A6I9 & 3\\
+\hline
+P0A6N1 & 3\\
+\hline
+P0A6V1 & 3\\
+\hline
+P0A6Y5 & 3\\
+\hline
+P0A722 & 3\\
+\hline
+P0A786 & 3\\
+\hline
+P0A7B5 & 3\\
+\hline
+P0A7E5 & 3\\
+\hline
+P0A894 & 3\\
+\hline
+P0A927 & 3\\
+\hline
+P0A9G4 & 3\\
+\hline
+P0A9Q9 & 3\\
+\hline
+P0A9V1 & 3\\
+\hline
+P0AA04 & 3\\
+\hline
+P0AA43 & 3\\
+\hline
+P0AAC8 & 3\\
+\hline
+P0AB89 & 3\\
+\hline
+P0ABF4 & 3\\
+\hline
+P0ABH9 & 3\\
+\hline
+P0AC13 & 3\\
+\hline
+P0ACS5 & 3\\
+\hline
+P0ACU2 & 3\\
+\hline
+P0AD65 & 3\\
+\hline
+P0AD68 & 3\\
+\hline
+P0ADF8 & 3\\
+\hline
+P0ADP7 & 3\\
+\hline
+P0ADR6 & 3\\
+\hline
+P0AE68 & 3\\
+\hline
+P0AES5 & 3\\
+\hline
+P0AEV1 & 3\\
+\hline
+P0AF18 & 3\\
+\hline
+P0AFG9 & 3\\
+\hline
+P0AFI0 & 3\\
+\hline
+P0AGL2 & 3\\
+\hline
+P0C0Q2 & 3\\
+\hline
+P0C0U4 & 3\\
+\hline
+P0C0Y5 & 3\\
+\hline
+P0C5C5 & 3\\
+\hline
+P0C6V5 & 3\\
+\hline
+P0C6W3 & 3\\
+\hline
+P0C6X1 & 3\\
+\hline
+P0C6X5 & 3\\
+\hline
+P0C7B7 & 3\\
+\hline
+P0CB42 & 3\\
+\hline
+P0CS93 & 3\\
+\hline
+P0DKR6 & 3\\
+\hline
+P0DM59 & 3\\
+\hline
+P0DMM5 & 3\\
+\hline
+P0DOX5 & 3\\
+\hline
+P0DQD2 & 3\\
+\hline
+P10026 & 3\\
+\hline
+P10114 & 3\\
+\hline
+P10145 & 3\\
+\hline
+P10151 & 3\\
+\hline
+P10182 & 3\\
+\hline
+P10245 & 3\\
+\hline
+P10443 & 3\\
+\hline
+P10475 & 3\\
+\hline
+P10537 & 3\\
+\hline
+P10547 & 3\\
+\hline
+P10644 & 3\\
+\hline
+P10686 & 3\\
+\hline
+P10820 & 3\\
+\hline
+P10880 & 3\\
+\hline
+P10902 & 3\\
+\hline
+P10903 & 3\\
+\hline
+P10969 & 3\\
+\hline
+P11041 & 3\\
+\hline
+P11206 & 3\\
+\hline
+P11277 & 3\\
+\hline
+P11308 & 3\\
+\hline
+P11439 & 3\\
+\hline
+P11532 & 3\\
+\hline
+P11544 & 3\\
+\hline
+P11546 & 3\\
+\hline
+P11741 & 3\\
+\hline
+P11759 & 3\\
+\hline
+P11859 & 3\\
+\hline
+P11926 & 3\\
+\hline
+P11940 & 3\\
+\hline
+P11954 & 3\\
+\hline
+P12003 & 3\\
+\hline
+P12010 & 3\\
+\hline
+P12111 & 3\\
+\hline
+P12259 & 3\\
+\hline
+P12268 & 3\\
+\hline
+P12376 & 3\\
+\hline
+P12830 & 3\\
+\hline
+P12838 & 3\\
+\hline
+P13029 & 3\\
+\hline
+P13214 & 3\\
+\hline
+P13340 & 3\\
+\hline
+P13470 & 3\\
+\hline
+P13500 & 3\\
+\hline
+P13591 & 3\\
+\hline
+P13632 & 3\\
+\hline
+P13661 & 3\\
+\hline
+P13662 & 3\\
+\hline
+P13674 & 3\\
+\hline
+P13714 & 3\\
+\hline
+P13717 & 3\\
+\hline
+P13738 & 3\\
+\hline
+P13861 & 3\\
+\hline
+P14147 & 3\\
+\hline
+P14193 & 3\\
+\hline
+P14418 & 3\\
+\hline
+P14598 & 3\\
+\hline
+P14611 & 3\\
+\hline
+P14677 & 3\\
+\hline
+P14926 & 3\\
+\hline
+P15043 & 3\\
+\hline
+P15104 & 3\\
+\hline
+P15207 & 3\\
+\hline
+P15319 & 3\\
+\hline
+P15363 & 3\\
+\hline
+P15454 & 3\\
+\hline
+P15569 & 3\\
+\hline
+P15570 & 3\\
+\hline
+P15587 & 3\\
+\hline
+P15802 & 3\\
+\hline
+P15977 & 3\\
+\hline
+P16009 & 3\\
+\hline
+P16087 & 3\\
+\hline
+P16250 & 3\\
+\hline
+P16276 & 3\\
+\hline
+P16474 & 3\\
+\hline
+P16528 & 3\\
+\hline
+P16621 & 3\\
+\hline
+P16649 & 3\\
+\hline
+P16703 & 3\\
+\hline
+P16790 & 3\\
+\hline
+P16892 & 3\\
+\hline
+P17210 & 3\\
+\hline
+P17255 & 3\\
+\hline
+P17427 & 3\\
+\hline
+P17452 & 3\\
+\hline
+P17493 & 3\\
+\hline
+P17574 & 3\\
+\hline
+P17706 & 3\\
+\hline
+P17811 & 3\\
+\hline
+P17893 & 3\\
+\hline
+P18079 & 3\\
+\hline
+P18105 & 3\\
+\hline
+P18177 & 3\\
+\hline
+P18474 & 3\\
+\hline
+P18965 & 3\\
+\hline
+P19062 & 3\\
+\hline
+P19113 & 3\\
+\hline
+P19247 & 3\\
+\hline
+P19480 & 3\\
+\hline
+P19525 & 3\\
+\hline
+P19573 & 3\\
+\hline
+P19624 & 3\\
+\hline
+P19658 & 3\\
+\hline
+P19665 & 3\\
+\hline
+P19836 & 3\\
+\hline
+P20070 & 3\\
+\hline
+P20214 & 3\\
+\hline
+P20334 & 3\\
+\hline
+P20340 & 3\\
+\hline
+P20356 & 3\\
+\hline
+P20384 & 3\\
+\hline
+P20486 & 3\\
+\hline
+P20509 & 3\\
+\hline
+P20581 & 3\\
+\hline
+P20582 & 3\\
+\hline
+P20700 & 3\\
+\hline
+P20789 & 3\\
+\hline
+P21164 & 3\\
+\hline
+P21338 & 3\\
+\hline
+P21513 & 3\\
+\hline
+P21514 & 3\\
+\hline
+P21642 & 3\\
+\hline
+P21674 & 3\\
+\hline
+P21793 & 3\\
+\hline
+P21866 & 3\\
+\hline
+P22004 & 3\\
+\hline
+P22027 & 3\\
+\hline
+P22108 & 3\\
+\hline
+P22121 & 3\\
+\hline
+P22221 & 3\\
+\hline
+P22414 & 3\\
+\hline
+P22441 & 3\\
+\hline
+P22483 & 3\\
+\hline
+P22523 & 3\\
+\hline
+P22535 & 3\\
+\hline
+P22536 & 3\\
+\hline
+P22607 & 3\\
+\hline
+P22669 & 3\\
+\hline
+P22680 & 3\\
+\hline
+P23007 & 3\\
+\hline
+P23254 & 3\\
+\hline
+P23258 & 3\\
+\hline
+P23469 & 3\\
+\hline
+P23471 & 3\\
+\hline
+P23589 & 3\\
+\hline
+P23875 & 3\\
+\hline
+P23895 & 3\\
+\hline
+P23930 & 3\\
+\hline
+P24057 & 3\\
+\hline
+P24092 & 3\\
+\hline
+P24203 & 3\\
+\hline
+P24224 & 3\\
+\hline
+P24295 & 3\\
+\hline
+P24530 & 3\\
+\hline
+P25103 & 3\\
+\hline
+P25114 & 3\\
+\hline
+P25158 & 3\\
+\hline
+P25372 & 3\\
+\hline
+P25373 & 3\\
+\hline
+P25401 & 3\\
+\hline
+P25500 & 3\\
+\hline
+P25522 & 3\\
+\hline
+P25529 & 3\\
+\hline
+P25539 & 3\\
+\hline
+P25651 & 3\\
+\hline
+P25734 & 3\\
+\hline
+P25858 & 3\\
+\hline
+P25891 & 3\\
+\hline
+P25924 & 3\\
+\hline
+P26043 & 3\\
+\hline
+P26358 & 3\\
+\hline
+P26368 & 3\\
+\hline
+P26391 & 3\\
+\hline
+P26408 & 3\\
+\hline
+P26492 & 3\\
+\hline
+P26744 & 3\\
+\hline
+P26827 & 3\\
+\hline
+P26839 & 3\\
+\hline
+P26949 & 3\\
+\hline
+P27000 & 3\\
+\hline
+P27213 & 3\\
+\hline
+P27282 & 3\\
+\hline
+P27361 & 3\\
+\hline
+P27362 & 3\\
+\hline
+P27809 & 3\\
+\hline
+P27838 & 3\\
+\hline
+P27882 & 3\\
+\hline
+P28185 & 3\\
+\hline
+P28305 & 3\\
+\hline
+P28796 & 3\\
+\hline
+P28827 & 3\\
+\hline
+P29033 & 3\\
+\hline
+P29187 & 3\\
+\hline
+P29208 & 3\\
+\hline
+P29283 & 3\\
+\hline
+P29422 & 3\\
+\hline
+P29468 & 3\\
+\hline
+P29508 & 3\\
+\hline
+P29724 & 3\\
+\hline
+P30086 & 3\\
+\hline
+P30122 & 3\\
+\hline
+P30234 & 3\\
+\hline
+P30418 & 3\\
+\hline
+P30820 & 3\\
+\hline
+P30838 & 3\\
+\hline
+P30878 & 3\\
+\hline
+P30958 & 3\\
+\hline
+P31129 & 3\\
+\hline
+P31137 & 3\\
+\hline
+P31151 & 3\\
+\hline
+P31327 & 3\\
+\hline
+P31545 & 3\\
+\hline
+P31658 & 3\\
+\hline
+P31696 & 3\\
+\hline
+P31939 & 3\\
+\hline
+P31992 & 3\\
+\hline
+P32056 & 3\\
+\hline
+P32138 & 3\\
+\hline
+P32178 & 3\\
+\hline
+P32196 & 3\\
+\hline
+P32337 & 3\\
+\hline
+P32356 & 3\\
+\hline
+P32447 & 3\\
+\hline
+P32507 & 3\\
+\hline
+P32597 & 3\\
+\hline
+P32639 & 3\\
+\hline
+P32657 & 3\\
+\hline
+P32722 & 3\\
+\hline
+P32923 & 3\\
+\hline
+P32939 & 3\\
+\hline
+P33247 & 3\\
+\hline
+P33317 & 3\\
+\hline
+P33371 & 3\\
+\hline
+P33557 & 3\\
+\hline
+P33643 & 3\\
+\hline
+P33673 & 3\\
+\hline
+P33734 & 3\\
+\hline
+P34736 & 3\\
+\hline
+P34884 & 3\\
+\hline
+P35077 & 3\\
+\hline
+P35120 & 3\\
+\hline
+P35221 & 3\\
+\hline
+P35278 & 3\\
+\hline
+P35705 & 3\\
+\hline
+P35729 & 3\\
+\hline
+P35731 & 3\\
+\hline
+P35835 & 3\\
+\hline
+P35992 & 3\\
+\hline
+P36136 & 3\\
+\hline
+P36275 & 3\\
+\hline
+P36351 & 3\\
+\hline
+P36370 & 3\\
+\hline
+P37167 & 3\\
+\hline
+P37387 & 3\\
+\hline
+P37478 & 3\\
+\hline
+P37634 & 3\\
+\hline
+P37719 & 3\\
+\hline
+P37965 & 3\\
+\hline
+P37967 & 3\\
+\hline
+P38011 & 3\\
+\hline
+P38051 & 3\\
+\hline
+P38247 & 3\\
+\hline
+P38424 & 3\\
+\hline
+P38502 & 3\\
+\hline
+P38503 & 3\\
+\hline
+P38561 & 3\\
+\hline
+P38698 & 3\\
+\hline
+P38713 & 3\\
+\hline
+P38830 & 3\\
+\hline
+P38850 & 3\\
+\hline
+P39060 & 3\\
+\hline
+P39061 & 3\\
+\hline
+P39075 & 3\\
+\hline
+P39265 & 3\\
+\hline
+P39462 & 3\\
+\hline
+P39579 & 3\\
+\hline
+P39639 & 3\\
+\hline
+P39641 & 3\\
+\hline
+P39644 & 3\\
+\hline
+P39687 & 3\\
+\hline
+P39765 & 3\\
+\hline
+P40107 & 3\\
+\hline
+P40131 & 3\\
+\hline
+P40191 & 3\\
+\hline
+P40347 & 3\\
+\hline
+P40409 & 3\\
+\hline
+P40709 & 3\\
+\hline
+P40947 & 3\\
+\hline
+P41181 & 3\\
+\hline
+P41240 & 3\\
+\hline
+P41977 & 3\\
+\hline
+P42013 & 3\\
+\hline
+p42212 & 3\\
+\hline
+P42676 & 3\\
+\hline
+P43238 & 3\\
+\hline
+P43250 & 3\\
+\hline
+P43408 & 3\\
+\hline
+P43534 & 3\\
+\hline
+P43577 & 3\\
+\hline
+P43652 & 3\\
+\hline
+P44862 & 3\\
+\hline
+P45083 & 3\\
+\hline
+P45299 & 3\\
+\hline
+P45314 & 3\\
+\hline
+P45478 & 3\\
+\hline
+P45523 & 3\\
+\hline
+P45563 & 3\\
+\hline
+P45741 & 3\\
+\hline
+P45983 & 3\\
+\hline
+P46072 & 3\\
+\hline
+P46107 & 3\\
+\hline
+P46275 & 3\\
+\hline
+P46467 & 3\\
+\hline
+P46844 & 3\\
+\hline
+P46922 & 3\\
+\hline
+P46940 & 3\\
+\hline
+P47897 & 3\\
+\hline
+P48329 & 3\\
+\hline
+P48650 & 3\\
+\hline
+P48740 & 3\\
+\hline
+P49040 & 3\\
+\hline
+P49121 & 3\\
+\hline
+P49642 & 3\\
+\hline
+P49796 & 3\\
+\hline
+P49850 & 3\\
+\hline
+P49891 & 3\\
+\hline
+P50049 & 3\\
+\hline
+P50286 & 3\\
+\hline
+P50336 & 3\\
+\hline
+P50465 & 3\\
+\hline
+P50503 & 3\\
+\hline
+P50583 & 3\\
+\hline
+P50616 & 3\\
+\hline
+P51161 & 3\\
+\hline
+P51531 & 3\\
+\hline
+P51787 & 3\\
+\hline
+P52129 & 3\\
+\hline
+P52197 & 3\\
+\hline
+P52477 & 3\\
+\hline
+P52564 & 3\\
+\hline
+P52679 & 3\\
+\hline
+P52789 & 3\\
+\hline
+P52934 & 3\\
+\hline
+P53078 & 3\\
+\hline
+P53539 & 3\\
+\hline
+P53550 & 3\\
+\hline
+P53555 & 3\\
+\hline
+P53778 & 3\\
+\hline
+P53816 & 3\\
+\hline
+P54050 & 3\\
+\hline
+P54066 & 3\\
+\hline
+P54116 & 3\\
+\hline
+P54196 & 3\\
+\hline
+P54582 & 3\\
+\hline
+P54753 & 3\\
+\hline
+P54764 & 3\\
+\hline
+P54820 & 3\\
+\hline
+P54997 & 3\\
+\hline
+P55064 & 3\\
+\hline
+P55144 & 3\\
+\hline
+P55259 & 3\\
+\hline
+P55288 & 3\\
+\hline
+P55980 & 3\\
+\hline
+P56194 & 3\\
+\hline
+P56199 & 3\\
+\hline
+P56275 & 3\\
+\hline
+P56389 & 3\\
+\hline
+P56410 & 3\\
+\hline
+P56431 & 3\\
+\hline
+P56588 & 3\\
+\hline
+P56981 & 3\\
+\hline
+P57083 & 3\\
+\hline
+P58004 & 3\\
+\hline
+P58555 & 3\\
+\hline
+P59082 & 3\\
+\hline
+P59336 & 3\\
+\hline
+P60355 & 3\\
+\hline
+P60763 & 3\\
+\hline
+P60906 & 3\\
+\hline
+P60953 & 3\\
+\hline
+P61086 & 3\\
+\hline
+P62204 & 3\\
+\hline
+P62509 & 3\\
+\hline
+P62576 & 3\\
+\hline
+P62987 & 3\\
+\hline
+P62992 & 3\\
+\hline
+P63142 & 3\\
+\hline
+P63320 & 3\\
+\hline
+P63345 & 3\\
+\hline
+P63407 & 3\\
+\hline
+P63562 & 3\\
+\hline
+P63577 & 3\\
+\hline
+P63697 & 3\\
+\hline
+P63873 & 3\\
+\hline
+P65249 & 3\\
+\hline
+P65277 & 3\\
+\hline
+P65870 & 3\\
+\hline
+P66004 & 3\\
+\hline
+P66032 & 3\\
+\hline
+P66744 & 3\\
+\hline
+P66948 & 3\\
+\hline
+P67653 & 3\\
+\hline
+P67825 & 3\\
+\hline
+P67976 & 3\\
+\hline
+P68187 & 3\\
+\hline
+P68732 & 3\\
+\hline
+P69167 & 3\\
+\hline
+P69853 & 3\\
+\hline
+P69986 & 3\\
+\hline
+P70158 & 3\\
+\hline
+P70206 & 3\\
+\hline
+P70207 & 3\\
+\hline
+P72760 & 3\\
+\hline
+P72761 & 3\\
+\hline
+P72827 & 3\\
+\hline
+P73407 & 3\\
+\hline
+P73495 & 3\\
+\hline
+P73797 & 3\\
+\hline
+P73954 & 3\\
+\hline
+P74133 & 3\\
+\hline
+P74295 & 3\\
+\hline
+P74416 & 3\\
+\hline
+P74535 & 3\\
+\hline
+P75430 & 3\\
+\hline
+P75780 & 3\\
+\hline
+P75838 & 3\\
+\hline
+P75914 & 3\\
+\hline
+P76010 & 3\\
+\hline
+P76045 & 3\\
+\hline
+P76216 & 3\\
+\hline
+P76341 & 3\\
+\hline
+P76491 & 3\\
+\hline
+P77173 & 3\\
+\hline
+P77754 & 3\\
+\hline
+P77901 & 3\\
+\hline
+P77933 & 3\\
+\hline
+P78344 & 3\\
+\hline
+P78556 & 3\\
+\hline
+P79074 & 3\\
+\hline
+P80039 & 3\\
+\hline
+P80147 & 3\\
+\hline
+P80386 & 3\\
+\hline
+P80511 & 3\\
+\hline
+P80644 & 3\\
+\hline
+P80725 & 3\\
+\hline
+P81459 & 3\\
+\hline
+P81460 & 3\\
+\hline
+P81461 & 3\\
+\hline
+P81860 & 3\\
+\hline
+P82385 & 3\\
+\hline
+P83223 & 3\\
+\hline
+P83467 & 3\\
+\hline
+P83787 & 3\\
+\hline
+P83790 & 3\\
+\hline
+P83823 & 3\\
+\hline
+P84138 & 3\\
+\hline
+P84140 & 3\\
+\hline
+P84142 & 3\\
+\hline
+P84193 & 3\\
+\hline
+P85173 & 3\\
+\hline
+P93114 & 3\\
+\hline
+P93243 & 3\\
+\hline
+P93832 & 3\\
+\hline
+P94255 & 3\\
+\hline
+P94388 & 3\\
+\hline
+P95001 & 3\\
+\hline
+P95092 & 3\\
+\hline
+P95780 & 3\\
+\hline
+P95868 & 3\\
+\hline
+P96022 & 3\\
+\hline
+P96110 & 3\\
+\hline
+P96142 & 3\\
+\hline
+P96228 & 3\\
+\hline
+P96789 & 3\\
+\hline
+P96856 & 3\\
+\hline
+P96877 & 3\\
+\hline
+P97687 & 3\\
+\hline
+P97798 & 3\\
+\hline
+P9WFV1 & 3\\
+\hline
+P9WFY7 & 3\\
+\hline
+P9WH43 & 3\\
+\hline
+P9WHK7 & 3\\
+\hline
+P9WHR7 & 3\\
+\hline
+P9WIC6 & 3\\
+\hline
+P9WIE2 & 3\\
+\hline
+P9WKH3 & 3\\
+\hline
+P9WMC1 & 3\\
+\hline
+P9WME9 & 3\\
+\hline
+P9WNP1 & 3\\
+\hline
+P9WPA7 & 3\\
+\hline
+P9WPJ6 & 3\\
+\hline
+P9WPZ7 & 3\\
+\hline
+P9WQ80 & 3\\
+\hline
+P9WQN8 & 3\\
+\hline
+Q00019 & 3\\
+\hline
+Q00266 & 3\\
+\hline
+Q00499 & 3\\
+\hline
+Q00610 & 3\\
+\hline
+Q00796 & 3\\
+\hline
+Q01082 & 3\\
+\hline
+Q01484 & 3\\
+\hline
+Q01594 & 3\\
+\hline
+Q01738 & 3\\
+\hline
+Q01780 & 3\\
+\hline
+Q01KB2 & 3\\
+\hline
+Q02016 & 3\\
+\hline
+Q02150 & 3\\
+\hline
+Q02169 & 3\\
+\hline
+Q02206 & 3\\
+\hline
+Q02323 & 3\\
+\hline
+Q02724 & 3\\
+\hline
+Q02834 & 3\\
+\hline
+Q02IG8 & 3\\
+\hline
+Q02QP5 & 3\\
+\hline
+Q03103 & 3\\
+\hline
+Q03137 & 3\\
+\hline
+Q03161 & 3\\
+\hline
+Q03405 & 3\\
+\hline
+Q03513 & 3\\
+\hline
+Q03769 & 3\\
+\hline
+Q04114 & 3\\
+\hline
+Q04178 & 3\\
+\hline
+Q04299 & 3\\
+\hline
+Q04724 & 3\\
+\hline
+Q04759 & 3\\
+\hline
+Q04837 & 3\\
+\hline
+Q04894 & 3\\
+\hline
+Q05085 & 3\\
+\hline
+Q05514 & 3\\
+\hline
+Q05785 & 3\\
+\hline
+Q05823 & 3\\
+\hline
+Q06287 & 3\\
+\hline
+Q06681 & 3\\
+\hline
+Q06755 & 3\\
+\hline
+Q06787 & 3\\
+\hline
+Q06801 & 3\\
+\hline
+Q06851 & 3\\
+\hline
+Q06S87 & 3\\
+\hline
+Q07296 & 3\\
+\hline
+Q07448 & 3\\
+\hline
+Q07702 & 3\\
+\hline
+Q08048 & 3\\
+\hline
+Q08169 & 3\\
+\hline
+Q08282 & 3\\
+\hline
+Q08509 & 3\\
+\hline
+Q08945 & 3\\
+\hline
+Q09324 & 3\\
+\hline
+Q09HD0 & 3\\
+\hline
+Q09JX9 & 3\\
+\hline
+Q0B2F6 & 3\\
+\hline
+Q0B4G1 & 3\\
+\hline
+Q0C3L7 & 3\\
+\hline
+Q0ED31 & 3\\
+\hline
+Q0GC07 & 3\\
+\hline
+Q0HD59 & 3\\
+\hline
+Q0J8A4 & 3\\
+\hline
+Q0KEY8 & 3\\
+\hline
+Q0KFV0 & 3\\
+\hline
+Q0P844 & 3\\
+\hline
+Q0P9J4 & 3\\
+\hline
+Q0TV31 & 3\\
+\hline
+Q0UIL6 & 3\\
+\hline
+Q10356 & 3\\
+\hline
+Q104Z6 & 3\\
+\hline
+Q10Z45 & 3\\
+\hline
+Q11195 & 3\\
+\hline
+Q12046 & 3\\
+\hline
+Q12285 & 3\\
+\hline
+Q12634 & 3\\
+\hline
+Q12715 & 3\\
+\hline
+Q12834 & 3\\
+\hline
+Q12864 & 3\\
+\hline
+Q12904 & 3\\
+\hline
+Q12933 & 3\\
+\hline
+Q12M27 & 3\\
+\hline
+Q13043 & 3\\
+\hline
+Q13283 & 3\\
+\hline
+Q13325 & 3\\
+\hline
+Q13423 & 3\\
+\hline
+Q13477 & 3\\
+\hline
+Q13485 & 3\\
+\hline
+Q13572 & 3\\
+\hline
+Q13825 & 3\\
+\hline
+Q13AR6 & 3\\
+\hline
+Q14116 & 3\\
+\hline
+Q14160 & 3\\
+\hline
+Q14457 & 3\\
+\hline
+Q14534 & 3\\
+\hline
+Q14562 & 3\\
+\hline
+Q14671 & 3\\
+\hline
+Q14CU0 & 3\\
+\hline
+Q15084 & 3\\
+\hline
+Q15118 & 3\\
+\hline
+Q15223 & 3\\
+\hline
+Q15257 & 3\\
+\hline
+Q15274 & 3\\
+\hline
+Q15375 & 3\\
+\hline
+Q15399 & 3\\
+\hline
+Q15485 & 3\\
+\hline
+Q15582 & 3\\
+\hline
+Q15645 & 3\\
+\hline
+Q15717 & 3\\
+\hline
+Q15759 & 3\\
+\hline
+Q15848 & 3\\
+\hline
+Q16181 & 3\\
+\hline
+Q16288 & 3\\
+\hline
+Q16584 & 3\\
+\hline
+Q16625 & 3\\
+\hline
+Q16740 & 3\\
+\hline
+Q16820 & 3\\
+\hline
+Q16831 & 3\\
+\hline
+Q16851 & 3\\
+\hline
+Q16881 & 3\\
+\hline
+Q194P4 & 3\\
+\hline
+Q1AN22 & 3\\
+\hline
+Q1GNW5 & 3\\
+\hline
+Q1JGN6 & 3\\
+\hline
+Q1KHJ8 & 3\\
+\hline
+Q20NS3 & 3\\
+\hline
+Q24008 & 3\\
+\hline
+Q24117 & 3\\
+\hline
+Q25595 & 3\\
+\hline
+Q26997 & 3\\
+\hline
+Q27797 & 3\\
+\hline
+Q27893 & 3\\
+\hline
+Q28021 & 3\\
+\hline
+Q28133 & 3\\
+\hline
+Q283U5 & 3\\
+\hline
+Q29147 & 3\\
+\hline
+Q2A2W3 & 3\\
+\hline
+Q2ADF2 & 3\\
+\hline
+Q2CEE3 & 3\\
+\hline
+Q2CIP5 & 3\\
+\hline
+Q2F7J3 & 3\\
+\hline
+Q2F9Z1 & 3\\
+\hline
+Q2G1S5 & 3\\
+\hline
+Q2G8A2 & 3\\
+\hline
+Q2GA76 & 3\\
+\hline
+Q2I1Y8 & 3\\
+\hline
+Q2IU40 & 3\\
+\hline
+Q2KDT2 & 3\\
+\hline
+Q2M2I8 & 3\\
+\hline
+Q2N9N3 & 3\\
+\hline
+Q2NB77 & 3\\
+\hline
+Q2P8P8 & 3\\
+\hline
+Q2PAJ1 & 3\\
+\hline
+Q2RIF5 & 3\\
+\hline
+Q2SWE7 & 3\\
+\hline
+Q2TCH5 & 3\\
+\hline
+Q2UD26 & 3\\
+\hline
+Q2UNX8 & 3\\
+\hline
+Q2VEQ7 & 3\\
+\hline
+Q2XSK9 & 3\\
+\hline
+Q2YQA0 & 3\\
+\hline
+Q306W4 & 3\\
+\hline
+Q315G1 & 3\\
+\hline
+Q38802 & 3\\
+\hline
+Q396C7 & 3\\
+\hline
+Q3HNM4 & 3\\
+\hline
+Q3HV58 & 3\\
+\hline
+Q3JP68 & 3\\
+\hline
+Q3LSM4 & 3\\
+\hline
+Q3MIV7 & 3\\
+\hline
+Q3TVD2 & 3\\
+\hline
+Q3U4G3 & 3\\
+\hline
+Q3V1Y3 & 3\\
+\hline
+Q3ZTX8 & 3\\
+\hline
+Q40778 & 3\\
+\hline
+Q41460 & 3\\
+\hline
+Q42525 & 3\\
+\hline
+Q42795 & 3\\
+\hline
+Q44048 & 3\\
+\hline
+Q44185 & 3\\
+\hline
+Q44501 & 3\\
+\hline
+Q45075 & 3\\
+\hline
+Q45462 & 3\\
+\hline
+Q46347 & 3\\
+\hline
+Q46389 & 3\\
+\hline
+Q46393 & 3\\
+\hline
+Q46851 & 3\\
+\hline
+Q46982 & 3\\
+\hline
+Q47112 & 3\\
+\hline
+Q47200 & 3\\
+\hline
+Q47690 & 3\\
+\hline
+Q47764 & 3\\
+\hline
+Q47NQ8 & 3\\
+\hline
+Q47NS2 & 3\\
+\hline
+Q495A1 & 3\\
+\hline
+Q497I3 & 3\\
+\hline
+Q4D9Z4 & 3\\
+\hline
+Q4E2I1 & 3\\
+\hline
+Q4FP21 & 3\\
+\hline
+Q4FZB7 & 3\\
+\hline
+Q4G1L2 & 3\\
+\hline
+Q4GZ86 & 3\\
+\hline
+Q4J894 & 3\\
+\hline
+Q4JC35 & 3\\
+\hline
+Q4JH30 & 3\\
+\hline
+Q4K376 & 3\\
+\hline
+Q4K4R5 & 3\\
+\hline
+Q4K5A6 & 3\\
+\hline
+Q4K5L5 & 3\\
+\hline
+Q4K9X1 & 3\\
+\hline
+Q4MV79 & 3\\
+\hline
+Q4QBL1 & 3\\
+\hline
+Q4QC75 & 3\\
+\hline
+Q4R2T2 & 3\\
+\hline
+Q4U331 & 3\\
+\hline
+Q4VPP4 & 3\\
+\hline
+Q4W803 & 3\\
+\hline
+Q4WQS0 & 3\\
+\hline
+Q4WWF5 & 3\\
+\hline
+Q50497 & 3\\
+\hline
+Q50642 & 3\\
+\hline
+Q50964 & 3\\
+\hline
+Q51400 & 3\\
+\hline
+Q51578 & 3\\
+\hline
+Q51723 & 3\\
+\hline
+Q51948 & 3\\
+\hline
+Q51990 & 3\\
+\hline
+Q52369 & 3\\
+\hline
+Q53008 & 3\\
+\hline
+Q53635 & 3\\
+\hline
+Q53793 & 3\\
+\hline
+Q53901 & 3\\
+\hline
+Q53940 & 3\\
+\hline
+Q53GL7 & 3\\
+\hline
+Q53H47 & 3\\
+\hline
+Q53TZ2 & 3\\
+\hline
+Q53U84 & 3\\
+\hline
+Q53VY1 & 3\\
+\hline
+Q54A51 & 3\\
+\hline
+Q54XS1 & 3\\
+\hline
+Q556V8 & 3\\
+\hline
+Q56320 & 3\\
+\hline
+Q57142 & 3\\
+\hline
+Q57261 & 3\\
+\hline
+Q57431 & 3\\
+\hline
+Q57471 & 3\\
+\hline
+Q57564 & 3\\
+\hline
+Q57573 & 3\\
+\hline
+Q57733 & 3\\
+\hline
+Q57843 & 3\\
+\hline
+Q57977 & 3\\
+\hline
+Q57U83 & 3\\
+\hline
+Q57W63 & 3\\
+\hline
+Q57ZS7 & 3\\
+\hline
+Q58122 & 3\\
+\hline
+Q58206 & 3\\
+\hline
+Q584S0 & 3\\
+\hline
+Q58649 & 3\\
+\hline
+Q58933 & 3\\
+\hline
+Q59401 & 3\\
+\hline
+Q59675 & 3\\
+\hline
+Q59819 & 3\\
+\hline
+Q5A9A4 & 3\\
+\hline
+Q5AI63 & 3\\
+\hline
+Q5CCJ4 & 3\\
+\hline
+Q5CPP8 & 3\\
+\hline
+Q5CSM7 & 3\\
+\hline
+Q5D1E8 & 3\\
+\hline
+Q5D6Y4 & 3\\
+\hline
+Q5DLU2 & 3\\
+\hline
+Q5DSM6 & 3\\
+\hline
+Q5E046 & 3\\
+\hline
+Q5F9K6 & 3\\
+\hline
+Q5FT75 & 3\\
+\hline
+Q5GYJ8 & 3\\
+\hline
+Q5HCZ5 & 3\\
+\hline
+Q5HF23 & 3\\
+\hline
+Q5I1Y5 & 3\\
+\hline
+Q5I3E5 & 3\\
+\hline
+Q5JCX3 & 3\\
+\hline
+Q5JDJ7 & 3\\
+\hline
+Q5JFM9 & 3\\
+\hline
+Q5JFV8 & 3\\
+\hline
+Q5JIZ8 & 3\\
+\hline
+Q5JTZ9 & 3\\
+\hline
+Q5KYP7 & 3\\
+\hline
+Q5LLW6 & 3\\
+\hline
+Q5LSJ5 & 3\\
+\hline
+Q5MK11 & 3\\
+\hline
+Q5NBT9 & 3\\
+\hline
+Q5NF57 & 3\\
+\hline
+Q5PPM0 & 3\\
+\hline
+Q5PY49 & 3\\
+\hline
+Q5QT35 & 3\\
+\hline
+Q5RKL4 & 3\\
+\hline
+Q5SBM0 & 3\\
+\hline
+Q5SFD1 & 3\\
+\hline
+Q5SGZ2 & 3\\
+\hline
+Q5SHT5 & 3\\
+\hline
+Q5SI78 & 3\\
+\hline
+Q5SIA8 & 3\\
+\hline
+Q5SID2 & 3\\
+\hline
+Q5SIT4 & 3\\
+\hline
+Q5SJ47 & 3\\
+\hline
+Q5SJ64 & 3\\
+\hline
+Q5SJ82 & 3\\
+\hline
+Q5SJ83 & 3\\
+\hline
+Q5SJM0 & 3\\
+\hline
+Q5SKM5 & 3\\
+\hline
+Q5SKU4 & 3\\
+\hline
+Q5SL84 & 3\\
+\hline
+Q5SLG2 & 3\\
+\hline
+Q5SLS3 & 3\\
+\hline
+Q5SLV2 & 3\\
+\hline
+Q5SLV5 & 3\\
+\hline
+Q5SM82 & 3\\
+\hline
+Q5SMG9 & 3\\
+\hline
+Q5T440 & 3\\
+\hline
+Q5U031 & 3\\
+\hline
+Q5U5J2 & 3\\
+\hline
+Q5U925 & 3\\
+\hline
+Q5UPL1 & 3\\
+\hline
+Q5VST9 & 3\\
+\hline
+Q5WPU9 & 3\\
+\hline
+Q5X159 & 3\\
+\hline
+Q5XD01 & 3\\
+\hline
+Q5ZSD5 & 3\\
+\hline
+Q5ZVE3 & 3\\
+\hline
+Q5ZWI4 & 3\\
+\hline
+Q5ZWR1 & 3\\
+\hline
+Q5ZWY9 & 3\\
+\hline
+Q5ZXA4 & 3\\
+\hline
+Q5ZZB6 & 3\\
+\hline
+Q60029 & 3\\
+\hline
+Q60037 & 3\\
+\hline
+Q60164 & 3\\
+\hline
+Q60364 & 3\\
+\hline
+Q603T8 & 3\\
+\hline
+Q60598 & 3\\
+\hline
+Q60675 & 3\\
+\hline
+Q60860 & 3\\
+\hline
+Q60GU1 & 3\\
+\hline
+Q61301 & 3\\
+\hline
+Q62165 & 3\\
+\hline
+Q62226 & 3\\
+\hline
+Q62667 & 3\\
+\hline
+Q62838 & 3\\
+\hline
+Q63373 & 3\\
+\hline
+Q63KH5 & 3\\
+\hline
+Q63UP7 & 3\\
+\hline
+Q63XU7 & 3\\
+\hline
+Q64288 & 3\\
+\hline
+Q64339 & 3\\
+\hline
+Q64537 & 3\\
+\hline
+Q65EX3 & 3\\
+\hline
+Q65YW7 & 3\\
+\hline
+Q66A71 & 3\\
+\hline
+Q66G68 & 3\\
+\hline
+Q67PI3 & 3\\
+\hline
+Q68DU8 & 3\\
+\hline
+Q68FT9 & 3\\
+\hline
+Q69ZX9 & 3\\
+\hline
+Q6BF16 & 3\\
+\hline
+Q6CN23 & 3\\
+\hline
+Q6CUK7 & 3\\
+\hline
+Q6FH41 & 3\\
+\hline
+Q6FLB1 & 3\\
+\hline
+Q6FS46 & 3\\
+\hline
+Q6FSK0 & 3\\
+\hline
+Q6G8R1 & 3\\
+\hline
+Q6GEG9 & 3\\
+\hline
+Q6GEY3 & 3\\
+\hline
+Q6GG09 & 3\\
+\hline
+Q6GWS6 & 3\\
+\hline
+Q6HT60 & 3\\
+\hline
+Q6I7B2 & 3\\
+\hline
+Q6IBG9 & 3\\
+\hline
+Q6IMN6 & 3\\
+\hline
+Q6IMW5 & 3\\
+\hline
+Q6JP75 & 3\\
+\hline
+Q6MIH8 & 3\\
+\hline
+Q6MLJ0 & 3\\
+\hline
+Q6MPU9 & 3\\
+\hline
+Q6MX39 & 3\\
+\hline
+Q6N5G3 & 3\\
+\hline
+Q6NER4 & 3\\
+\hline
+Q6P1C1 & 3\\
+\hline
+Q6P587 & 3\\
+\hline
+Q6P6M7 & 3\\
+\hline
+Q6PW77 & 3\\
+\hline
+Q6PYX1 & 3\\
+\hline
+Q6Q272 & 3\\
+\hline
+Q6QT01 & 3\\
+\hline
+Q6QWN0 & 3\\
+\hline
+Q6QWR1 & 3\\
+\hline
+Q6RCR0 & 3\\
+\hline
+Q6RCR4 & 3\\
+\hline
+Q6RYA0 & 3\\
+\hline
+Q6TFC6 & 3\\
+\hline
+Q6U7R4 & 3\\
+\hline
+Q6V4S5 & 3\\
+\hline
+Q6VAB4 & 3\\
+\hline
+Q6VT21 & 3\\
+\hline
+Q6VVX0 & 3\\
+\hline
+Q6WAU1 & 3\\
+\hline
+Q6WSR8 & 3\\
+\hline
+Q6X3H6 & 3\\
+\hline
+Q6YGZ0 & 3\\
+\hline
+Q703G9 & 3\\
+\hline
+Q70ET3 & 3\\
+\hline
+Q70V27 & 3\\
+\hline
+Q70YQ6 & 3\\
+\hline
+Q72EC8 & 3\\
+\hline
+Q72HK3 & 3\\
+\hline
+Q72IM4 & 3\\
+\hline
+Q72J47 & 3\\
+\hline
+Q72J82 & 3\\
+\hline
+Q72K30 & 3\\
+\hline
+Q72KM1 & 3\\
+\hline
+Q73PV9 & 3\\
+\hline
+Q73Q47 & 3\\
+\hline
+Q746J7 & 3\\
+\hline
+Q74BP5 & 3\\
+\hline
+Q74K42 & 3\\
+\hline
+Q74P24 & 3\\
+\hline
+Q75UV1 & 3\\
+\hline
+Q75WK2 & 3\\
+\hline
+Q763K9 & 3\\
+\hline
+Q76BV4 & 3\\
+\hline
+Q76IQ9 & 3\\
+\hline
+Q76KY2 & 3\\
+\hline
+Q76LX8 & 3\\
+\hline
+Q78EG7 & 3\\
+\hline
+Q793I8 & 3\\
+\hline
+Q79DR3 & 3\\
+\hline
+Q79EF9 & 3\\
+\hline
+Q79MP6 & 3\\
+\hline
+Q79N53 & 3\\
+\hline
+Q7A225 & 3\\
+\hline
+Q7A2Q1 & 3\\
+\hline
+Q7A4G9 & 3\\
+\hline
+Q7B8B9 & 3\\
+\hline
+Q7BK04 & 3\\
+\hline
+Q7BVV5 & 3\\
+\hline
+Q7CEG3 & 3\\
+\hline
+Q7CJS8 & 3\\
+\hline
+Q7CL15 & 3\\
+\hline
+Q7CRQ0 & 3\\
+\hline
+Q7CUX4 & 3\\
+\hline
+Q7DDU0 & 3\\
+\hline
+Q7DM12 & 3\\
+\hline
+Q7JVK6 & 3\\
+\hline
+Q7K1U0 & 3\\
+\hline
+Q7K740 & 3\\
+\hline
+Q7KZI7 & 3\\
+\hline
+Q7L1T6 & 3\\
+\hline
+Q7LIJ0 & 3\\
+\hline
+Q7M181 & 3\\
+\hline
+Q7M462 & 3\\
+\hline
+Q7M4F9 & 3\\
+\hline
+Q7M4J4 & 3\\
+\hline
+Q7M537 & 3\\
+\hline
+Q7MHL9 & 3\\
+\hline
+Q7N8J0 & 3\\
+\hline
+Q7NSZ5 & 3\\
+\hline
+Q7PVS6 & 3\\
+\hline
+Q7PXT9 & 3\\
+\hline
+Q7Q9J3 & 3\\
+\hline
+Q7SIB1 & 3\\
+\hline
+Q7SIB7 & 3\\
+\hline
+Q7SIC2 & 3\\
+\hline
+Q7TS55 & 3\\
+\hline
+Q7VXW9 & 3\\
+\hline
+Q7WSN5 & 3\\
+\hline
+Q7WU28 & 3\\
+\hline
+Q7WWP9 & 3\\
+\hline
+Q7WY78 & 3\\
+\hline
+Q7X9A9 & 3\\
+\hline
+Q7YTF7 & 3\\
+\hline
+Q7YYQ9 & 3\\
+\hline
+Q7Z460 & 3\\
+\hline
+Q7Z4H3 & 3\\
+\hline
+Q7ZVE3 & 3\\
+\hline
+Q7ZVT3 & 3\\
+\hline
+Q80TS3 & 3\\
+\hline
+Q813T3 & 3\\
+\hline
+Q81G55 & 3\\
+\hline
+Q81IL5 & 3\\
+\hline
+Q81JT5 & 3\\
+\hline
+Q81L49 & 3\\
+\hline
+Q81LZ8 & 3\\
+\hline
+Q81RP3 & 3\\
+\hline
+Q81UT5 & 3\\
+\hline
+Q81W73 & 3\\
+\hline
+Q81WN7 & 3\\
+\hline
+Q820S6 & 3\\
+\hline
+Q820T1 & 3\\
+\hline
+Q82441 & 3\\
+\hline
+Q82L26 & 3\\
+\hline
+Q831P9 & 3\\
+\hline
+Q836G9 & 3\\
+\hline
+Q83RM3 & 3\\
+\hline
+Q83WF2 & 3\\
+\hline
+Q83WG3 & 3\\
+\hline
+Q840P9 & 3\\
+\hline
+Q842J9 & 3\\
+\hline
+Q84CU3 & 3\\
+\hline
+Q84G06 & 3\\
+\hline
+Q84WK4 & 3\\
+\hline
+Q86169 & 3\\
+\hline
+Q86MV5 & 3\\
+\hline
+Q86PT9 & 3\\
+\hline
+Q86T24 & 3\\
+\hline
+Q86TB9 & 3\\
+\hline
+Q86U42 & 3\\
+\hline
+Q86UW9 & 3\\
+\hline
+Q86W24 & 3\\
+\hline
+Q86Y07 & 3\\
+\hline
+Q87SR8 & 3\\
+\hline
+Q88A25 & 3\\
+\hline
+Q88BC5 & 3\\
+\hline
+Q88LK7 & 3\\
+\hline
+Q88NF7 & 3\\
+\hline
+Q88RA3 & 3\\
+\hline
+Q88VW8 & 3\\
+\hline
+Q88Y25 & 3\\
+\hline
+Q89FH0 & 3\\
+\hline
+Q89GW5 & 3\\
+\hline
+Q89U61 & 3\\
+\hline
+Q89ZX7 & 3\\
+\hline
+Q8A2F3 & 3\\
+\hline
+Q8A5P6 & 3\\
+\hline
+Q8A6N1 & 3\\
+\hline
+Q8A861 & 3\\
+\hline
+Q8BCA3 & 3\\
+\hline
+Q8BGG7 & 3\\
+\hline
+Q8BGV8 & 3\\
+\hline
+Q8BND5 & 3\\
+\hline
+Q8BX41 & 3\\
+\hline
+Q8C0L6 & 3\\
+\hline
+Q8CWX6 & 3\\
+\hline
+Q8DNC2 & 3\\
+\hline
+Q8DNX4 & 3\\
+\hline
+Q8DQB5 & 3\\
+\hline
+Q8E0S5 & 3\\
+\hline
+Q8E4J9 & 3\\
+\hline
+Q8E9K5 & 3\\
+\hline
+Q8E9X9 & 3\\
+\hline
+Q8EHE6 & 3\\
+\hline
+Q8EJW4 & 3\\
+\hline
+Q8EZA6 & 3\\
+\hline
+Q8GBB2 & 3\\
+\hline
+Q8GCA8 & 3\\
+\hline
+Q8GEZ8 & 3\\
+\hline
+Q8GF99 & 3\\
+\hline
+Q8GIQ0 & 3\\
+\hline
+Q8GLI5 & 3\\
+\hline
+Q8GMV9 & 3\\
+\hline
+Q8GPH0 & 3\\
+\hline
+Q8GPH7 & 3\\
+\hline
+Q8GWW7 & 3\\
+\hline
+Q8I372 & 3\\
+\hline
+Q8I384 & 3\\
+\hline
+Q8I608 & 3\\
+\hline
+Q8I8T0 & 3\\
+\hline
+Q8II92 & 3\\
+\hline
+Q8IJ72 & 3\\
+\hline
+Q8IM71 & 3\\
+\hline
+Q8IMX7 & 3\\
+\hline
+Q8INK6 & 3\\
+\hline
+Q8IU85 & 3\\
+\hline
+Q8IUX4 & 3\\
+\hline
+Q8IW75 & 3\\
+\hline
+Q8IWT1 & 3\\
+\hline
+Q8J0K8 & 3\\
+\hline
+Q8J136 & 3\\
+\hline
+Q8JNX5 & 3\\
+\hline
+Q8K3F7 & 3\\
+\hline
+Q8K4V6 & 3\\
+\hline
+Q8KC98 & 3\\
+\hline
+Q8KLM3 & 3\\
+\hline
+Q8KNP2 & 3\\
+\hline
+Q8KNP3 & 3\\
+\hline
+Q8KXD2 & 3\\
+\hline
+Q8L435 & 3\\
+\hline
+Q8L794 & 3\\
+\hline
+Q8L7G0 & 3\\
+\hline
+Q8LPE0 & 3\\
+\hline
+Q8LPL7 & 3\\
+\hline
+Q8MTC1 & 3\\
+\hline
+Q8N3J5 & 3\\
+\hline
+Q8N4J0 & 3\\
+\hline
+Q8N5J2 & 3\\
+\hline
+Q8N5K1 & 3\\
+\hline
+Q8N8N7 & 3\\
+\hline
+Q8NEM0 & 3\\
+\hline
+Q8NK89 & 3\\
+\hline
+Q8NMG3 & 3\\
+\hline
+Q8NNJ2 & 3\\
+\hline
+Q8NP73 & 3\\
+\hline
+Q8NQ97 & 3\\
+\hline
+Q8NRE3 & 3\\
+\hline
+Q8NTA6 & 3\\
+\hline
+Q8NU77 & 3\\
+\hline
+Q8P6Z9 & 3\\
+\hline
+Q8P839 & 3\\
+\hline
+Q8PHM1 & 3\\
+\hline
+Q8PHQ1 & 3\\
+\hline
+Q8PSW8 & 3\\
+\hline
+Q8PVT6 & 3\\
+\hline
+Q8PXB3 & 3\\
+\hline
+Q8PYK9 & 3\\
+\hline
+Q8QL55 & 3\\
+\hline
+Q8R9C0 & 3\\
+\hline
+Q8R9P5 & 3\\
+\hline
+Q8RDL3 & 3\\
+\hline
+Q8RE94 & 3\\
+\hline
+Q8RJ47 & 3\\
+\hline
+Q8RN04 & 3\\
+\hline
+Q8RNT4 & 3\\
+\hline
+Q8RR56 & 3\\
+\hline
+Q8SSM8 & 3\\
+\hline
+Q8SXK5 & 3\\
+\hline
+Q8T5C2 & 3\\
+\hline
+Q8T6B1 & 3\\
+\hline
+Q8T9Z7 & 3\\
+\hline
+Q8TDX7 & 3\\
+\hline
+Q8TZR3 & 3\\
+\hline
+Q8U051 & 3\\
+\hline
+Q8U0A9 & 3\\
+\hline
+Q8U1N8 & 3\\
+\hline
+Q8U1S6 & 3\\
+\hline
+Q8U248 & 3\\
+\hline
+Q8U2K6 & 3\\
+\hline
+Q8U3D2 & 3\\
+\hline
+Q8U3L0 & 3\\
+\hline
+Q8U4M3 & 3\\
+\hline
+Q8UWK4 & 3\\
+\hline
+Q8UWK5 & 3\\
+\hline
+Q8VP74 & 3\\
+\hline
+Q8VSD5 & 3\\
+\hline
+Q8WQK3 & 3\\
+\hline
+Q8WUX2 & 3\\
+\hline
+Q8WWA0 & 3\\
+\hline
+Q8X5X6 & 3\\
+\hline
+Q8X6R9 & 3\\
+\hline
+Q8XBV8 & 3\\
+\hline
+Q8XDN4 & 3\\
+\hline
+Q8XNK4 & 3\\
+\hline
+Q8Y4J2 & 3\\
+\hline
+Q8Y5E4 & 3\\
+\hline
+Q8Y653 & 3\\
+\hline
+Q8Y7B7 & 3\\
+\hline
+Q8Y7N7 & 3\\
+\hline
+Q8YQN0 & 3\\
+\hline
+Q8YY76 & 3\\
+\hline
+Q8ZC05 & 3\\
+\hline
+Q8ZKR2 & 3\\
+\hline
+Q8ZKT7 & 3\\
+\hline
+Q8ZL08 & 3\\
+\hline
+Q8ZL58 & 3\\
+\hline
+Q8ZNF3 & 3\\
+\hline
+Q8ZQW9 & 3\\
+\hline
+Q8ZTD8 & 3\\
+\hline
+Q8ZUP0 & 3\\
+\hline
+Q90282 & 3\\
+\hline
+Q90544 & 3\\
+\hline
+Q90685 & 3\\
+\hline
+Q90922 & 3\\
+\hline
+Q90W54 & 3\\
+\hline
+Q913Z3 & 3\\
+\hline
+Q91H09 & 3\\
+\hline
+Q91KZ5 & 3\\
+\hline
+Q91VE3 & 3\\
+\hline
+Q91VS8 & 3\\
+\hline
+Q91WR5 & 3\\
+\hline
+Q91XX3 & 3\\
+\hline
+Q921J2 & 3\\
+\hline
+Q923J1 & 3\\
+\hline
+Q92633 & 3\\
+\hline
+Q92794 & 3\\
+\hline
+Q92797 & 3\\
+\hline
+Q92831 & 3\\
+\hline
+Q92882 & 3\\
+\hline
+Q928V6 & 3\\
+\hline
+Q92905 & 3\\
+\hline
+Q92932 & 3\\
+\hline
+Q92AS8 & 3\\
+\hline
+Q92FY8 & 3\\
+\hline
+Q92NR7 & 3\\
+\hline
+Q92PC8 & 3\\
+\hline
+Q93088 & 3\\
+\hline
+Q93091 & 3\\
+\hline
+Q939N5 & 3\\
+\hline
+Q93DA8 & 3\\
+\hline
+Q93IC2 & 3\\
+\hline
+Q93IG4 & 3\\
+\hline
+Q93K97 & 3\\
+\hline
+Q93MI3 & 3\\
+\hline
+Q93QX0 & 3\\
+\hline
+Q93R93 & 3\\
+\hline
+Q93UV9 & 3\\
+\hline
+Q93VA3 & 3\\
+\hline
+Q93ZG9 & 3\\
+\hline
+Q941M3 & 3\\
+\hline
+Q94FV7 & 3\\
+\hline
+Q94KL8 & 3\\
+\hline
+Q95211 & 3\\
+\hline
+Q95NM6 & 3\\
+\hline
+Q95NY5 & 3\\
+\hline
+Q95VR4 & 3\\
+\hline
+Q95VY4 & 3\\
+\hline
+Q96255 & 3\\
+\hline
+Q96AP0 & 3\\
+\hline
+Q96BM9 & 3\\
+\hline
+Q96FI4 & 3\\
+\hline
+Q96JM7 & 3\\
+\hline
+Q96L73 & 3\\
+\hline
+Q96PU4 & 3\\
+\hline
+Q96PU5 & 3\\
+\hline
+Q96QZ7 & 3\\
+\hline
+Q96R05 & 3\\
+\hline
+Q96RI1 & 3\\
+\hline
+Q96RU2 & 3\\
+\hline
+Q96SB4 & 3\\
+\hline
+Q96YD0 & 3\\
+\hline
+Q96YK1 & 3\\
+\hline
+Q977P5 & 3\\
+\hline
+Q979W2 & 3\\
+\hline
+Q97LU2 & 3\\
+\hline
+Q97N97 & 3\\
+\hline
+Q97NA8 & 3\\
+\hline
+Q97PV8 & 3\\
+\hline
+Q97SP8 & 3\\
+\hline
+Q97VM5 & 3\\
+\hline
+Q97W22 & 3\\
+\hline
+Q97W27 & 3\\
+\hline
+Q97ZE2 & 3\\
+\hline
+Q98157 & 3\\
+\hline
+Q98325 & 3\\
+\hline
+Q988B7 & 3\\
+\hline
+Q98D42 & 3\\
+\hline
+Q98VG9 & 3\\
+\hline
+Q99962 & 3\\
+\hline
+Q99P58 & 3\\
+\hline
+Q99UU9 & 3\\
+\hline
+Q99WZ4 & 3\\
+\hline
+Q99YS8 & 3\\
+\hline
+Q99ZN4 & 3\\
+\hline
+Q99ZW2 & 3\\
+\hline
+Q9A1B7 & 3\\
+\hline
+Q9A1S2 & 3\\
+\hline
+Q9A310 & 3\\
+\hline
+Q9A385 & 3\\
+\hline
+Q9A5E6 & 3\\
+\hline
+Q9A5I5 & 3\\
+\hline
+Q9A9Z1 & 3\\
+\hline
+Q9AE70 & 3\\
+\hline
+Q9AFI5 & 3\\
+\hline
+Q9AGJ5 & 3\\
+\hline
+Q9AIP9 & 3\\
+\hline
+Q9AIU7 & 3\\
+\hline
+Q9ALM8 & 3\\
+\hline
+Q9AMH9 & 3\\
+\hline
+Q9BHM6 & 3\\
+\hline
+Q9BHT8 & 3\\
+\hline
+Q9BPU6 & 3\\
+\hline
+Q9BQ65 & 3\\
+\hline
+Q9BRR9 & 3\\
+\hline
+Q9BS26 & 3\\
+\hline
+Q9BSQ5 & 3\\
+\hline
+Q9BT30 & 3\\
+\hline
+Q9BUH6 & 3\\
+\hline
+Q9BUL8 & 3\\
+\hline
+Q9BUZ4 & 3\\
+\hline
+Q9BVM4 & 3\\
+\hline
+Q9BXW6 & 3\\
+\hline
+Q9BY11 & 3\\
+\hline
+Q9BYN0 & 3\\
+\hline
+Q9BYW2 & 3\\
+\hline
+Q9BZ95 & 3\\
+\hline
+Q9C000 & 3\\
+\hline
+Q9C040 & 3\\
+\hline
+Q9CCZ4 & 3\\
+\hline
+Q9D777 & 3\\
+\hline
+Q9DTZ2 & 3\\
+\hline
+Q9EQK5 & 3\\
+\hline
+Q9EVJ6 & 3\\
+\hline
+Q9F118 & 3\\
+\hline
+Q9F7G8 & 3\\
+\hline
+Q9F9T2 & 3\\
+\hline
+Q9FDD4 & 3\\
+\hline
+Q9FDN7 & 3\\
+\hline
+Q9FHD7 & 3\\
+\hline
+Q9FI78 & 3\\
+\hline
+Q9FRV0 & 3\\
+\hline
+Q9FWR4 & 3\\
+\hline
+Q9FYS3 & 3\\
+\hline
+Q9GSV7 & 3\\
+\hline
+Q9GYI0 & 3\\
+\hline
+Q9H2X3 & 3\\
+\hline
+Q9H3M7 & 3\\
+\hline
+Q9H3S7 & 3\\
+\hline
+Q9H4Y5 & 3\\
+\hline
+Q9H7X0 & 3\\
+\hline
+Q9H8V3 & 3\\
+\hline
+Q9HAN9 & 3\\
+\hline
+Q9HCH5 & 3\\
+\hline
+Q9HFE4 & 3\\
+\hline
+Q9HGR1 & 3\\
+\hline
+Q9HIN1 & 3\\
+\hline
+Q9HK01 & 3\\
+\hline
+Q9HKL4 & 3\\
+\hline
+Q9HL57 & 3\\
+\hline
+Q9HSF4 & 3\\
+\hline
+Q9HTY8 & 3\\
+\hline
+Q9HUL9 & 3\\
+\hline
+Q9HUT5 & 3\\
+\hline
+Q9HVI8 & 3\\
+\hline
+Q9HW09 & 3\\
+\hline
+Q9HWU9 & 3\\
+\hline
+Q9HX21 & 3\\
+\hline
+Q9HXS8 & 3\\
+\hline
+Q9HXY1 & 3\\
+\hline
+Q9HYR3 & 3\\
+\hline
+Q9I000 & 3\\
+\hline
+Q9I0D9 & 3\\
+\hline
+Q9I0N5 & 3\\
+\hline
+Q9I0Y7 & 3\\
+\hline
+Q9I174 & 3\\
+\hline
+Q9I188 & 3\\
+\hline
+Q9I1N2 & 3\\
+\hline
+Q9I4V0 & 3\\
+\hline
+Q9I4W3 & 3\\
+\hline
+Q9I4X0 & 3\\
+\hline
+Q9I580 & 3\\
+\hline
+Q9I5W4 & 3\\
+\hline
+Q9I676 & 3\\
+\hline
+Q9I6J4 & 3\\
+\hline
+Q9I8L5 & 3\\
+\hline
+Q9JJX7 & 3\\
+\hline
+Q9JK66 & 3\\
+\hline
+Q9JLT4 & 3\\
+\hline
+Q9JLU4 & 3\\
+\hline
+Q9JXP1 & 3\\
+\hline
+Q9JZN9 & 3\\
+\hline
+Q9K0L9 & 3\\
+\hline
+Q9K189 & 3\\
+\hline
+Q9KF82 & 3\\
+\hline
+Q9KFX8 & 3\\
+\hline
+Q9KH06 & 3\\
+\hline
+Q9KIZ4 & 3\\
+\hline
+Q9KJU4 & 3\\
+\hline
+Q9KKU4 & 3\\
+\hline
+Q9KQ21 & 3\\
+\hline
+Q9KQD5 & 3\\
+\hline
+Q9KS12 & 3\\
+\hline
+Q9KTH2 & 3\\
+\hline
+Q9KTK0 & 3\\
+\hline
+Q9KTK3 & 3\\
+\hline
+Q9KWT5 & 3\\
+\hline
+Q9L069 & 3\\
+\hline
+Q9L4P8 & 3\\
+\hline
+Q9L6V3 & 3\\
+\hline
+Q9LBR1 & 3\\
+\hline
+Q9LT15 & 3\\
+\hline
+Q9M426 & 3\\
+\hline
+Q9M5J1 & 3\\
+\hline
+Q9M5P4 & 3\\
+\hline
+Q9M8R4 & 3\\
+\hline
+Q9NPH0 & 3\\
+\hline
+Q9NPJ3 & 3\\
+\hline
+Q9NQU5 & 3\\
+\hline
+Q9NR30 & 3\\
+\hline
+Q9NRW1 & 3\\
+\hline
+Q9NTG7 & 3\\
+\hline
+Q9NV35 & 3\\
+\hline
+Q9NVS9 & 3\\
+\hline
+Q9NXV2 & 3\\
+\hline
+Q9NY97 & 3\\
+\hline
+Q9NZC2 & 3\\
+\hline
+Q9P000 & 3\\
+\hline
+Q9P2E7 & 3\\
+\hline
+Q9P4V2 & 3\\
+\hline
+Q9P8T1 & 3\\
+\hline
+Q9P903 & 3\\
+\hline
+Q9PCF4 & 3\\
+\hline
+Q9PM24 & 3\\
+\hline
+Q9Q2P6 & 3\\
+\hline
+Q9Q2W5 & 3\\
+\hline
+Q9Q6Q5 & 3\\
+\hline
+Q9QLL6 & 3\\
+\hline
+Q9QVY3 & 3\\
+\hline
+Q9QYY9 & 3\\
+\hline
+Q9R002 & 3\\
+\hline
+Q9R237 & 3\\
+\hline
+Q9R381 & 3\\
+\hline
+Q9R5V5 & 3\\
+\hline
+Q9R9J1 & 3\\
+\hline
+Q9RDT3 & 3\\
+\hline
+Q9RFN3 & 3\\
+\hline
+Q9RFR0 & 3\\
+\hline
+Q9RHV9 & 3\\
+\hline
+Q9RHZ6 & 3\\
+\hline
+Q9RIM2 & 3\\
+\hline
+Q9RN61 & 3\\
+\hline
+Q9RN67 & 3\\
+\hline
+Q9RN68 & 3\\
+\hline
+Q9RPL0 & 3\\
+\hline
+Q9RQB6 & 3\\
+\hline
+Q9RQJ2 & 3\\
+\hline
+Q9RTE3 & 3\\
+\hline
+Q9RTP8 & 3\\
+\hline
+Q9RTX5 & 3\\
+\hline
+Q9RTX8 & 3\\
+\hline
+Q9RUU2 & 3\\
+\hline
+Q9RUV2 & 3\\
+\hline
+Q9RUY4 & 3\\
+\hline
+Q9RX25 & 3\\
+\hline
+Q9RX51 & 3\\
+\hline
+Q9RZ04 & 3\\
+\hline
+Q9RZN1 & 3\\
+\hline
+Q9S1A6 & 3\\
+\hline
+Q9S3L6 & 3\\
+\hline
+Q9S400 & 3\\
+\hline
+Q9S427 & 3\\
+\hline
+Q9S497 & 3\\
+\hline
+Q9SD76 & 3\\
+\hline
+Q9SIE1 & 3\\
+\hline
+Q9SKB2 & 3\\
+\hline
+Q9SLN8 & 3\\
+\hline
+Q9SP37 & 3\\
+\hline
+Q9SPP9 & 3\\
+\hline
+Q9SQF7 & 3\\
+\hline
+Q9SR19 & 3\\
+\hline
+Q9SSV1 & 3\\
+\hline
+Q9STG6 & 3\\
+\hline
+Q9SWE5 & 3\\
+\hline
+Q9SWH5 & 3\\
+\hline
+Q9SWS1 & 3\\
+\hline
+Q9TTF5 & 3\\
+\hline
+Q9TVF0 & 3\\
+\hline
+Q9U1E1 & 3\\
+\hline
+Q9U556 & 3\\
+\hline
+Q9U6Y4 & 3\\
+\hline
+Q9U6Y5 & 3\\
+\hline
+Q9U6Y6 & 3\\
+\hline
+Q9U8X2 & 3\\
+\hline
+Q9UBC3 & 3\\
+\hline
+Q9UBH0 & 3\\
+\hline
+Q9UBL3 & 3\\
+\hline
+Q9UBU8 & 3\\
+\hline
+Q9UH03 & 3\\
+\hline
+Q9UH99 & 3\\
+\hline
+Q9UHL4 & 3\\
+\hline
+Q9UHQ4 & 3\\
+\hline
+Q9UHX3 & 3\\
+\hline
+Q9UK05 & 3\\
+\hline
+Q9UK32 & 3\\
+\hline
+Q9UKE5 & 3\\
+\hline
+Q9UKF6 & 3\\
+\hline
+Q9UKL6 & 3\\
+\hline
+Q9ULU4 & 3\\
+\hline
+Q9UMF0 & 3\\
+\hline
+Q9UR30 & 3\\
+\hline
+Q9USJ7 & 3\\
+\hline
+Q9UUN9 & 3\\
+\hline
+Q9UXT7 & 3\\
+\hline
+Q9UZ55 & 3\\
+\hline
+Q9V099 & 3\\
+\hline
+Q9VRD9 & 3\\
+\hline
+Q9VRQ9 & 3\\
+\hline
+Q9VWX8 & 3\\
+\hline
+Q9W1M7 & 3\\
+\hline
+Q9WUD2 & 3\\
+\hline
+Q9WY63 & 3\\
+\hline
+Q9WYB7 & 3\\
+\hline
+Q9WYJ7 & 3\\
+\hline
+Q9WYP6 & 3\\
+\hline
+Q9WYT9 & 3\\
+\hline
+Q9WZC3 & 3\\
+\hline
+Q9WZM6 & 3\\
+\hline
+Q9WZQ7 & 3\\
+\hline
+Q9WZU0 & 3\\
+\hline
+Q9X0C3 & 3\\
+\hline
+Q9X0C7 & 3\\
+\hline
+Q9X1G6 & 3\\
+\hline
+Q9X1H2 & 3\\
+\hline
+Q9X1H4 & 3\\
+\hline
+Q9X1K9 & 3\\
+\hline
+Q9X5C9 & 3\\
+\hline
+Q9X688 & 3\\
+\hline
+Q9XB59 & 3\\
+\hline
+Q9XD56 & 3\\
+\hline
+Q9XWG3 & 3\\
+\hline
+Q9XYQ1 & 3\\
+\hline
+Q9Y237 & 3\\
+\hline
+Q9Y239 & 3\\
+\hline
+Q9Y259 & 3\\
+\hline
+Q9Y275 & 3\\
+\hline
+Q9Y2K7 & 3\\
+\hline
+Q9Y2Q3 & 3\\
+\hline
+Q9Y3E7 & 3\\
+\hline
+Q9Y4B6 & 3\\
+\hline
+Q9Y4G2 & 3\\
+\hline
+Q9Y4I1 & 3\\
+\hline
+Q9Y530 & 3\\
+\hline
+Q9Y5G1 & 3\\
+\hline
+Q9Y5X3 & 3\\
+\hline
+Q9Y5Y4 & 3\\
+\hline
+Q9Y5Z4 & 3\\
+\hline
+Q9Y6N5 & 3\\
+\hline
+Q9Y6X9 & 3\\
+\hline
+Q9Y6Y0 & 3\\
+\hline
+Q9Y7D0 & 3\\
+\hline
+Q9Y8H8 & 3\\
+\hline
+Q9Y9I9 & 3\\
+\hline
+Q9YEQ6 & 3\\
+\hline
+Q9YNA4 & 3\\
+\hline
+Q9Z214 & 3\\
+\hline
+Q9Z4N6 & 3\\
+\hline
+Q9Z4W2 & 3\\
+\hline
+Q9Z4Z5 & 3\\
+\hline
+Q9ZF99 & 3\\
+\hline
+Q9ZFS6 & 3\\
+\hline
+Q9ZGC1 & 3\\
+\hline
+Q9ZII9 & 3\\
+\hline
+Q9ZKJ5 & 3\\
+\hline
+Q9ZTU2 & 3\\
+\hline
+Q9ZUB3 & 3\\
+\hline
+Q9ZVL6 & 3\\
+\hline
+R4SNK4 & 3\\
+\hline
+R9U684 & 3\\
+\hline
+S6C1Z0 & 3\\
+\hline
+T0BMH6 & 3\\
+\hline
+T1KF23 & 3\\
+\hline
+T2CJ20 & 3\\
+\hline
+T2D1F5 & 3\\
+\hline
+T2E9U5 & 3\\
+\hline
+U0SVH6 & 3\\
+\hline
+U4MDP1 & 3\\
+\hline
+U6BSB2 & 3\\
+\hline
+V5MX36 & 3\\
+\hline
+V5RDR9 & 3\\
+\hline
+V5VGC6 & 3\\
+\hline
+V5VGF8 & 3\\
+\hline
+V5Y949 & 3\\
+\hline
+V6F4Q0 & 3\\
+\hline
+W5R8B8 & 3\\
+\hline
+W6A941 & 3\\
+\hline
+W6G6F5 & 3\\
+\hline
+W6JQJ6 & 3\\
+\hline
+W8FRA6 & 3\\
+\hline
+W8TAR7 & 3\\
+\hline
+W8V4R8 & 3\\
+\hline
+X2D812 & 3\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Guarda esta tabla.}
+\FunctionTok{write\_excel\_csv}\NormalTok{(tab\_ide, }\StringTok{"/run/media/murphy/lolita/doctorado/xray/info/tab\_ide.csv"}\NormalTok{)}
+\CommentTok{\# Ordena los datos}
+\NormalTok{df8}\OtherTok{\textless{}{-}}\FunctionTok{arrange}\NormalTok{(df7, ide)}
+\CommentTok{\# Guarda estos datos.}
+\FunctionTok{write\_excel\_csv}\NormalTok{(df8, }\StringTok{"/run/media/murphy/lolita/doctorado/xray/info/df8.csv"}\NormalTok{)}
+\NormalTok{ph\_sd }\OtherTok{\textless{}{-}}\NormalTok{df8 }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(ide) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{sd =} \FunctionTok{sd}\NormalTok{(peh), }\AttributeTok{n =} \FunctionTok{n}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{footnotes-and-citations}{%
+\chapter{Footnotes and citations}\label{footnotes-and-citations}}
+
+\hypertarget{footnotes}{%
+\section{Footnotes}\label{footnotes}}
+
+Footnotes are put inside the square brackets after a caret \texttt{\^{}{[}{]}}. Like this one \footnote{This is a footnote.}.
+
+\hypertarget{citations}{%
+\section{Citations}\label{citations}}
+
+Reference items in your bibliography file(s) using \texttt{@key}.
+
+For example, we are using the \textbf{bookdown} package \citep{R-bookdown} (check out the last code chunk in index.Rmd to see how this citation key was added) in this sample book, which was built on top of R Markdown and \textbf{knitr} \citep{xie2015} (this citation was added manually in an external file book.bib).
+Note that the \texttt{.bib} files need to be listed in the index.Rmd with the YAML \texttt{bibliography} key.
+
+The RStudio Visual Markdown Editor can also make it easier to insert citations: \url{https://rstudio.github.io/visual-markdown-editing/\#/citations}
+
+\hypertarget{blocks}{%
+\chapter{Blocks}\label{blocks}}
+
+\hypertarget{equations}{%
+\section{Equations}\label{equations}}
+
+Here is an equation.
+
+\begin{equation} 
+  f\left(k\right) = \binom{n}{k} p^k\left(1-p\right)^{n-k}
+  \label{eq:binom}
+\end{equation}
+
+You may refer to using \texttt{\textbackslash{}@ref(eq:binom)}, like see Equation \eqref{eq:binom}.
+
+\hypertarget{theorems-and-proofs}{%
+\section{Theorems and proofs}\label{theorems-and-proofs}}
+
+Labeled theorems can be referenced in text using \texttt{\textbackslash{}@ref(thm:tri)}, for example, check out this smart theorem \ref{thm:tri}.
+
+\begin{theorem}
+\protect\hypertarget{thm:tri}{}\label{thm:tri}For a right triangle, if \(c\) denotes the \emph{length} of the hypotenuse
+and \(a\) and \(b\) denote the lengths of the \textbf{other} two sides, we have
+\[a^2 + b^2 = c^2\]
+\end{theorem}
+
+Read more here \url{https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html}.
+
+\hypertarget{callout-blocks}{%
+\section{Callout blocks}\label{callout-blocks}}
+
+The R Markdown Cookbook provides more help on how to use custom blocks to design your own callouts: \url{https://bookdown.org/yihui/rmarkdown-cookbook/custom-blocks.html}
+
+\hypertarget{sharing-your-book}{%
+\chapter{Sharing your book}\label{sharing-your-book}}
+
+\hypertarget{publishing}{%
+\section{Publishing}\label{publishing}}
+
+HTML books can be published online, see: \url{https://bookdown.org/yihui/bookdown/publishing.html}
+
+\hypertarget{pages}{%
+\section{404 pages}\label{pages}}
+
+By default, users will be directed to a 404 page if they try to access a webpage that cannot be found. If you'd like to customize your 404 page instead of using the default, you may add either a \texttt{\_404.Rmd} or \texttt{\_404.md} file to your project root and use code and/or Markdown syntax.
+
+\hypertarget{metadata-for-sharing}{%
+\section{Metadata for sharing}\label{metadata-for-sharing}}
+
+Bookdown HTML books will provide HTML metadata for social sharing on platforms like Twitter, Facebook, and LinkedIn, using information you provide in the \texttt{index.Rmd} YAML. To setup, set the \texttt{url} for your book and the path to your \texttt{cover-image} file. Your book's \texttt{title} and \texttt{description} are also used.
+
+This \texttt{gitbook} uses the same social sharing data across all chapters in your book- all links shared will look the same.
+
+Specify your book's source repository on GitHub using the \texttt{edit} key under the configuration options in the \texttt{\_output.yml} file, which allows users to suggest an edit by linking to a chapter's source file.
+
+Read more about the features of this output format here:
+
+\url{https://pkgs.rstudio.com/bookdown/reference/gitbook.html}
+
+Or use:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{?bookdown}\SpecialCharTok{::}\NormalTok{gitbook}
+\end{Highlighting}
+\end{Shaded}
+
+
+  \bibliography{book.bib,packages.bib}
+
+\end{document}

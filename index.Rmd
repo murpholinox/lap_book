@@ -1,60 +1,90 @@
 --- 
-title: "A Minimal Book Example"
-author: "John Doe"
+title: "Proteínas capaces de cristalizar en un intervalo de pH amplio"
+author: "Francisco Murphy Pérez"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
 # url: your book url like https://bookdown.org/yihui/bookdown
 # cover-image: path to the social sharing image like images/cover.jpg
-description: |
-  This is a minimal example of using the bookdown package to write a book.
-  The HTML output format for this example is bookdown::gitbook,
-  set in the _output.yml file.
+description: "Lista actualizada de proteínas capaces de cristalizar en un intervalo de pH amplio." 
 link-citations: yes
 github-repo: rstudio/bookdown-demo
 ---
 
-# About
-
-This is a _sample_ book written in **Markdown**. You can use anything that Pandoc's Markdown supports; for example, a math equation $a^2 + b^2 = c^2$.
-
-## Usage 
-
-Each **bookdown** chapter is an .Rmd file, and each .Rmd file can contain one (and only one) chapter. A chapter *must* start with a first-level heading: `# A good chapter`, and can contain one (and only one) first-level heading.
-
-Use second-level and higher headings within chapters like: `## A short section` or `### An even shorter section`.
-
-The `index.Rmd` file is required, and is also your first book chapter. It will be the homepage when you render the book.
-
-## Render book
-
-You can render the HTML version of this example book without changing anything:
-
-1. Find the **Build** pane in the RStudio IDE, and
-
-1. Click on **Build Book**, then select your output format, or select "All formats" if you'd like to use multiple formats from the same book source files.
-
-Or build the book from the R console:
-
-```{r, eval=FALSE}
-bookdown::render_book()
+```{r}
+# knitr::opts_chunk$set(eval = FALSE)
+# switch global para evaluar funciones o no.
 ```
 
-To render this example to PDF as a `bookdown::pdf_book`, you'll need to install XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <https://yihui.org/tinytex/>.
+# Dependencias
+La reproducción correcta de esta bitácora depende de varios programas instalados en un sistema operativo linux. 
 
-## Preview book
+## Sistema operativo
+El sistema operativo usado es Fedora 36 (<https://getfedora.org/>) en su versión *workstation*. 
 
-As you work, you may start a local server to live preview this HTML book. This preview will update as you edit the book when you save individual .Rmd files. You can start the server in a work session by using the RStudio add-in "Preview book", or from the R console:
-
-```{r eval=FALSE}
-bookdown::serve_book()
+```{bash}
+uname -r # Imprime la versión del núcleo de linux.
 ```
 
+## Minería de datos
+La extracción de datos se realiza con `gemmi` (<https://github.com/project-gemmi/gemmi>), que ya viene dentro de la colección de programas de `ccp4` (<https://www.ccp4.ac.uk/>).
 
-```{r include=FALSE}
-# automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
+Para la limpieza y transformación de datos se usa:
+
+- `awk` (<https://www.gnu.org/software/gawk/>)
+- `bash` (<https://www.gnu.org/software/bash/>)
+- `grep` (<https://www.gnu.org/software/grep/>)
+- `R` (<https://www.r-project.org/>)
+- `sed` (<https://www.gnu.org/software/gawk/>)
+- `tidyverse` (<https://www.tidyverse.org/>)
+
+La instalación de `R` conviene hacerla como la describo en el siguiente enlace <https://murpholinox.github.io/2021/05/01/installRsansTexLivedeps.html>. La instalación del `tidyverse` depende a su vez de la instalación de las siguientes librerías en el sistema operativo: 
+
+```{bash, eval=FALSE}
+sudo dnf install openssl-devel libcurl-devel
 ```
+
+> Advertencia: Si se tiene instalado chimerax-daily se tendrá un conflicto con `openssl-devel`. En ese caso se tiene que instalar `openssl1.1-devel` y tanto chimerax-daily como rstudio corren sin problemas.
+
+Los programas restantes (`awk`, `bash`, `grep` y `sed`) vienen instalados por defecto en el sistema operativo usado.
+
+## Configuración de R
+Además de la instalación correcta de los programas anteriores, se tienen que cargar las siguientes librerías de `R`.
+
+```{r, warning=FALSE, message=FALSE}
+library(dplyr)
+library(ggplot2)
+library(readr)
+library(knitr)
+library(kableExtra)
+library(stringdist)
+library(svglite)
+library(bookdown)
+library(rmarkdown)
+library(renv)
+```
+
+### Manejo de dependencias de R
+El manejo de dependencias, de manera interna, se da automáticamente gracias a `renv`.
+
+```{r message=FALSE, warning=FALSE}
+renv::consent() # Da permiso a renv.4
+renv::init() # Inicia renv.
+```
+
+```{bash, eval=FALSE}
+# Para ver las dependencias.
+cat renv.lock
+```
+
+## Sesión de R
+Imprime información de la sesión activa de `R`.
+
+```{r}
+sessionInfo()
+```
+
+## Contacto
+Me puedes contactar por correo electrónico en [gmail](mailto:murpholinox@gmail.com) o [ibt](mailto:francisco.murphy@ibt.unam.mx).
+

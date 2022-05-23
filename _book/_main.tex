@@ -4,8 +4,8 @@
 %
 \documentclass[
 ]{book}
-\title{A Minimal Book Example}
-\author{John Doe}
+\title{Proteínas capaces de cristalizar en un intervalo de pH amplio}
+\author{Francisco Murphy Pérez}
 \date{2022-05-23}
 
 \usepackage{amsmath,amssymb}
@@ -40,8 +40,8 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
-  pdftitle={A Minimal Book Example},
-  pdfauthor={John Doe},
+  pdftitle={Proteínas capaces de cristalizar en un intervalo de pH amplio},
+  pdfauthor={Francisco Murphy Pérez},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
@@ -113,6 +113,20 @@
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
 \usepackage{booktabs}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
@@ -143,53 +157,171 @@
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
-\hypertarget{about}{%
-\chapter{About}\label{about}}
-
-This is a \emph{sample} book written in \textbf{Markdown}. You can use anything that Pandoc's Markdown supports; for example, a math equation \(a^2 + b^2 = c^2\).
-
-\hypertarget{usage}{%
-\section{Usage}\label{usage}}
-
-Each \textbf{bookdown} chapter is an .Rmd file, and each .Rmd file can contain one (and only one) chapter. A chapter \emph{must} start with a first-level heading: \texttt{\#\ A\ good\ chapter}, and can contain one (and only one) first-level heading.
-
-Use second-level and higher headings within chapters like: \texttt{\#\#\ A\ short\ section} or \texttt{\#\#\#\ An\ even\ shorter\ section}.
-
-The \texttt{index.Rmd} file is required, and is also your first book chapter. It will be the homepage when you render the book.
-
-\hypertarget{render-book}{%
-\section{Render book}\label{render-book}}
-
-You can render the HTML version of this example book without changing anything:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  Find the \textbf{Build} pane in the RStudio IDE, and
-\item
-  Click on \textbf{Build Book}, then select your output format, or select ``All formats'' if you'd like to use multiple formats from the same book source files.
-\end{enumerate}
-
-Or build the book from the R console:
-
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{bookdown}\SpecialCharTok{::}\FunctionTok{render\_book}\NormalTok{()}
+\CommentTok{\# knitr::opts\_chunk$set(eval = FALSE)}
+\CommentTok{\# switch global para evaluar funciones o no.}
 \end{Highlighting}
 \end{Shaded}
 
-To render this example to PDF as a \texttt{bookdown::pdf\_book}, you'll need to install XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): \url{https://yihui.org/tinytex/}.
+\hypertarget{dependencias}{%
+\chapter{Dependencias}\label{dependencias}}
 
-\hypertarget{preview-book}{%
-\section{Preview book}\label{preview-book}}
+La reproducción correcta de esta bitácora depende de varios programas instalados en un sistema operativo linux.
 
-As you work, you may start a local server to live preview this HTML book. This preview will update as you edit the book when you save individual .Rmd files. You can start the server in a work session by using the RStudio add-in ``Preview book'', or from the R console:
+\hypertarget{sistema-operativo}{%
+\section{Sistema operativo}\label{sistema-operativo}}
+
+El sistema operativo usado es Fedora 36 (\url{https://getfedora.org/}) en su versión \emph{workstation}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{bookdown}\SpecialCharTok{::}\FunctionTok{serve\_book}\NormalTok{()}
+\FunctionTok{uname} \AttributeTok{{-}r} \CommentTok{\# Imprime la versión del núcleo de linux.}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{verbatim}
+## 5.17.8-300.fc36.x86_64
+\end{verbatim}
+
+\hypertarget{mineruxeda-de-datos}{%
+\section{Minería de datos}\label{mineruxeda-de-datos}}
+
+La extracción de datos se realiza con \texttt{gemmi} (\url{https://github.com/project-gemmi/gemmi}), que ya viene dentro de la colección de programas de \texttt{ccp4} (\url{https://www.ccp4.ac.uk/}).
+
+Para la limpieza y transformación de datos se usa:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{awk} (\url{https://www.gnu.org/software/gawk/})
+\item
+  \texttt{bash} (\url{https://www.gnu.org/software/bash/})
+\item
+  \texttt{grep} (\url{https://www.gnu.org/software/grep/})
+\item
+  \texttt{R} (\url{https://www.r-project.org/})
+\item
+  \texttt{sed} (\url{https://www.gnu.org/software/gawk/})
+\item
+  \texttt{tidyverse} (\url{https://www.tidyverse.org/})
+\end{itemize}
+
+La instalación de \texttt{R} conviene hacerla como la describo en el siguiente enlace \url{https://murpholinox.github.io/2021/05/01/installRsansTexLivedeps.html}. La instalación del \texttt{tidyverse} depende a su vez de la instalación de las siguientes librerías en el sistema operativo:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sudo}\NormalTok{ dnf install openssl{-}devel libcurl{-}devel}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+Advertencia: Si se tiene instalado chimerax-daily se tendrá un conflicto con \texttt{openssl-devel}. En ese caso se tiene que instalar \texttt{openssl1.1-devel} y tanto chimerax-daily como rstudio corren sin problemas.
+\end{quote}
+
+Los programas restantes (\texttt{awk}, \texttt{bash}, \texttt{grep} y \texttt{sed}) vienen instalados por defecto en el sistema operativo usado.
+
+\hypertarget{configuraciuxf3n}{%
+\section{Configuración}\label{configuraciuxf3n}}
+
+Además de la instalación correcta de los programas anteriores, se tienen que cargar las siguientes librerías de \texttt{R}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(dplyr)}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{library}\NormalTok{(readr)}
+\FunctionTok{library}\NormalTok{(knitr)}
+\FunctionTok{library}\NormalTok{(kableExtra)}
+\FunctionTok{library}\NormalTok{(stringdist)}
+\FunctionTok{library}\NormalTok{(svglite)}
+\FunctionTok{library}\NormalTok{(bookdown)}
+\FunctionTok{library}\NormalTok{(rmarkdown)}
+\FunctionTok{library}\NormalTok{(renv)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{manejo-de-dependencias}{%
+\subsection{Manejo de dependencias}\label{manejo-de-dependencias}}
+
+El manejo de dependencias, de manera interna, se da automáticamente gracias a \texttt{renv}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{renv}\SpecialCharTok{::}\FunctionTok{consent}\NormalTok{() }\CommentTok{\# Da permiso a renv.4}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## * Consent to use renv has already been provided -- nothing to do.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{renv}\SpecialCharTok{::}\FunctionTok{init}\NormalTok{() }\CommentTok{\# Inicia renv.}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Para ver las dependencias.}
+\FunctionTok{cat}\NormalTok{ renv.lock}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{sesiuxf3n}{%
+\section{Sesión}\label{sesiuxf3n}}
+
+Imprime información de la sesión activa de \texttt{R}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sessionInfo}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## R version 4.1.3 (2022-03-10)
+## Platform: x86_64-redhat-linux-gnu (64-bit)
+## Running under: Fedora Linux 36 (Workstation Edition)
+## 
+## Matrix products: default
+## BLAS/LAPACK: /usr/lib64/libflexiblas.so.3.1
+## 
+## locale:
+##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+##  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices datasets  utils     methods   base     
+## 
+## other attached packages:
+##  [1] renv_0.15.4      rmarkdown_2.14   bookdown_0.26    svglite_2.1.0   
+##  [5] stringdist_0.9.8 kableExtra_1.3.4 knitr_1.39       readr_2.1.2     
+##  [9] ggplot2_3.3.6    dplyr_1.0.9     
+## 
+## loaded via a namespace (and not attached):
+##  [1] pillar_1.7.0      compiler_4.1.3    tools_4.1.3       digest_0.6.29    
+##  [5] viridisLite_0.4.0 evaluate_0.15     lifecycle_1.0.1   tibble_3.1.7     
+##  [9] gtable_0.3.0      pkgconfig_2.0.3   rlang_1.0.2       cli_3.3.0        
+## [13] rstudioapi_0.13   parallel_4.1.3    yaml_2.3.5        xfun_0.30        
+## [17] fastmap_1.1.0     xml2_1.3.3        httr_1.4.3        withr_2.5.0      
+## [21] stringr_1.4.0     systemfonts_1.0.4 hms_1.1.1         generics_0.1.2   
+## [25] vctrs_0.4.1       webshot_0.5.3     grid_4.1.3        tidyselect_1.1.2 
+## [29] glue_1.6.2        R6_2.5.1          fansi_1.0.3       tzdb_0.3.0       
+## [33] purrr_0.3.4       magrittr_2.0.3    scales_1.2.0      ellipsis_0.3.2   
+## [37] htmltools_0.5.2   rvest_1.0.2       colorspace_2.0-3  utf8_1.2.2       
+## [41] stringi_1.7.6     munsell_0.5.0     crayon_1.5.1
+\end{verbatim}
+
+\hypertarget{contacto}{%
+\section{Contacto}\label{contacto}}
+
+Me puedes contactar por correo electrónico en \href{mailto:murpholinox@gmail.com}{gmail} o \href{mailto:francisco.murphy@ibt.unam.mx}{ibt}.
 
 \hypertarget{hello-bookdown}{%
 \chapter{Hello bookdown}\label{hello-bookdown}}

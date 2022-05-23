@@ -1,0 +1,141 @@
+# Extracción de datos
+
+## Formato
+El PDB ofrece descargar sus archivos en tres formatos diferentes: `.xml`, `.pdb` y `.mmcif`. El segundo es el más fácil de leer y manipular; sin embargo, se decidió usar el tercer formato debido al siguiente párrafo:
+
+> Many of the errors have been fixed in the equivalent mmCIF files. Hence, if you are interested in the header information, it is a good idea to extract information from mmCIF files...
+>
+> De <https://biopython.readthedocs.io/en/latest/chapter_pdb.html>.
+
+El formato `.mmcif` se detalla en <http://mmcif.wwpdb.org/>. Existe una correspondencia entre las etiquetas del `.pdb` con las etiquetas del `.mmcif`.
+
+## Descarga
+Para descargar todo las estructuras del PDB en formato `.mmcif`, se usa el siguiente comando:
+
+```{bash, eval=FALSE}
+cd /run/media/murphy/lolita/doctorado
+rsync -avPz --delete data.pdbjbk1.pdbj.org::ftp_data/structures/divided/mmCIF/ ./mmCIF
+# Tarda entre 5 y 6 horas con una buena conexión de internet.
+```
+
+> Instrucciones de <https://www.wwpdb.org/ftp/pdb-ftp-sites>.
+
+## Organización de archivos
+Los archivos están organizados en diferentes subdirectorios, cuyo nombre está formado por el segundo y el tercer carácter del nombre del mismo archivo. Por ejemplo `1abc.mmcif` estará en el subdirectorio `ab/`. Se realiza una copia de los archivos en un solo directorio en el disco duro con dos objetivos en mente: tener un respaldo y manipular de una manera más sencilla los archivos.
+
+```{bash, eval=FALSE}
+cd /run/media/murphy/lolita/doctorado
+mkdir mmCIF_backup
+cd mmCIF/
+time find . -name '*.gz' -exec cp \{\} /run/media/murphy/lolita/doctorado/mmCIF_backup/ \; 
+# Esto tarda toda la  mañana... no sé por qué! 
+```
+
+### Separa entradas por método experimental
+De los archivos depositados en el PDB, obtenemos aquellas estructuras determinadas únicamente por difracción de rayos-X de cristales. Este se puede considerar como el primer filtro. Además ayuda a eliminar confusiones posteriores. 
+
+> El problema es que `gemmi` extrae etiquetas de manera excelente, pero no conoce contextos. Esto puede resultar, dependiendo de las etiquetas, en datos incompletos. 
+
+```{bash, eval=FALSE}
+cd /run/media/murphy/lolita/doctorado/
+mkdir xray
+time gemmi grep _exptl.method mmCIF_backup/ > xray/method.list
+# Esto tarda 155 minutos
+# Se confirma con:
+# wc -l method.dat
+# 190846 
+# La diferencia con el total de entradas en el PDB (190639), es por los pdbs obtenidos vía múltiples métodos.
+# La siguiente línea nos da donde se da esta diferencia.
+# awk -F ":" '{print $1}' method.dat | uniq -c | awk '{ if ($1!="1") print $0}' | wc -l
+# 205
+# Lo cual se confirma en la búsqueda avanzada del PDB escogiendo como método experimental "Múltiples métodos"
+cd /run/media/murphy/lolita/doctorado/xray/
+grep X-RAY method.list | awk -F : '{print $1}' | tr '[:upper:]' '[:lower:]' > pdbs_by_xray.list
+sed 's/$/.cif.gz/'g pdbs_by_xray.list > list_pdbs_by_xray
+# Es interesante comparar el total de entradas en el PDB con aquellas obtenidas por difracción de rayos X:
+# wc -l pdbs_by_xray.dat
+# 165662 
+mkdir entries
+time cat list_pdbs_by_xray | while read line;
+do cp /run/media/murphy/lolita/doctorado/mmCIF_backup/$line entries/; done 
+# Esto tarda 145 minutos.
+```
+
+## Extracción de datos
+```{bash, eval=FALSE}
+# Usar un delimitador que no aparece en los archivos.
+cd /run/media/murphy/lolita/doctorado/xray/
+time gemmi grep --delimiter='¿' _entity_poly.entity_id -a _entity_poly.type -a _struct_ref.pdbx_db_accession -a _entity.pdbx_description -a _exptl_crystal_grow.method -a _exptl_crystal_grow.pH -a _exptl_crystal_grow.pdbx_details -a _reflns.d_resolution_high -a _reflns_shell.d_res_high -a _symmetry.space_group_name_H-M -a _citation.pdbx_database_id_DOI entries/ > information_from_xrays
+# Esto tarda 52 minutos.
+# wc -l information_from_xrays
+# 255251
+# La diferencia con el total de entradas en el PDB, es porque varios archivos contienen más de una entidad 
+```
+
+## Verifica integridad de los datos 
+Importa los datos extraídos a `R`. Los filtra y genera un par de tablas interesantes.
+
+```{r}
+library(readr)
+da<-read_delim("/home/murphy/doctorado/info.txt", delim = "¿", escape_double = FALSE, col_names = FALSE, trim_ws = TRUE)
+df0 <- da %>%
+  rename(
+    pdb = X1,
+    nde = X2,
+    tde = X3,
+    ide = X4,
+    nom = X5,
+    tec = X6,
+    peh = X7,
+    con = X8,
+    rs1 = X9,
+    rs2 = 10,
+    gpo = X11,
+    doi = X12
+  )
+# Datos para tablas.
+tab_gpo<-df0 %>%
+  count(gpo, name = "cta_gpo") %>%
+  arrange(desc(cta_gpo))
+tab_ide<-df0 %>%
+  count(ide, name = "cta_ide") %>%
+  arrange(desc(cta_ide))
+# Genera tablas.
+kable(tab_gpo) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width=F)
+kable(tab_ide) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width=F)
+# Guarda esta tabla.
+write_excel_csv(tab_ide, "/run/media/murphy/lolita/doctorado/xray/info/tabidebeforefilters.csv")
+# Cuenta número de entradas. Si hay más de una, significa que tenemos más de una entidad en el PDB.
+df1<-df0 %>%
+  add_count(pdb, name = "cta_pdb")
+# Filtro 1: número de entidades.
+df2<-df1 %>% 
+  filter(cta_pdb==1)
+# Filtro 2: que exista una anotación de pH.
+df3<-df2 %>% 
+  filter(!is.na(peh))
+# Filtro 3: que sea proteína.
+df4<-df3 %>% 
+  filter(tde=="polypeptide(L)")
+# Cuenta número de identificadores. 
+df5<-df4 %>%
+  add_count(ide, name = "cta_ide")
+# Filtro 4: Si el identificador aparece solo una o dos veces, significa que no hay un rango de pH amplio.
+df6<-df5 %>% 
+  filter(cta_ide>2)
+# Filtro 5: Si queremos analizar con detalle los resultados, necesitamos buena resolución.
+df7<-df6 %>%
+  filter(rs1<2.00)
+# Ordena los datos
+df8<-arrange(df7, ide)
+# Guarda estos datos.
+write_excel_csv(df8, "/run/media/murphy/lolita/doctorado/xray/info/df8.csv")
+df9 <-df8 %>%
+  group_by(ide) %>%
+  summarise(sd = sd(peh), n = n())
+write_excel_csv(df9, "/run/media/murphy/lolita/doctorado/xray/info/tabideafterfilters.csv")
+```
+
+
