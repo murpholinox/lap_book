@@ -76,9 +76,8 @@ time gemmi grep --delimiter='¿' _entity_poly.entity_id -a _entity_poly.type -a 
 Importa los datos extraídos a `R`. Los filtra y genera un par de tablas interesantes.
 
 ```{r}
-library(readr)
-da<-read_delim("/home/murphy/doctorado/info.txt", delim = "¿", escape_double = FALSE, col_names = FALSE, trim_ws = TRUE)
-df0 <- da %>%
+df_01<-read_delim("/home/murphy/doctorado/info.txt", delim = "¿", escape_double = FALSE, col_names = FALSE, trim_ws = TRUE)
+df_02 <- df_01 %>%
   rename(
     pdb = X1,
     nde = X2,
@@ -94,10 +93,10 @@ df0 <- da %>%
     doi = X12
   )
 # Datos para tablas.
-tab_gpo<-df0 %>%
+tab_gpo<-df_02 %>%
   count(gpo, name = "cta_gpo") %>%
   arrange(desc(cta_gpo))
-tab_ide<-df0 %>%
+tab_ide<-df_02 %>%
   count(ide, name = "cta_ide") %>%
   arrange(desc(cta_ide))
 # Genera tablas.
@@ -107,35 +106,50 @@ kable(tab_ide) %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), full_width=F)
 # Guarda esta tabla.
 write_excel_csv(tab_ide, "/run/media/murphy/lolita/doctorado/xray/info/tabidebeforefilters.csv")
-# Cuenta número de entradas. Si hay más de una, significa que tenemos más de una entidad en el PDB.
-df1<-df0 %>%
-  add_count(pdb, name = "cta_pdb")
-# Filtro 1: número de entidades.
-df2<-df1 %>% 
-  filter(cta_pdb==1)
+# Aplica los siguientes filtros con filter de dplyr.
+# Filtro 1: que exista solo una entidad en cada entrada.
 # Filtro 2: que exista una anotación de pH.
-df3<-df2 %>% 
-  filter(!is.na(peh))
-# Filtro 3: que sea proteína.
-df4<-df3 %>% 
-  filter(tde=="polypeptide(L)")
-# Cuenta número de identificadores. 
-df5<-df4 %>%
+# Filtro 3: que exista una anotación del identificador.
+# Filtro 4: que la entrada corresponda a una proteína.
+# Filtro 5: que la entrada tenga una buena resolución.
+df_03<-df_02 %>% 
+  filter(nde=="1" & !is.na(peh) & !is.na(ide) & tde=="polypeptide(L)" & rs1<1.80)
+df_04<-df_03 %>%
   add_count(ide, name = "cta_ide")
-# Filtro 4: Si el identificador aparece solo una o dos veces, significa que no hay un rango de pH amplio.
-df6<-df5 %>% 
+# Filtro 6: elimina entradas si no hay más de 2 identificadores. 
+df_05<-df_04 %>%
   filter(cta_ide>2)
-# Filtro 5: Si queremos analizar con detalle los resultados, necesitamos buena resolución.
-df7<-df6 %>%
-  filter(rs1<2.00)
-# Ordena los datos
-df8<-arrange(df7, ide)
-# Guarda estos datos.
-write_excel_csv(df8, "/run/media/murphy/lolita/doctorado/xray/info/df8.csv")
-df9 <-df8 %>%
-  group_by(ide) %>%
-  summarise(sd = sd(peh), n = n())
-write_excel_csv(df9, "/run/media/murphy/lolita/doctorado/xray/info/tabideafterfilters.csv")
+# Añade una nueva columna al df con la desviación estándar del pH por identificador y grupo espacial.
+df_06 <-df_05 %>%
+  group_by(ide,gpo) %>%
+  mutate(sdpH = sd(peh))
+# Añade una nueva columna al df con el valor promedio del pH por identificador y grupo espacial.
+df_07 <-df_06 %>%
+  group_by(ide,gpo) %>%
+  mutate(mupH = mean(peh))
+# Añade una nueva columna al df con el valor mínimo del pH por identificador y grupo espacial.
+df_08 <-df_07 %>%
+  group_by(ide,gpo) %>%
+  mutate(mnpH = min(peh))
+# Añade una nueva columna al df con el valor máximo del pH por identificador y grupo espacial.
+df_09 <-df_08 %>%
+  group_by(ide,gpo) %>%
+  mutate(mxpH = max(peh))
+# Añade una nueva columna al df con el intervalo del pH por identificador y grupo espacial.
+df_10 <-df_09 %>%
+  group_by(ide,gpo) %>%
+  mutate(inpH = max(peh)-min(peh))
+# Filtro 7: elimina entradas si la desviación estándar del pH es igual a cero o no existe.
+df_11<-df_10 %>%
+  filter(sdpH!=0)
+# Filtro 8: elimina entradas si el intervalo del pH es menor a tres unidades de pH
+df_12<-df_11 %>%
+  filter(inpH>4)
+write_excel_csv(df_12, "/run/media/murphy/lolita/doctorado/xray/info/tabideafterfilters.csv")
+ggplot(data=df_12%>%filter(cta_ide>30), aes(x=peh, fill=ide))+geom_histogram(colour="black")+facet_wrap(ide~gpo)+coord_cartesian(ylim = c(0,10)) +theme_bw()+labs(x = "pH", y = "Entradas", fill="Identificador")
+setwd("/home/murphy/doctorado/")
+ggsave("histogram_pH.pdf", width = 30, height = 25, units = "cm")
+ggsave("histogram_pH.png", width = 30, height = 25, units = "cm")
 ```
 
 
