@@ -148,8 +148,12 @@ df_12<-df_11 %>%
 write_excel_csv(df_12, "/run/media/murphy/lolita/doctorado/xray/info/tabideafterfilters.csv")
 ggplot(data=df_12%>%filter(cta_ide>30), aes(x=peh, fill=ide))+geom_histogram(colour="black")+facet_wrap(ide~gpo)+coord_cartesian(ylim = c(0,10)) +theme_bw()+labs(x = "pH", y = "Entradas", fill="Identificador")
 setwd("/home/murphy/doctorado/")
-ggsave("histogram_pH.pdf", width = 30, height = 25, units = "cm")
-ggsave("histogram_pH.png", width = 30, height = 25, units = "cm")
+ggsave("hist_pH_idegt30.pdf", width = 30, height = 25, units = "cm")
+ggsave("hist_pH_idegt30.png", width = 30, height = 25, units = "cm")
+ggplot(data=df_12%>%filter(inpH>3), aes(x=peh, fill=ide))+geom_histogram(colour="black")+facet_wrap(ide~gpo)+coord_cartesian(ylim = c(0,5)) +theme_bw()+labs(x = "pH", y = "Entradas", fill="Identificador")
+ggsave("hist_pH_intgt3.pdf", width = 30, height = 25, units = "cm")
+ggsave("hist_pH_intgt3.png", width = 30, height = 25, units = "cm")
+ggsave("hist_pH_intgt3.svg", width = 30, height = 25, units = "cm")
 ```
 
 
